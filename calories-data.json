@@ -67,6 +67,12 @@
         "minutes": 20,
         "caloriesBurned": 123,
         "time": "15:18:02"
+      },
+      {
+        "text": "הליכה",
+        "minutes": 45,
+        "caloriesBurned": 338,
+        "time": "17:02:30"
       }
     ]
   }
