@@ -1,0 +1,52 @@
+{
+  "2026-05-17": {
+    "weight": "109",
+    "food": [
+      {
+        "text": "20 בוטנים מלוחים\nקרטיב קרח",
+        "items": [
+          {
+            "name": "20 בוטנים מלוחים",
+            "calories": 116
+          },
+          {
+            "name": "קרטיב קרח",
+            "calories": 50
+          }
+        ],
+        "total": 166,
+        "time": "13:14:25"
+      }
+    ],
+    "exercise": [
+      {
+        "text": "הליכה על הליכון",
+        "activity": "הליכה על הליכון",
+        "minutes": 20,
+        "caloriesBurned": 123,
+        "time": "13:15:41"
+      },
+      {
+        "text": "אימון כוח לרגליים",
+        "activity": "אימון כוח לרגליים",
+        "minutes": 20,
+        "caloriesBurned": 100,
+        "time": "13:15:41"
+      },
+      {
+        "text": "אימון כוח לידיים",
+        "activity": "אימון כוח לידיים",
+        "minutes": 15,
+        "caloriesBurned": 75,
+        "time": "13:15:41"
+      },
+      {
+        "text": "אימון כוח לגב",
+        "activity": "אימון כוח לגב",
+        "minutes": 7,
+        "caloriesBurned": 35,
+        "time": "13:15:41"
+      }
+    ]
+  }
+}
