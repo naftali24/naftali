@@ -107,6 +107,14 @@
         "time": "9:38:05"
       }
     ],
-    "exercise": []
+    "exercise": [
+      {
+        "text": "הליכה על הליכון",
+        "minutes": 20,
+        "caloriesBurned": 140,
+        "manual": true,
+        "time": "9:38:47"
+      }
+    ]
   }
 }
