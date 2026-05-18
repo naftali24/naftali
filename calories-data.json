@@ -185,6 +185,13 @@
         "minutes": 7,
         "caloriesBurned": 49,
         "time": "9:50:29"
+      },
+      {
+        "text": "טניס שולחן. אימון. שעה וחצי",
+        "minutes": 90,
+        "caloriesBurned": 500,
+        "manual": true,
+        "time": "20:36:50"
       }
     ]
   }
