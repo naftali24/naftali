@@ -1,0 +1,2247 @@
+﻿/*var isFine = (window.location != window.parent.location) ? true : false;
+if (!isFine) { window.location = "Error.htm"; }
+
+/*var URL = location.href;
+if (URL.substr(0, 21) != "http://www.bfit.co.il")
+    window.parent.location = "http://www.xnet.co.il/health/home/0,14713,L-3530,00.html";*/
+//////////////////////////////////////////      Return XML     /////////////////////////////////////////////////
+
+
+function stateChangedPostReturnXml() {
+    if (xmlHttp.readyState == 4) {
+
+        var xmlString = xmlHttp.responseText;
+
+
+        var xmlDocRes = GetxDoc(xmlString);
+
+
+
+        ////////////////////////////  Action To Return XML ////////////////////////////////////////////////////
+
+        var action ="";
+
+        if (xmlDocRes.firstChild == null)
+            return false;
+
+        action = xmlDocRes.firstChild.getAttribute("action");
+        switch (action) {
+            case "Act1":
+
+                Back1(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act2":
+
+                Back2(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act3":
+
+                Back3(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act4":
+
+                Back4(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act5":
+
+                Back5(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act6":
+
+                Back6(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+
+            case "Act7":
+
+                Back7(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act8":
+
+                Back8(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act9":
+
+                Back9(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act10":
+
+                Back10(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act11":
+
+                Back11(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act12":
+
+                Back12(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act13":
+
+                Back13(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act15":
+
+                Back15(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act16":
+
+                Back16(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act19":
+
+                Back19(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+
+            case "Act20":
+
+                Back20(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act17":
+
+                Back17(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act18":
+
+                Back18(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act21":
+
+                Back21(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act22":
+
+                Back22(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act23":
+
+                Back23(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act24":
+
+                Back24(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act25":
+
+                Back25(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "Act2400Meter":
+
+                Back2400Meter(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "ActChildFat":
+
+                BackChildFat(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "ActHeartAttackPossible":
+
+                BackHeartAttackPossible(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "ActCircumference":
+
+                BackHCircumference(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "ActBMR":
+            
+                BackBmr(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+
+            case "ActBMI":
+            
+                BackBmi(xmlDocRes.firstChild.childNodes[0].data);
+
+                break;
+                
+            
+        }
+
+    }
+}
+
+function GetxDoc(xmlString) {
+
+    var xmlDoc = null;
+
+    // code for IE
+    if (window.ActiveXObject) {
+
+        xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.loadXML(xmlString);
+    }
+    // code for Mozilla, Firefox, Opera, etc.
+    else if (document.implementation && document.implementation.createDocument) {
+
+        xmlDoc = document.implementation.createDocument("", "", null);
+        var parser = new DOMParser();
+        xmlDoc = parser.parseFromString(xmlString, "text/xml");
+    }
+    else {
+        alert('Your browser cannot handle this script');
+    }
+
+    return xmlDoc;
+}
+
+
+//////////////////////////////////////////    End  Return XML     /////////////////////////////////////////////////
+
+
+///////////////// Start 1 ////////////////////
+
+function Send1After(hVal) {
+
+    var timeInput = document.getElementById("timeInput").value;
+
+
+
+    if ((timeInput != "") && !IsNumeric(timeInput)) {
+        document.getElementById("ResponseValue").innerHTML = "";
+        document.getElementById("mySelect").value = "a0";
+        return;
+        }
+
+        
+    var mskal = document.getElementById("mskal").value;
+    if ((mskal != "") && !IsNumeric(mskal)) {
+        document.getElementById("ResponseValue").innerHTML = "";
+        document.getElementById("mySelect").value = "a0";
+        return;
+    }
+
+
+    if (hVal == "a0") {
+        document.getElementById("ResponseValue").innerHTML = "";
+        return;
+    }
+
+    if (mskal == "" || timeInput == "" || document.getElementById("mySelect").value == "a0")
+    { document.getElementById("ResponseValue").innerHTML ="";return false;}
+
+    var xmlString = '<result timeInput="' + timeInput + '"  mskal="' + mskal + '"  hVal="' + hVal + '" ></result>';
+    var action = 'Send1';
+
+ 
+    GenericF(xmlString, action);
+ 
+
+}
+ 
+
+
+
+function Back1(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    var hVal = xmlDoc.firstChild.getAttribute("hVal");
+    var hValString = document.getElementById(hVal).innerHTML;
+      
+    document.getElementById("ResponseValue").innerHTML = xmlDoc.firstChild.getAttribute(hVal) + " קלוריות " ;
+     
+
+}
+
+//////////////////////////////// END  1 ////////////////////
+
+
+
+function Back1Old(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+
+    document.getElementById("a1").value = xmlDoc.firstChild.getAttribute("a1");
+
+    document.getElementById("Sa1").style.visibility = "true";
+    
+    
+    document.getElementById("a2").value = xmlDoc.firstChild.getAttribute("a2");
+    document.getElementById("a3").value = xmlDoc.firstChild.getAttribute("a3");
+    document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+    document.getElementById("a5").value = xmlDoc.firstChild.getAttribute("a5");
+    document.getElementById("a6").value = xmlDoc.firstChild.getAttribute("a6");
+    document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+    document.getElementById("a8").value = xmlDoc.firstChild.getAttribute("a8");
+    document.getElementById("a9").value = xmlDoc.firstChild.getAttribute("a9");
+    document.getElementById("a10").value = xmlDoc.firstChild.getAttribute("a10");
+    document.getElementById("a11").value = xmlDoc.firstChild.getAttribute("a11");
+    document.getElementById("a12").value = xmlDoc.firstChild.getAttribute("a12");
+    document.getElementById("a13").value = xmlDoc.firstChild.getAttribute("a13");
+    document.getElementById("a14").value = xmlDoc.firstChild.getAttribute("a14");
+    document.getElementById("a15").value = xmlDoc.firstChild.getAttribute("a15");
+    document.getElementById("a16").value = xmlDoc.firstChild.getAttribute("a16");
+    document.getElementById("a17").value = xmlDoc.firstChild.getAttribute("a17");
+    document.getElementById("a18").value = xmlDoc.firstChild.getAttribute("a18");
+    document.getElementById("a19").value = xmlDoc.firstChild.getAttribute("a19");
+    document.getElementById("a20").value = xmlDoc.firstChild.getAttribute("a20");
+    document.getElementById("a21").value = xmlDoc.firstChild.getAttribute("a21");
+    document.getElementById("a22").value = xmlDoc.firstChild.getAttribute("a22");
+    document.getElementById("a23").value = xmlDoc.firstChild.getAttribute("a23");
+    document.getElementById("a24").value = xmlDoc.firstChild.getAttribute("a24");
+    document.getElementById("a25").value = xmlDoc.firstChild.getAttribute("a25");
+    document.getElementById("a26").value = xmlDoc.firstChild.getAttribute("a26");
+    document.getElementById("a27").value = xmlDoc.firstChild.getAttribute("a27");
+    document.getElementById("a28").value = xmlDoc.firstChild.getAttribute("a28");
+    document.getElementById("a29").value = xmlDoc.firstChild.getAttribute("a29");
+    document.getElementById("a30").value = xmlDoc.firstChild.getAttribute("a30");
+    document.getElementById("a31").value = xmlDoc.firstChild.getAttribute("a31");
+    document.getElementById("a32").value = xmlDoc.firstChild.getAttribute("a32");
+    document.getElementById("a33").value = xmlDoc.firstChild.getAttribute("a33");
+    document.getElementById("a34").value = xmlDoc.firstChild.getAttribute("a34");
+    document.getElementById("a35").value = xmlDoc.firstChild.getAttribute("a35");
+    document.getElementById("a36").value = xmlDoc.firstChild.getAttribute("a36");
+    document.getElementById("a37").value = xmlDoc.firstChild.getAttribute("a37");
+    document.getElementById("a38").value = xmlDoc.firstChild.getAttribute("a38");
+    document.getElementById("a39").value = xmlDoc.firstChild.getAttribute("a39");
+    document.getElementById("a40").value = xmlDoc.firstChild.getAttribute("a40");
+    document.getElementById("a41").value = xmlDoc.firstChild.getAttribute("a41");
+    document.getElementById("a42").value = xmlDoc.firstChild.getAttribute("a42");
+    document.getElementById("a43").value = xmlDoc.firstChild.getAttribute("a43");
+    document.getElementById("a44").value = xmlDoc.firstChild.getAttribute("a44");
+    document.getElementById("a45").value = xmlDoc.firstChild.getAttribute("a45");
+    document.getElementById("a46").value = xmlDoc.firstChild.getAttribute("a46");
+    document.getElementById("a47").value = xmlDoc.firstChild.getAttribute("a47");
+    document.getElementById("a48").value = xmlDoc.firstChild.getAttribute("a48");
+    document.getElementById("a49").value = xmlDoc.firstChild.getAttribute("a49");
+    document.getElementById("a50").value = xmlDoc.firstChild.getAttribute("a50");
+    document.getElementById("a51").value = xmlDoc.firstChild.getAttribute("a51");
+
+}
+
+//////////////////////////////// END  1 ////////////////////
+
+///////////////// Start 2 ////////////////////
+
+function Send2(Type) {
+
+    var a1 = document.getElementById("a1").value;
+    var a2 = document.getElementById("a2").value;
+    var a3 = document.getElementById("a3").value;
+    var a4 = document.getElementById("a4").value;
+    var a5 = document.getElementById("a5").value;
+    var a6 = document.getElementById("a6").value;
+    var a7 = document.getElementById("a7").value;
+    var a8 = document.getElementById("a8").value;
+    var a9 = document.getElementById("a9").value;
+    var a10 = document.getElementById("a10").value;
+    var a11 = document.getElementById("a11").value;
+    var a12 = document.getElementById("a12").value;
+    
+
+    if ((a10 == "") && (Type == 1)) {
+
+        document.getElementById("a11").value = "";
+        document.getElementById("a12").value = "";
+
+    }
+    else if (((a1 == "") || (a2 == "") || (a3 == "")) && (Type == 0)) {
+ 
+        document.getElementById("a4").value = "";
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        document.getElementById("a8").value = "";
+        document.getElementById("a9").value = "";
+        
+
+    }
+    else {
+        if (IsNumeric(a1) && IsNumeric(a2) && IsNumeric(a3)) {
+
+            if ((a10 != "") && (!IsNumeric(a10))) {
+                return;
+            }
+
+        var xmlString = '<result Type="' + Type + '"  a1="' + a1 + '"   a2="' + a2 + '"   a3="' + a3 + '"  a10="' + a10 + '"  ></result>';
+
+        var action = 'Send2';
+        GenericF(xmlString, action);
+        }
+    
+    }
+
+   
+
+
+}
+
+function Back2(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+    var Type = xmlDoc.firstChild.getAttribute("Type");
+
+
+    if (Type == "0") {
+        document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+        document.getElementById("a5").value = xmlDoc.firstChild.getAttribute("a5");
+        document.getElementById("a6").value = xmlDoc.firstChild.getAttribute("a6");
+        document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+        document.getElementById("a8").value = xmlDoc.firstChild.getAttribute("a8");
+        document.getElementById("a9").value = addSeparatorsNF(Math.round((parseFloat(xmlDoc.firstChild.getAttribute("a9"))) * 10) / 10, '.', '.', ',');
+    }
+    else if (Type == "1") {
+
+        document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+        document.getElementById("a5").value = parseFloat(xmlDoc.firstChild.getAttribute("a5")).toFixed(1);
+        document.getElementById("a6").value = parseFloat(xmlDoc.firstChild.getAttribute("a6")).toFixed(1);
+        document.getElementById("a7").value = parseFloat(xmlDoc.firstChild.getAttribute("a7")).toFixed(1);
+        document.getElementById("a8").value = parseFloat(xmlDoc.firstChild.getAttribute("a8")).toFixed(1);
+        document.getElementById("a9").value = addSeparatorsNF(Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a9")) * 10) / 10, '.', '.', ',');
+        document.getElementById("a11").value = parseFloat(xmlDoc.firstChild.getAttribute("a11")).toFixed(0);
+        document.getElementById("a12").value = parseFloat(xmlDoc.firstChild.getAttribute("a12")).toFixed(0); 
+    }
+}
+
+//////////////////////////////// END  2 ////////////////////
+
+
+///////////////// Start 3 ////////////////////
+
+function Send3(IsClean) {
+
+
+    if ((document.getElementById("Text1").value == "") || (document.getElementById("Text2").value == "") || (IsClean == 0)) {
+
+        document.getElementById("Text1").value = "";
+        document.getElementById("Text2").value = "";
+        document.getElementById("Text3").value = "";
+        document.getElementById("Text4").value = "";
+
+        return;
+
+    }
+
+
+    var OldWeight = document.getElementById("Text1").value;
+    var NewWeight = document.getElementById("Text2").value;
+
+     
+    if (!IsNumeric(NewWeight) || !IsNumeric(OldWeight)) {
+      return;
+    }
+
+    var xmlString = '<result OldWeight="' + OldWeight + '"  NewWeight="' + NewWeight + '" ></result>';
+    var action = 'Send3';
+
+
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back3(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("Text3").value = xmlDoc.firstChild.getAttribute("ResLibra");
+    document.getElementById("Text4").value = xmlDoc.firstChild.getAttribute("ResPercent");
+
+}
+
+//////////////////////////////// END  3 ////////////////////
+
+///////////////// Start 4 ////////////////////
+
+function Send4(IsClean) {
+
+
+    if ((document.getElementById("Text1").value == "") || (document.getElementById("Text2").value == "") || (IsClean == 0)) {
+
+        document.getElementById("Text1").value = "";
+        document.getElementById("Text2").value = "";
+        document.getElementById("Text3").value = "";
+        document.getElementById("Text4").value = "";
+
+        return
+
+    }
+
+
+    var OldWeight = document.getElementById("Text1").value;
+    var NewWeight = document.getElementById("Text2").value;
+
+    if (!IsNumeric(NewWeight) || !IsNumeric(OldWeight)) {
+        return;
+    }
+
+    var xmlString = '<result OldWeight="' + OldWeight + '"  NewWeight="' + NewWeight + '" ></result>';
+    var action = 'Send3';
+
+
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back4(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("Text3").value = xmlDoc.firstChild.getAttribute("ResLibra");
+    document.getElementById("Text4").value = xmlDoc.firstChild.getAttribute("ResPercent");
+
+}
+
+//////////////////////////////// END  4 ////////////////////
+
+///////////////// Start 5 ////////////////////
+
+function Send5(IsClean) {
+
+
+    if ((document.getElementById("weight").value == "") || (document.getElementById("height").value == "")) {
+
+        document.getElementById("Text2").value = "";
+        return
+
+    }
+
+
+    var height = document.getElementById("height").value;
+    var weight = document.getElementById("weight").value;
+
+
+
+    if (!IsNumeric(height) || !IsNumeric(weight)) {
+        return;
+    }
+
+    var xmlString = '<result height="' + height + '"  weight="' + weight + '" ></result>';
+    var action = 'Send5';
+
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back5(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+    document.getElementById("Text2").value = xmlDoc.firstChild.getAttribute("Res");
+
+}
+
+//////////////////////////////// END  5 ////////////////////
+
+
+
+///////////////// Start 6 ////////////////////
+
+function Send6M() {
+
+
+    var Mselect = document.getElementById('Mselect').value;
+    var backMumber = document.getElementById('Mback').value;
+
+    if (Mselect == "") {
+        return
+    }
+
+    if (!IsNumeric(backMumber)) {
+        return;
+    }
+
+    var xmlString = '<result Oselect="' + Mselect + '" backMumber="' + backMumber + '"  Type="M"   ></result>';
+    var action = 'Send6';
+
+    GenericF(xmlString, action);
+
+
+}
+
+
+function Send6F() {
+
+
+    var Fselect = document.getElementById('Fselect').value;
+    var backMumber = document.getElementById('Fback').value;
+
+    if (Fselect == "") {
+        return
+    }
+    
+    if (!IsNumeric(backMumber)) {
+        return;
+    }
+    
+    var xmlString = '<result Oselect="' + Fselect + '"  backMumber="' + backMumber + '"  Type="F"   ></result>';
+    var action = 'Send6';
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back6(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    if (xmlDoc.firstChild.getAttribute("Type") == "F") {
+        if (xmlDoc.firstChild.getAttribute("Res") == "")
+            document.getElementById("TextF").value = "טוב מאוד";
+        else
+            document.getElementById("TextF").value = xmlDoc.firstChild.getAttribute("Res");
+    }
+    else {
+        document.getElementById("TextM").value = xmlDoc.firstChild.getAttribute("Res");
+    }
+}
+
+//////////////////////////////// END  6 ////////////////////
+
+
+///////////////// Start 7 ////////////////////
+
+function Send7() {
+
+
+    var height = document.getElementById('height').value;
+    var age = document.getElementById('age').value;
+    var weight = document.getElementById('weight').value;
+    var WorkSpeed = document.getElementById('WorkSpeed').value;
+    var pulse = document.getElementById('pulse').value;
+
+    if ((height == "") || (age == "") || (weight == "") || (WorkSpeed == "") || (pulse == "")) {
+
+        return;
+    }
+
+    var Gender = "";
+    var j = document.getElementsByName("Sex");
+
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Gender = j[i].value
+    }
+
+    var xmlString = "";
+
+    var Type = "";
+
+
+
+    if (!IsNumeric(height) || !IsNumeric(age) || !IsNumeric(weight) || !IsNumeric(WorkSpeed) || !IsNumeric(pulse)) {
+        return;
+    }
+
+
+    if (Gender == "1") {
+        Type = "M";
+    }
+    else {
+        Type = "F";
+    }
+
+    xmlString = '<result height="' + height + '" age="' + age + '" weight="' + weight + '" WorkSpeed="' + WorkSpeed + '" pulse="' + pulse + '" Type="' + Type + '"  ></result>';
+
+    var action = 'Send7';
+
+    GenericF(xmlString, action);
+
+}
+
+
+
+function Back7(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    if (document.getElementById("height").value <= 240 && document.getElementById("age").value <= 100 && document.getElementById("weight").value <= 250 && document.getElementById("WorkSpeed").value <= 30 && document.getElementById("pulse").value <= 240) 
+    {
+        if (xmlDoc.firstChild.getAttribute("Type") == "F") {
+            document.getElementById("TextRes").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("TextRes")) * 10) / 10;
+            document.getElementById("TextResW").value = xmlDoc.firstChild.getAttribute("TextResW").replace("נמןך", "נמוך");
+        }
+        else {
+            document.getElementById("TextRes").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("TextRes")) * 10) / 10;
+            document.getElementById("TextResW").value = xmlDoc.firstChild.getAttribute("TextResW").replace("נמןך", "נמוך");
+        }
+        document.getElementById("descriptionLabel").innerHTML = "";
+    }
+    else { document.getElementById("descriptionLabel").innerHTML = "<span>הנתונים אינם תקינים!!</span>"; document.getElementById("TextRes").value = ""; document.getElementById("TextResW").value = ""; }
+}
+
+//////////////////////////////// END  7 ////////////////////
+
+
+///////////////// Start 8 ////////////////////
+
+function Send8(hElmVal) {
+
+    //alert(hElmVal);
+
+    if (hElmVal == "") {
+
+
+
+        document.getElementById("a2").value = "";
+        document.getElementById("a3").value = "";
+        document.getElementById("a4").value = "";
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        document.getElementById("a8").value = "";
+        document.getElementById("a9").value = "";
+        document.getElementById("a10").value = "";
+        document.getElementById("a11").value = "";
+        document.getElementById("a12").value = "";
+        document.getElementById("a13").value = "";
+        document.getElementById("a14").value = "";
+        document.getElementById("a15").value = "";
+        document.getElementById("a16").value = "";
+        document.getElementById("a17").value = "";
+        document.getElementById("a18").value = "";
+        document.getElementById("a19").value = "";
+        document.getElementById("a20").value = "";
+        return
+    }
+
+
+    if (!IsNumeric(hElmVal)) {
+        return;
+    }
+    
+    var xmlString = '<result hElmVal="' + hElmVal + '" ></result>';
+    var action = 'Send8';
+
+    GenericF(xmlString, action);
+
+}
+
+function Back8(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("a2").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a2"))*10)/10;
+    document.getElementById("a3").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a3"))*10)/10;
+    document.getElementById("a4").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a4"))*10)/10;
+    document.getElementById("a5").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a5"))*10)/10;
+    document.getElementById("a6").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a6"))*10)/10;
+    document.getElementById("a7").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a7"))*10)/10;
+    document.getElementById("a8").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a8"))*10)/10;
+    document.getElementById("a9").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a9"))*10)/10;
+    document.getElementById("a10").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a10"))*10)/10;
+    document.getElementById("a11").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a11"))*10)/10;
+    document.getElementById("a12").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a12"))*10)/10;
+    document.getElementById("a13").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a13"))*10)/10;
+    document.getElementById("a14").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a14"))*10)/10;
+    document.getElementById("a15").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a15"))*10)/10;
+    document.getElementById("a16").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a16"))*10)/10;
+    document.getElementById("a17").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a17"))*10)/10;
+    document.getElementById("a18").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a18"))*10)/10;
+    document.getElementById("a19").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a19"))*10)/10;
+    document.getElementById("a20").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a20")) * 10) / 10;
+
+}
+
+//////////////////////////////// END  8 ////////////////////
+
+
+
+
+///////////////// Start 9 ////////////////////
+
+function Send9(hElmVal) {
+
+    if (hElmVal == "") {
+
+
+
+        document.getElementById("a2").value = "";
+        document.getElementById("a3").value = "";
+        document.getElementById("a4").value = "";
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        document.getElementById("a8").value = "";
+        document.getElementById("a9").value = "";
+        document.getElementById("a10").value = "";
+        document.getElementById("a11").value = "";
+        document.getElementById("a12").value = "";
+        document.getElementById("a13").value = "";
+        document.getElementById("a14").value = "";
+        document.getElementById("a15").value = "";
+        document.getElementById("a16").value = "";
+        document.getElementById("a17").value = "";
+        document.getElementById("a18").value = "";
+        document.getElementById("a19").value = "";
+        document.getElementById("a20").value = "";
+
+        return
+    }
+
+    if (!IsNumeric(hElmVal)) {
+        return;
+    }
+    
+    var xmlString = '<result hElmVal="' + hElmVal + '" ></result>';
+    var action = 'Send9';
+
+    GenericF(xmlString, action);
+
+}
+
+function Back9(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("a2").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a2")) * 10) / 10;
+    document.getElementById("a3").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a3")) * 10) / 10;
+    document.getElementById("a4").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a4")) * 10) / 10;
+    document.getElementById("a5").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a5")) * 10) / 10;
+    document.getElementById("a6").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a6")) * 10) / 10;
+    document.getElementById("a7").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a7")) * 10) / 10;
+    document.getElementById("a8").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a8")) * 10) / 10;
+    document.getElementById("a9").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a9")) * 10) / 10;
+    document.getElementById("a10").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a10")) * 10) / 10;
+    document.getElementById("a11").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a11")) * 10) / 10;
+    document.getElementById("a12").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a12")) * 10) / 10;
+    document.getElementById("a13").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a13")) * 10) / 10;
+    document.getElementById("a14").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a14")) * 10) / 10;
+    document.getElementById("a15").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a15")) * 10) / 10;
+    document.getElementById("a16").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a16")) * 10) / 10;
+    document.getElementById("a17").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a17")) * 10) / 10;
+    document.getElementById("a18").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a18")) * 10) / 10;
+    document.getElementById("a19").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a19")) * 10) / 10;
+    document.getElementById("a20").value = Math.round(parseFloat(xmlDoc.firstChild.getAttribute("a20")) * 10) / 10;
+
+}
+
+//////////////////////////////// END  9 ////////////////////
+
+
+///////////////// Start 10 ////////////////////
+
+function Send10() {
+
+
+    var UpWeight = document.getElementById('UpWeight').value;
+    var NumberRepeat = document.getElementById('NumberRepeat').value;
+
+    if ((UpWeight == "") || (NumberRepeat == "")) {
+
+        document.getElementById("a1").value = "";
+        document.getElementById("a2").value = "";
+        document.getElementById("a3").value = "";
+        document.getElementById("a4").value = "";
+        return
+    }
+
+    if (!IsNumeric(UpWeight) || !IsNumeric(NumberRepeat) ) {
+        return;
+    }
+
+    var xmlString = '<result UpWeight="' + UpWeight + '" NumberRepeat="' + NumberRepeat + '" ></result>';
+    var action = 'Send10';
+
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back10(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+    if (document.getElementById("NumberRepeat").value <= 20) {
+        document.getElementById("descriptionLabel").innerHTML = "";
+        document.getElementById("a1").value = xmlDoc.firstChild.getAttribute("a1");
+        document.getElementById("a2").value = xmlDoc.firstChild.getAttribute("a2");
+        document.getElementById("a3").value = xmlDoc.firstChild.getAttribute("a3");
+        document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+    }
+    else {
+        document.getElementById("descriptionLabel").innerHTML = "<span>עד 20 חזרות בלבד!!</span>";
+        document.getElementById("a1").value = "";
+        document.getElementById("a2").value = "";
+        document.getElementById("a3").value = "";
+        document.getElementById("a4").value = "";
+    }
+}
+
+//////////////////////////////// END  10 ////////////////////
+
+
+///////////////// Start 11 ////////////////////
+
+function Send11() {
+
+
+    var hElmVal = document.getElementById('TextInput').value;
+
+    if (hElmVal == "") {
+
+
+
+        document.getElementById("Text1").value = "";
+        document.getElementById("Text2").value = "";
+        document.getElementById("Text3").value = "";
+        document.getElementById("Text4").value = "";
+        document.getElementById("Text5").value = "";
+        document.getElementById("Text6").value = "";
+        document.getElementById("Text7").value = "";
+        document.getElementById("Text8").value = "";
+        document.getElementById("Text9").value = "";
+        document.getElementById("Text10").value = "";
+
+        return;
+    }
+
+
+    if (!IsNumeric(hElmVal)) {
+        return;
+    }
+    
+    
+    var xmlString = '<result hElmVal="' + hElmVal + '" ></result>';
+    var action = 'Send11';
+
+    
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back11(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+    document.getElementById("Text1").value = xmlDoc.firstChild.getAttribute("a2");
+    document.getElementById("Text2").value = xmlDoc.firstChild.getAttribute("a3");
+    document.getElementById("Text3").value = xmlDoc.firstChild.getAttribute("a4");
+    document.getElementById("Text4").value = xmlDoc.firstChild.getAttribute("a5");
+    document.getElementById("Text5").value = xmlDoc.firstChild.getAttribute("a6");
+    document.getElementById("Text6").value = xmlDoc.firstChild.getAttribute("a7");
+    document.getElementById("Text7").value = xmlDoc.firstChild.getAttribute("a8");
+    document.getElementById("Text8").value = xmlDoc.firstChild.getAttribute("a9");
+    document.getElementById("Text9").value = xmlDoc.firstChild.getAttribute("a10");
+    document.getElementById("Text10").value = xmlDoc.firstChild.getAttribute("a11");
+
+}
+
+//////////////////////////////// END  11 ////////////////////
+
+
+///////////////// Start 12 ////////////////////
+
+function Send12() {
+
+
+    var a1 = document.getElementById("a1").value;
+    var a2 = document.getElementById("a2").value;
+    var a3 = document.getElementById("a3").value;
+
+    if ((a1 == "") || (a2 == "") || (a3 == "")) {
+
+        document.getElementById("a4").value = "";
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        return
+    }
+    
+    if ((!IsNumeric(a1)) || (!IsNumeric(a2)) || (!IsNumeric(a3)) ) {
+        return;
+    }
+
+   
+
+
+    var xmlString = '<result a1="' + a1 + '" a2="' + a2 + '"  a3="' + a3 + '" ></result>';
+    var action = 'Send12';
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back12(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("a4").value = parseInt(xmlDoc.firstChild.getAttribute("a4"));
+    document.getElementById("a5").value = parseInt(xmlDoc.firstChild.getAttribute("a5"));
+    document.getElementById("a6").value = parseInt(xmlDoc.firstChild.getAttribute("a6"));
+    document.getElementById("a7").value = parseInt(xmlDoc.firstChild.getAttribute("a7"));
+}
+
+//////////////////////////////// END  12 ////////////////////
+
+///////////////// Start 13 ////////////////////
+
+function Send13() {
+
+
+    var a1 = document.getElementById("a1").value;
+    var a2 = document.getElementById("a2").value;
+    var a3 = document.getElementById("a3").value;
+
+    if ((a1 == "") || (a2 == "") || (a3 == "")) {
+
+        document.getElementById("a4").value = "";
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        return
+    }
+
+    if ((!IsNumeric(a1)) || (!IsNumeric(a2)) || (!IsNumeric(a3))) {
+        return;
+    }
+
+
+
+    var xmlString = '<result a1="' + a1 + '" a2="' + a2 + '"  a3="' + a3 + '" ></result>';
+    var action = 'Send13';
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back13(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("a4").value = parseInt(xmlDoc.firstChild.getAttribute("a4"));
+    document.getElementById("a5").value = parseInt(xmlDoc.firstChild.getAttribute("a5"));
+    document.getElementById("a6").value = parseInt(xmlDoc.firstChild.getAttribute("a6"));
+    document.getElementById("a7").value = parseInt(xmlDoc.firstChild.getAttribute("a7"));
+}
+
+//////////////////////////////// END  13 ////////////////////
+
+
+
+///////////////// Start 15 ////////////////////
+
+function Send15() {
+
+    var a1 = document.getElementById("a1").value;
+
+    if (a1 == "0") {
+        document.forms[0].reset();
+        return false;
+    }
+
+    var xmlString = '<result a1="' + a1 + '" ></result>';
+    var action = 'Send15';
+
+    GenericF(xmlString, action);
+
+
+
+}
+
+function Back15(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("a2").value = xmlDoc.firstChild.getAttribute("a2");
+    document.getElementById("a3").value = xmlDoc.firstChild.getAttribute("a3");
+    document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+    document.getElementById("a5").value = xmlDoc.firstChild.getAttribute("a5");
+    document.getElementById("a6").value = xmlDoc.firstChild.getAttribute("a6");
+    document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+    document.getElementById("a8").value = xmlDoc.firstChild.getAttribute("a8");
+    document.getElementById("a9").value = xmlDoc.firstChild.getAttribute("a9");
+    document.getElementById("a10").value = xmlDoc.firstChild.getAttribute("a10");
+    document.getElementById("a11").value = xmlDoc.firstChild.getAttribute("a11");
+    document.getElementById("a12").value = xmlDoc.firstChild.getAttribute("a12");
+    document.getElementById("a13").value = xmlDoc.firstChild.getAttribute("a13");
+    document.getElementById("a14").value = xmlDoc.firstChild.getAttribute("a14");
+    document.getElementById("a15").value = addCommas(xmlDoc.firstChild.getAttribute("a15")); 
+    document.getElementById("a16").value = xmlDoc.firstChild.getAttribute("a16");
+    document.getElementById("a17").value = xmlDoc.firstChild.getAttribute("a17");
+    document.getElementById("a18").value = xmlDoc.firstChild.getAttribute("a18");
+    document.getElementById("a19").value = xmlDoc.firstChild.getAttribute("a19");
+    document.getElementById("a20").value = addCommas(xmlDoc.firstChild.getAttribute("a20"));
+    document.getElementById("a21").value = xmlDoc.firstChild.getAttribute("a21");
+    document.getElementById("a22").value = xmlDoc.firstChild.getAttribute("a22");
+
+}
+
+//////////////////////////////// END  15 //////////////////// 
+
+
+///////////////// Start 16 ////////////////////
+
+function Send16() {
+
+    var a1 = document.getElementById("a1").value;
+
+
+    var xmlString = '<result a1="' + a1 + '" ></result>';
+    var action = 'Send16';
+
+    GenericF(xmlString, action);
+
+
+
+}
+
+function Back16(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("a2").value = xmlDoc.firstChild.getAttribute("a2");
+    document.getElementById("a3").value = xmlDoc.firstChild.getAttribute("a3");
+    document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+    document.getElementById("a5").value = xmlDoc.firstChild.getAttribute("a5");
+    document.getElementById("a6").value = xmlDoc.firstChild.getAttribute("a6");
+    document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+    document.getElementById("a8").value = xmlDoc.firstChild.getAttribute("a8");
+    document.getElementById("a9").value = xmlDoc.firstChild.getAttribute("a9");
+    document.getElementById("a10").value = xmlDoc.firstChild.getAttribute("a10");
+    document.getElementById("a11").value = xmlDoc.firstChild.getAttribute("a11");
+    document.getElementById("a12").value = xmlDoc.firstChild.getAttribute("a12");
+    document.getElementById("a13").value = xmlDoc.firstChild.getAttribute("a13");
+    document.getElementById("a14").value = xmlDoc.firstChild.getAttribute("a14");
+    document.getElementById("a15").value = xmlDoc.firstChild.getAttribute("a15");
+    document.getElementById("a16").value = xmlDoc.firstChild.getAttribute("a16");
+    document.getElementById("a17").value = xmlDoc.firstChild.getAttribute("a17");
+    document.getElementById("a18").value = xmlDoc.firstChild.getAttribute("a18");
+    document.getElementById("a19").value = xmlDoc.firstChild.getAttribute("a19");
+    document.getElementById("a20").value = xmlDoc.firstChild.getAttribute("a20");
+    document.getElementById("a21").value = xmlDoc.firstChild.getAttribute("a21");
+    document.getElementById("a22").value = xmlDoc.firstChild.getAttribute("a22");
+
+}
+
+//////////////////////////////// END  16 ////////////////////
+
+
+///////////////// Start 17 ////////////////////
+
+function Send17() {
+
+ 
+    var weight = document.getElementById("weight").value;
+    var a13 = document.getElementById("a13").value;
+
+    if (weight == "")  {
+
+        document.getElementById("text2").value = ""; 
+        return
+    }
+
+    if (!IsNumeric(weight))  {
+        return;
+    }
+
+    var Gender = "";
+    var j = document.getElementsByName("Sex"); //alert(j)
+
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Gender = j[i].value
+    }
+
+
+//    var Gender = "true";
+//    if (Male == true)
+//        Gender = "1";
+//    else
+//        Gender = "0";
+
+    var xmlString = '<result Gender="' + Gender + '"  weight="' + weight + '"   a13="' + a13 + '" ></result>';
+    var action = 'Send17';
+
+    GenericF(xmlString, action);
+
+
+
+}
+
+function Back17(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+    document.getElementById("text2").value = xmlDoc.firstChild.getAttribute("Res");
+
+}
+
+//////////////////////////////// END  17 ////////////////////
+
+
+
+///////////////// Start 18 ////////////////////
+
+function Send18(hElmVal) {
+    var age = document.getElementById("a3").value;
+    var height = document.getElementById("a4").value;
+    var weight = document.getElementById("a5").value;
+
+    if ((age == "") || (height == "") || (weight == "")) {
+
+        
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        document.getElementById("a8").value = "";
+        document.getElementById("a9").value = "";
+        document.getElementById("a10").value = "";
+        document.getElementById("a11").value = ""; 
+        
+        return
+    }
+
+    if ((!IsNumeric(age)) || (!IsNumeric(height)) || (!IsNumeric(weight))) {
+        return;
+    }
+
+    var Gender = "";
+    var j = document.getElementsByName("Sex"); //alert(j)
+
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Gender = j[i].value
+    }
+
+    var xmlString = '<result Gender="' + Gender + '"  a3="' + age + '"   a4="' + height + '"  a5="' + weight + '" ></result>';
+    var action = 'Send18';
+
+
+    GenericF(xmlString, action);
+
+}
+
+function Back18(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+
+    document.getElementById("a6").value = xmlDoc.firstChild.getAttribute("a6");
+    document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+    document.getElementById("a8").value = xmlDoc.firstChild.getAttribute("a8");
+    document.getElementById("a9").value = xmlDoc.firstChild.getAttribute("a9");
+    document.getElementById("a10").value = xmlDoc.firstChild.getAttribute("a10");
+    document.getElementById("a11").value = xmlDoc.firstChild.getAttribute("a11");
+
+}
+
+//////////////////////////////// END  18 ////////////////////
+
+
+///////////////// Start 19 ////////////////////
+
+function Send19(Type) {
+
+
+    var a1 = 0;
+    var a2 = 0;
+    var a3 = 0;
+    var a4 = 0;
+    var a5 = 0;
+    var a6 = 0;
+    var a8 = 0;
+    var a9 = 0;
+    var a10 = 0;
+    var a11 = 0;
+
+
+    if (Type == 1) {
+        document.getElementById("a7").value = "";
+        document.getElementById("a12").value = "";
+        
+        a1 = document.getElementById("a1").value;
+
+        if (a1 == "")  {
+
+            document.getElementById("a2").value = ""; 
+
+            return
+        }
+
+        if (!IsNumeric(a1)) {
+            return;
+        }
+    }
+    if (Type == 2) {
+        document.getElementById("a2").value = "";
+        document.getElementById("a12").value = "";
+        
+        a3 = document.getElementById("a3").value;
+        a4 = document.getElementById("a4").value;
+        a5 = document.getElementById("a5").value;
+        a6 = document.getElementById("a6").value;
+
+        if ((a3 == "") || (a4 == "") || (a5 == "") || (a6 == "")) {
+ 
+            document.getElementById("a7").value = ""; 
+
+            return
+        }
+
+        if ((!IsNumeric(a3)) || (!IsNumeric(a4)) || (!IsNumeric(a5)) || (!IsNumeric(a6))) {
+            return;
+        }
+        
+        
+    }
+    if (Type == 3) {
+        document.getElementById("a2").value = "";
+        document.getElementById("a7").value = "";
+        
+        a8 = document.getElementById("a8").value;
+        a9 = document.getElementById("a9").value;
+        a10 = document.getElementById("a10").value;
+        a11 = document.getElementById("a11").value;
+
+        if ((a8 == "") || (a9 == "") || (a10 == "") || (a11 == "")) {
+
+            document.getElementById("a12").value = "";
+
+            return
+        }
+
+        if ((!IsNumeric(a8)) || (!IsNumeric(a9)) || (!IsNumeric(a10)) || (!IsNumeric(a11))) {
+            return;
+        }
+    }
+
+    var xmlString = '<result  Type="' + Type + '"    a1="' + a1 + '"   a2="' + a2 + '"  a3="' + a3 + '"   a4="' + a4 + '"  a5="' + a5 + '"     a6="' + a6 + '"   a8="' + a8 + '"  a9="' + a9 + '"   a10="' + a10 + '"  a11="' + a11 + '"  ></result>';
+    var action = 'Send19';
+
+
+
+    GenericF(xmlString, action);
+
+}
+
+function Back19(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    var Type = xmlDoc.firstChild.getAttribute("Type");
+
+    if (Type == 1) {
+        document.getElementById("a2").value = xmlDoc.firstChild.getAttribute("a2");
+    }
+    if (Type == 2) {
+        if (document.getElementById("a4").value <= 100 && document.getElementById("a6").value <= 240) {
+            document.getElementById("descriptionLabel").innerHTML = "";
+            document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+            var oxigen=document.getElementById("a7").value;
+            var age=document.getElementById("a4").value;
+            if (age >= 20 && age <= 29) {
+                if (oxigen < 25)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 25 && oxigen <= 33)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 34 && oxigen <= 42)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 43 && oxigen <= 52)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 53 && oxigen <= 61)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 61)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 30 && age <= 39) {
+                if (oxigen < 23)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 23 && oxigen <= 30)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 31 && oxigen <= 38)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 39 && oxigen <= 48)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 49 && oxigen <= 57)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 57)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 40 && age <= 49) {
+                if (oxigen < 20)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 20 && oxigen <= 26)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 27 && oxigen <= 35)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 36 && oxigen <= 44)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 45 && oxigen <= 53)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 53)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 50 && age <= 59) {
+                if (oxigen < 18)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 18 && oxigen <= 24)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 25 && oxigen <= 33)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 34 && oxigen <= 42)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 43 && oxigen <= 49)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 49)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 60) {
+                if (oxigen < 16)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 16 && oxigen <= 22)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 23 && oxigen <= 30)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 31 && oxigen <= 40)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 41 && oxigen <= 45)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 45)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+        }
+        else { document.getElementById("descriptionLabel").innerHTML = "<span>הנתונים אינם תקינים!!</span>"; document.getElementById("a2").value = ""; document.getElementById("Rate").value = ""; }
+    }
+    if (Type == 3) {
+        if (document.getElementById("a9").value <= 100 && document.getElementById("a11").value <= 240) {
+            document.getElementById("descriptionLabel").innerHTML = "";
+            document.getElementById("a12").value = xmlDoc.firstChild.getAttribute("a12");
+            var oxigen = document.getElementById("a12").value;
+            var age = document.getElementById("a9").value;
+
+            if (age >= 20 && age <= 29) {
+                if (oxigen < 24)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 24 && oxigen <= 30)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 31 && oxigen <= 37)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 38 && oxigen <= 48)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 49 && oxigen <= 57)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 57)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 30 && age <= 39) {
+                if (oxigen < 20)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 20 && oxigen <= 27)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 28 && oxigen <= 33)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 34 && oxigen <= 44)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 45 && oxigen <= 53)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 53)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 40 && age <= 49) {
+                if (oxigen < 17)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 17 && oxigen <= 23)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 24 && oxigen <= 30)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 31 && oxigen <= 41)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 42 && oxigen <= 50)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 50)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 50 && age <= 59) {
+                if (oxigen < 15)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 15 && oxigen <= 20)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 21 && oxigen <= 27)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 28 && oxigen <= 37)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 38 && oxigen <= 42)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 42)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+            if (age >= 60) {
+                if (oxigen < 13)
+                    document.getElementById("Rate").value = "גרוע מאוד";
+                else
+                    if (oxigen >= 13 && oxigen <= 17)
+                    document.getElementById("Rate").value = "גרוע";
+                else
+                    if (oxigen >= 18 && oxigen <= 23)
+                    document.getElementById("Rate").value = "בינוני";
+                else
+                    if (oxigen >= 24 && oxigen <= 34)
+                    document.getElementById("Rate").value = "טוב";
+                else
+                    if (oxigen >= 35 && oxigen <= 39)
+                    document.getElementById("Rate").value = "טוב מאוד";
+                else
+                    if (oxigen > 39)
+                    document.getElementById("Rate").value = "מצויין";
+            }
+        }
+        else { document.getElementById("descriptionLabel").innerHTML = "<span>הנתונים אינם תקינים!!</span>"; document.getElementById("a2").value = ""; document.getElementById("Rate").value = ""; }
+    }
+
+
+}
+
+//////////////////////////////// END  19 ////////////////////
+
+
+///////////////// Start 20 ////////////////////
+
+function Send20(hElmVal) {
+
+    var Group = document.getElementById("a1").value;
+
+    if (Group == 0) {
+        document.forms[0].reset();
+        return false;
+    }
+
+    var Gender = "";
+    var j = document.getElementsByName("Sex"); //alert(j)
+
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Gender = j[i].value
+    }
+    
+
+    var xmlString = '<result Gender="' + Gender + '"  Group="' + Group + '" ></result>';
+    var action = 'Send20';
+
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back20(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    var ddd = xmlDoc.firstChild.getAttribute("Res"); ;
+    document.getElementById("a2").value = ddd;
+
+}
+
+//////////////////////////////// END  20 ////////////////////
+
+
+///////////////// Start 21 ////////////////////
+
+function Send21() {
+
+    var weight = document.getElementById("a1").value;
+
+    if (weight == 0) {
+        document.forms[0].reset();
+        return false;
+    }
+
+    var Sex = ""; 
+    j = document.getElementsByName("Sex"); //alert(j)
+   
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Sex = j[i].value
+    }
+    
+
+    var xmlString = '<result weight="' + weight + '"  Gender="' + Sex + '" ></result>';
+    var action = 'Send21';
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back21(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    var ddd = xmlDoc.firstChild.getAttribute("Res");  
+     
+    document.getElementById("a2").value = ddd;
+
+}
+
+//////////////////////////////// END  21 ////////////////////
+
+
+
+///////////////// Start 22 ////////////////////
+
+function Send22() {
+
+    var a13 = document.getElementById("a13").value;
+    var weight = document.getElementById("a2").value;
+
+    if (weight == "") {
+
+        document.getElementById("a3").value = "";
+        return
+    }
+
+
+    if (!IsNumeric(weight)) {
+        return;
+    }
+
+    var xmlString = '<result a2="' + weight + '"  a13="' + a13 + '" ></result>';
+    var action = 'Send22';
+
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back22(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    var ddd = xmlDoc.firstChild.getAttribute("Res"); ;
+    document.getElementById("a3").value = ddd;
+
+}
+
+//////////////////////////////// END  22 ////////////////////
+
+
+///////////////// Start 24 ////////////////////
+
+function Send24(hElmVal) {
+
+    var a13 = document.getElementById("a13").value;
+    var a2 = document.getElementById("a2").value;
+
+
+
+
+    if  (a2 == "") {
+
+        document.getElementById("a3").value = "";
+
+        return
+    }
+
+    if (!IsNumeric(a2)) {
+        return;
+    }
+    var xmlString = '<result a2="' + a2 + '"  a13="' + a13 + '" ></result>';
+    var action = 'Send24';
+
+    GenericF(xmlString, action);
+
+
+}
+
+function Back24(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    var ddd = xmlDoc.firstChild.getAttribute("Res"); ;
+    document.getElementById("a3").value = ddd;
+
+}
+
+//////////////////////////////// END  24 ////////////////////
+
+
+///////////////// Start 23 ////////////////////
+
+function Send23() {
+ 
+    var age = document.getElementById("a1").value;
+    var height = document.getElementById("a2").value;
+    var weight = document.getElementById("a3").value;
+
+
+    if ((age == "") || (height == "") || (weight == "")) {
+
+        document.getElementById("a4").value = "";
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        document.getElementById("a8").value = "";
+        document.getElementById("a9").value = "";
+ 
+        
+        
+        return
+    }
+
+    if ((!IsNumeric(age)) || (!IsNumeric(height)) || (!IsNumeric(weight))) {
+        return;
+    }
+    
+
+    var Gender = "";
+    j = document.getElementsByName("Sex"); //alert(j)
+
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Gender = j[i].value
+    }
+
+    var xmlString = '<result Gender="' + Gender + '"  a1="' + age + '"   a2="' + height + '"  a3="' + weight + '" ></result>';
+    var action = 'Send23';
+
+
+
+    GenericF(xmlString, action);
+
+}
+
+function Back23(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+
+    document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+    document.getElementById("a5").value = xmlDoc.firstChild.getAttribute("a5");
+    document.getElementById("a6").value = xmlDoc.firstChild.getAttribute("a6");
+    document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+    document.getElementById("a8").value = xmlDoc.firstChild.getAttribute("a8");
+    document.getElementById("a9").value = xmlDoc.firstChild.getAttribute("a9");
+
+ 
+}
+
+//////////////////////////////// END  23 ////////////////////
+
+
+
+
+///////////////// Start 25 ////////////////////
+
+function Send25(hElmVal) {
+ debugger
+    var age = document.getElementById("a1").value;
+    var height = document.getElementById("a2").value;
+    var weight = document.getElementById("a3").value;
+    
+    ////////////////////
+
+//    var age = document.getElementById("a3").value;
+//    var height = document.getElementById("a4").value;
+//    var weight = document.getElementById("a5").value;
+
+    if ((age == "") || (height == "") || (weight == "")) {
+
+
+        document.getElementById("a4").value = "";
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+        document.getElementById("a7").value = "";
+        document.getElementById("a8").value = "";
+        document.getElementById("a9").value = "";
+
+        return
+    }
+
+    if ((!IsNumeric(age)) || (!IsNumeric(height)) || (!IsNumeric(weight))) {
+        return;
+    }
+
+    var Gender = "";
+    var j = document.getElementsByName("Sex"); //alert(j)
+
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Gender = j[i].value
+    }
+
+
+////////////////////
+
+//    var Gender = "true";
+//    if (Male == true)
+//        Gender = "1";
+//    else
+//        Gender = "0";
+
+    var xmlString = '<result Gender="' + Gender + '"  a1="' + age + '"   a2="' + height + '"  a3="' + weight + '" ></result>';
+    var action = 'Send25';
+
+
+
+    GenericF(xmlString, action);
+
+}
+
+function Back25(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+
+    document.getElementById("a4").value = xmlDoc.firstChild.getAttribute("a4");
+    document.getElementById("a5").value = xmlDoc.firstChild.getAttribute("a5");
+    document.getElementById("a6").value = xmlDoc.firstChild.getAttribute("a6");
+    document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+    document.getElementById("a8").value = xmlDoc.firstChild.getAttribute("a8");
+    document.getElementById("a9").value = xmlDoc.firstChild.getAttribute("a9");
+
+}
+
+//////////////////////////////// END  25 ////////////////////
+
+
+//////////////////////////////// Start 2400Meter ////////////
+
+function Send2400Meter() {
+
+
+    var Gender = document.getElementById("Sex").value;
+    var age = document.getElementById("age").value;
+    var minute = document.getElementById("minute").value;
+    var second = document.getElementById('second').value;
+
+    if ((Gender == "") || (age == "") || (minute == "") || (second == "")) {
+ 
+
+        return
+    }
+
+    if ((!IsNumeric(age)) || (!IsNumeric(minute)) || (!IsNumeric(second))) {
+        return;
+    }
+
+    var xmlString = '<result Gender="' + Gender + '"  age="' + age + '"   minute="' + minute + '"  second="' + second + '" ></result>';
+    var action = 'Send2400Meter';
+
+     
+
+    GenericF(xmlString, action);
+
+}
+
+function Back2400Meter(xmlString) {
+
+
+
+    var xmlDoc = GetxDoc(xmlString);
+    var derug = "";
+    if (xmlDoc.firstChild.getAttribute("Rating") == "Poor")
+        derug = "גרוע";
+    else
+        if (xmlDoc.firstChild.getAttribute("Rating") == "Fair")
+        derug = "בינוני";
+    else
+        if (xmlDoc.firstChild.getAttribute("Rating") == "Average")
+        derug = "ממוצע";
+    else
+        if (xmlDoc.firstChild.getAttribute("Rating") == "Good")
+        derug = "טוב";
+    else
+        if (xmlDoc.firstChild.getAttribute("Rating") == "Excellent")
+        derug = "מצויין";
+
+    document.getElementById("Rating").value = derug;
+    document.getElementById("PopulationAverage").value = xmlDoc.firstChild.getAttribute("PopulationAverage");
+    document.getElementById("Score").value = xmlDoc.firstChild.getAttribute("Score");
+    document.getElementById("VOMax").value = xmlDoc.firstChild.getAttribute("VOMax");
+    document.getElementById("METs").value = xmlDoc.firstChild.getAttribute("METs");
+}
+
+
+/////////////////////////////// END 2400Meter ///////////////
+
+
+//////////////////////////////// Start ChildFat ////////////
+function SendChildFat() {
+
+    var Gender = "";
+    var j = document.getElementsByName("Sex"); //alert(j)
+
+    for (i = 0; i < j.length; i++) {
+        if (j[i].checked)
+            Gender = j[i].value
+    }
+    
+    var IsNotEmpty = false;
+    if (Gender != "" && document.getElementById("a3").value != "" && document.getElementById("a4").value != "")
+        IsNotEmpty = true;
+
+    if (IsNotEmpty) {
+        $.ajax({
+            type: "POST",
+            url: "Methods.asmx/GetChildFatPrecent",
+            contentType: "application/json; charset=utf-8",
+            data: "{'gender': '" + Gender + "','hand': '" + document.getElementById("a3").value + "','shoulder': '" + document.getElementById("a4").value + "'}",
+            dataType: "json",
+            success: function(result) {
+                if (result.d[0] == undefined || result.d[1] == undefined) {
+                    document.getElementById("a5").value = "";
+                    document.getElementById("a6").value = "גבוה מאוד";
+                }
+                else {
+                    document.getElementById("a5").value = result.d[0];
+                    document.getElementById("a6").value = result.d[1];
+                }
+            },
+            error: AjaxFailed
+        });
+    }
+    else {
+        document.getElementById("a5").value = "";
+        document.getElementById("a6").value = "";
+    }
+}
+
+function AjaxFailed(result) {
+    //alert(result.status + ' ' + result.statusText);
+}
+
+
+
+/////////////////////////////// END ChildFat ///////////////
+
+//////////////////////////////// Start HeartAttackPossible  ////////////
+
+function SendHeartAttackPossible() {
+
+    var RGengerM = document.getElementById('RGengerM').checked;
+    var Gender = "true";
+    if (RGengerM == true)
+        Gender = "1";
+    else
+        Gender = "0";
+
+    var RSmokY = document.getElementById('RSmokY').checked;
+    var Smok = "true";
+    if (RSmokY == true)
+        Smok = "1";
+    else
+        Smok = "0";
+
+    var RShugarY = document.getElementById('RShugarY').checked;
+    var Shugar = "true";
+    if (RShugarY == true)
+        Shugar = "1";
+    else
+        Shugar = "0";
+
+    var RHighBladY = document.getElementById('RHighBladY').checked;
+    var HighBlad = "true";
+    if (RHighBladY == true)
+        HighBlad = "1";
+    else
+        HighBlad = "0";
+
+    var a1 = document.getElementById("a1").value;
+    var a2 = document.getElementById("a2").value;
+    var a3 = document.getElementById("a3").value;
+
+
+    var xmlString = '<result Gender="' + Gender + '"   Smok="' + Smok + '"   Shugar="' + Shugar + '"   HighBlad="' + HighBlad + '"  a1="' + a1 + '"  a2="' + a2 + '"   a3="' + a3 + '" ></result>';
+
+    var action = 'HeartAttackPossible';
+
+
+    GenericF(xmlString, action);
+
+}
+
+function BackHeartAttackPossible(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+    document.getElementById("a7").value = xmlDoc.firstChild.getAttribute("a7");
+    //        document.getElementById("a6").value=xmlDoc.firstChild.getAttribute("a6");  
+}
+
+
+/////////////////////////////// END HeartAttackPossible ///////////////
+
+
+function IsNumeric(sText) {
+
+
+    var ValidChars = "0123456789."; 
+    var IsNumber = true;
+    var Char;
+
+    if (sText.length > 0) {
+        for (i = 0; i < sText.length && IsNumber == true; i++) {
+            Char = sText.charAt(i);
+            if ((i == 0) && (Char == "-")) // check first character for minus sign
+                continue;
+            if (ValidChars.indexOf(Char) == -1) {
+                IsNumber = false;
+            }
+        }
+
+    }
+    else {
+        IsNumber = false;
+    }
+    return IsNumber;
+
+}
+
+
+function ResCircumference(waistsCirc, thighsCirc, resultLabel, descriptionLabel, center) {
+
+
+    var xmlString = '<result waistsCirc="' + waistsCirc + '"   thighsCirc="' + thighsCirc + '"  resultLabel="' + resultLabel + '"   descriptionLabel="' + descriptionLabel + '"  center="' + center + '"  ></result>';
+
+    var action = 'Circumference';
+
+    GenericF(xmlString, action);
+ 
+}
+
+
+function BackHCircumference(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+    var result = xmlDoc.firstChild.getAttribute("ratio");
+    var resultLabel = xmlDoc.firstChild.getAttribute("resultLabel");
+    var descriptionLabel = xmlDoc.firstChild.getAttribute("descriptionLabel");
+    var center = xmlDoc.firstChild.getAttribute("center"); 
+
+    result = formatNumber(result, 2);
+    if (result == "NaN.NaN" || result == "NaN.NaNNaN") {
+        document.getElementById(descriptionLabel).innerHTML = "";
+    }
+    else {
+        showResult(result, resultLabel, center);
+        var gender = (document.getElementById('maleRadio').checked) ? "male" : "female";
+        showClassification(descriptionLabel, result, gender);
+    }
+}
+
+
+function ResBmr(Gender, weight, height, age, resultLabel, descriptionLabel, center) {
+
+
+    var xmlString = '<result Gender="' + Gender + '"   weight="' + weight + '"   height="' + height + '"   age="' + age + '"  resultLabel="' + resultLabel + '"   descriptionLabel="' + descriptionLabel + '"  center="' + center + '"  ></result>';
+
+    var action = 'Bmr';
+
+    GenericF(xmlString, action);
+
+}
+
+
+function BackBmr(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+    var result = xmlDoc.firstChild.getAttribute("bmr");
+    var resultLabel = xmlDoc.firstChild.getAttribute("resultLabel");
+    var descriptionLabel = xmlDoc.firstChild.getAttribute("descriptionLabel");
+    var center = xmlDoc.firstChild.getAttribute("center");
+    
+   // result = parseInt(caluculateBMR(resultLabel, descriptionLabel, center));
+ 	showResult(result,resultLabel,center);
+ 	var gender=(document.getElementById('maleRadio').checked)?"male":"female";
+ 	showClassification(descriptionLabel,result,gender);
+}
+
+function ResBmi(weight, height, resultLabel, descriptionLabel, center) {
+
+    var xmlString = '<result  weight="' + weight + '"   height="' + height + '"   resultLabel="' + resultLabel + '"   descriptionLabel="' + descriptionLabel + '"  center="' + center + '"  ></result>';
+
+    var action = 'Bmi';
+
+    GenericF(xmlString, action);
+
+}
+
+function BackBmi(xmlString) {
+
+    var xmlDoc = GetxDoc(xmlString);
+
+
+    var result = xmlDoc.firstChild.getAttribute("bmi");
+    var resultLabel = xmlDoc.firstChild.getAttribute("resultLabel");
+    var descriptionLabel = xmlDoc.firstChild.getAttribute("descriptionLabel");
+    var center = xmlDoc.firstChild.getAttribute("center");
+
+    // result = parseInt(caluculateBMR(resultLabel, descriptionLabel, center));
+    showResult(result, resultLabel, center);
+    var gender = (document.getElementById('maleRadio').checked) ? "male" : "female";
+    showClassification(descriptionLabel, result, gender);
+}
+
+
+function ResIdealWeight(gender, size, height, resultLabel, descriptionLabel, center) {
+
+    eval("var idealWeight="+gender+"s["+height+"]["+size+"];");
+
+    
+   // var idealWeight="+gender+"s["+height+"]["+size+"];
+}
+function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+function addSeparatorsNF(nStr, inD, outD, sep) {
+    nStr += '';
+    var dpos = nStr.indexOf(inD);
+    var nStrEnd = '';
+    if (dpos != -1) {
+        nStrEnd = outD + nStr.substring(dpos + 1, nStr.length);
+        nStr = nStr.substring(0, dpos);
+    }
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(nStr)) {
+        nStr = nStr.replace(rgx, '$1' + sep + '$2');
+    }
+    return nStr + nStrEnd;
+}
+function link(url) {
+    document.location = url;
+}
+function GoTo() {
+    document.location.realod();
+    parent.location.href = "http://www.xnet.co.il/health/home/0,14713,L-3530,00.html";
+
+}
+function Change2(Selected, counter) {
+    for (i = 1; i <= counter; i++) {
+        if (i == Selected) {
+            document.getElementById("DetailCardSub" + i).style.display = 'block';
+            document.getElementById("DetailCard" + i).className = 'selected';
+        }
+        else {
+            document.getElementById("DetailCardSub" + i).style.display = 'none';
+            document.getElementById("DetailCard" + i).className = '';
+            if (document.getElementById("DetailCardMenuSub1") != null) {
+                document.getElementById("DetailCardMenuSub1").style.display = 'none';
+                document.getElementById("DetailCardMenu1").className = '';
+            }
+            if (document.getElementById("DetailCardMenuSub2") != null) {
+                document.getElementById("DetailCardMenuSub2").style.display = 'none';
+                document.getElementById("DetailCardMenu2").className = '';
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+(function ($) {
+    'use strict';
+    $(document).ready(function () {
+
+
+        $(window).load(function () {
+            $('.js-main-slider').slick({
+                infinite: true,
+                rtl: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                nextArrow: '<span class="slick-arrow slick-next icon icon-arrowright color-white icon-x5 y-align cursor-pointer r-0 zindex-1"></span>',
+                prevArrow: '<span class="slick-arrow slick-prev icon icon-arrowleft color-white icon-x5 y-align cursor-pointer l-0 zindex-1"></span>',
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+
+            //show all slides of main slider
+            $('.section-slider').css('display', 'block');
+        });
+
+        $('.js-main-slider').on('init', function (event, slick, direction) {
+
+            if($('.js-main-slider .slick-slide').length === 1){
+                $(this).find('.slick-dots').addClass('d-none')
+            }
+
+        });
+
+
+
+
+
+        $('.js-main-slider').on('init', function (currentSlide) {
+            // will try to find a video in the first slide and play it
+            var vid = $('.slick-current').find('video');
+            if (vid.length > 0)
+                $(vid).get(0).play();
+
+        });
+
+        // on slide change - stop other videos and play current slide video
+        $('.js-main-slider').on('afterChange', function (slick, currentSlide) {
+
+            var videos = $('.slick-slide:not(".slick-current")').find('video');
+            console.log(videos);
+            if (videos.length > 0) {
+                $.each(videos, function (key, v) {
+                    $(v).get(0).pause();
+                    $(v).get(0).currentTime = 0;
+                });
+            }
+
+            var vid = $('.slick-current').find('video');
+            if (vid.length > 0)
+                $(vid).get(0).play();
+        });
+
+        //mute & un-mute the video
+        $('.btn-mute').on('click', function () {
+            var video = $(this).siblings('video');
+
+            if ($(video).prop('muted')) {
+                $(video).prop('muted', false);
+
+                $(video).get(0).pause(); //pause video
+                $(video).get(0).currentTime = 0; //reset video
+                $(video).get(0).play(); //play video
+            }
+            else {
+                $(video).prop('muted', true);
+            }
+        });
+
+    });
+
+
+
+
+})(jQuery);

@@ -1,0 +1,6 @@
+(function($){'use strict';$(document).ready(function(){$('.openOnlineDashboard').on('click',function(){$('.bg-cover').removeClass('d-none');$('.loader').removeClass('d-none');$('.modal-payment-brn-wrapper').addClass('d-none');jQuery.ajax({type:'POST',url:sogo.ajaxurl,data:{'action':'openOnlineDashboard',},success:function(response){$('.bg-cover').addClass('d-none');$('.loader').addClass('d-none');$('.modal-payment-brn-wrapper').removeClass('d-none');if(!response.data.error){iziToast.success({title:'מעולה! ',message:response.data.message,position:'center',rtl:!0});if(response.data.isOnlineDashboard){window.location.href=response.data.redirect_url}
+if(response.data.isAccountDashboard){window.location.href=response.data.redirect_url}
+if(response.data.isWizard){window.location.href=response.data.redirect_url}
+if(response.data.isLoginSuccess){window.location.href=response.data.redirect_url}
+if(response.data.is_myaccount_page){window.location.href=response.data.redirect_url}
+if(response.data.hg_token){window.location.href=response.data.instance_url}}else{iziToast.error({title:'שגיאה! ',message:response.data.message,position:'center',rtl:!0})}}})})})})(jQuery)

@@ -1,0 +1,1 @@
+(function($){'use strict';$(document).ready(function(){setInterval(()=>{switch($("p").attr("class")){case "text flash1":$("p").toggleClass("flash1 flash2");break;case "text flash2":$("p").toggleClass("flash2 flash1")}},500)})})(jQuery)

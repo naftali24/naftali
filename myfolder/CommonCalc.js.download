@@ -1,0 +1,41 @@
+﻿
+function loadSelect(msg, SelectInput, low, high,step) {
+    sList = document.getElementById(SelectInput);
+    for (i = 0; i < sList.options.length; i++)
+        sList.options[i] = null;
+    k = low;
+    for (i = low; i <= high; i += step) {
+        sList.options[0] = new Option(msg, 0);
+        sList.options[k - low] = new Option("  " + i, i);
+        k++;
+    }
+}
+
+function GetResultsWater() {
+    var IsNotEmpty = false;
+    if (document.getElementById("listActiveTime").value != "0"  && document.getElementById("listWeight").value != "0")
+        IsNotEmpty = true;
+
+    if (IsNotEmpty) {
+        $.ajax({
+            type: "POST",
+            url: "Methods.asmx/GetWater",
+            contentType: "application/json; charset=utf-8",
+            data: "{'ActiveTime': '" + document.getElementById("listActiveTime").value + "','Active': '" + document.getElementById("listActive").value + "','ActivePlace': '" + document.getElementById("listActivePlace").value + "',  'weight': '" + document.getElementById("listWeight").value + "'}",
+            dataType: "json",
+            success: function(result) {
+            document.getElementById("resultLabel").innerHTML = "צריכת המים המומלצת היומית שלך הינה  " + result.d[0] + " ליטר";
+                document.getElementById("descriptionLabel").innerHTML = "<p> צריכת המים בכוסות הינה <label class=\"font\">" + result.d[1] + "</label><br /> (כל כוס 200 מ''ל)</p>";
+            },
+            error: AjaxFailed
+        });
+    }
+    else {
+        document.getElementById("resultLabel").innerHTML = "";
+        document.getElementById("descriptionLabel").innerHTML = "";
+    }
+}
+
+function AjaxFailed(result) {
+    //alert(result.status + ' ' + result.statusText);
+}
