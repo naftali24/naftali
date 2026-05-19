@@ -1,1 +1,0 @@
-(function($){'use strict';$(document).ready(function(){$('.js-footer-arrow').click(function(){$(this).toggleClass('footer-1__show-submenu icon-arrowdown icon-arrowup')})})})(jQuery)
