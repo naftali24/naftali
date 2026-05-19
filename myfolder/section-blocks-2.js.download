@@ -1,0 +1,1 @@
+(function($){'use strict';$(document).ready(function(){if($('body').hasClass('mobile')){$(window).load(function(){$('#js-section-blocks-2-slider').slick({rtl:!0,slidesToShow:1,arrows:!1,dots:!0})})}})})(jQuery)

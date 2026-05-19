@@ -1,0 +1,8 @@
+(function(){'use strict';const STORAGE_KEY='heli_cookie_consent_accepted';const BANNER_ID='heli-cookie-consent-banner';const ACCEPT_BUTTON_ID='heli-cookie-consent-accept';const CLOSE_BUTTON_ID='heli-cookie-consent-close';function hasAccepted(){try{return localStorage.getItem(STORAGE_KEY)==='true'}catch(e){return!1}}
+function setAccepted(){try{localStorage.setItem(STORAGE_KEY,'true');return!0}catch(e){return!1}}
+function showBanner(){const banner=document.getElementById(BANNER_ID);if(banner){banner.style.display='block'}}
+function hideBanner(){const banner=document.getElementById(BANNER_ID);if(banner){banner.style.display='none'}}
+function handleAccept(){setAccepted();hideBanner()}
+function init(){if(!hasAccepted()){showBanner();const acceptButton=document.getElementById(ACCEPT_BUTTON_ID);if(acceptButton){acceptButton.addEventListener('click',handleAccept)}
+const closeButton=document.getElementById(CLOSE_BUTTON_ID);if(closeButton){closeButton.addEventListener('click',handleAccept)}}}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init)}else{init()}})()
