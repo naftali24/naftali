@@ -274,8 +274,34 @@
         "total": 1,
         "manual": true,
         "time": "16:24:04"
+      },
+      {
+        "text": "אגס",
+        "total": 70,
+        "manual": true,
+        "time": "19:06:36"
+      },
+      {
+        "text": "10 אגוזי לוז",
+        "total": 70,
+        "manual": true,
+        "time": "19:06:50"
+      },
+      {
+        "text": "בננה",
+        "total": 70,
+        "manual": true,
+        "time": "19:07:00"
       }
     ],
-    "exercise": []
+    "exercise": [
+      {
+        "text": "הליכה בים",
+        "minutes": 60,
+        "caloriesBurned": 333,
+        "manual": true,
+        "time": "19:06:12"
+      }
+    ]
   }
 }
