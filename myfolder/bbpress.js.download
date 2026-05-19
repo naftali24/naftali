@@ -1,0 +1,1 @@
+(function($){'use strict';$(document).ready(function(){var select=$('body.bbpress select');select.closest('p').addClass('select-arrow-bbpress');select.on('click',function(){$(this).closest('.select-arrow-bbpress').toggleClass('rotate-180-before')});select.on('focusout',function(){$(this).closest('.select-arrow-bbpress').removeClass('rotate-180-before')})})})(jQuery)

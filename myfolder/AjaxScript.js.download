@@ -1,0 +1,63 @@
+﻿
+/////////////////////////////////////  Generic XML Object  ////////////////////////////////////////////////
+
+function GenericF(xmlString,action){
+  
+   var ur = 'Manage/SeverAct.aspx?action='+action; 
+    
+        var xmlDoc;
+            // code for IE
+            if (window.ActiveXObject)
+            {
+
+                xmlDoc=new ActiveXObject("Microsoft.XMLDOM"); 
+                 xmlDoc.loadXML(xmlString); 
+            }
+            // code for Mozilla, Firefox, Opera, etc.
+            else if (document.implementation && document.implementation.createDocument)
+            {
+           
+                xmlDoc=document.implementation.createDocument("","",null);
+                var parser=new DOMParser();
+                xmlDoc=parser.parseFromString(xmlString,"text/xml");
+            }
+            else
+            {
+                alert('Your browser cannot handle this script');
+            }
+            xmlDoc.async=false; 
+  
+    xmlHttp=GetXmlHttpObject();
+    if (xmlHttp==null)
+      {
+      alert ("Your browser does not support AJAX!");
+      return;
+      }  
+    xmlHttp.onreadystatechange=stateChangedPostReturnXml;
+    xmlHttp.open("POST",ur,true);
+    xmlHttp.send(xmlDoc);
+     
+
+}
+
+
+   function GetXmlHttpObject()
+{
+         var xmlHttp=null;
+ 
+          if (window.ActiveXObject)
+            {
+             xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            // code for Mozilla, Firefox, Opera, etc.
+            else if (document.implementation && document.implementation.createDocument)
+            {
+            xmlHttp = new XMLHttpRequest();
+            }
+
+            return xmlHttp; 
+
+}
+   
+
+
