@@ -377,11 +377,18 @@
     },
     "nnn": {
       "userName": "nnn",
-      "savedAt": "2026-05-20T11:28:57.173Z",
+      "savedAt": "2026-05-20T11:29:37.153Z",
       "days": {
         "2026-05-20": {
           "weight": "",
-          "food": [],
+          "food": [
+            {
+              "text": "לחם",
+              "total": 200,
+              "manual": true,
+              "time": "14:29:25"
+            }
+          ],
           "exercise": []
         }
       }
