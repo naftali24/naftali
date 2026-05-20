@@ -315,5 +315,57 @@
         "time": "19:06:12"
       }
     ]
+  },
+  "2026-05-20": {
+    "weight": "",
+    "food": [
+      {
+        "text": "תפוח",
+        "total": 80,
+        "manual": true,
+        "time": "9:53:17"
+      },
+      {
+        "text": "בננה",
+        "total": 70,
+        "manual": true,
+        "time": "9:53:27"
+      },
+      {
+        "text": "בננה",
+        "total": 70,
+        "manual": true,
+        "time": "9:53:38"
+      },
+      {
+        "text": "קרטיב",
+        "total": 66,
+        "manual": true,
+        "time": "9:53:53"
+      }
+    ],
+    "exercise": [
+      {
+        "text": "הליכה על הליכון",
+        "minutes": 20,
+        "caloriesBurned": 250,
+        "manual": true,
+        "time": "9:54:18"
+      },
+      {
+        "text": "תרגיל רגליים",
+        "minutes": 8,
+        "caloriesBurned": 100,
+        "manual": true,
+        "time": "9:54:42"
+      },
+      {
+        "text": "גב",
+        "minutes": 7,
+        "caloriesBurned": 50,
+        "manual": true,
+        "time": "9:55:01"
+      }
+    ]
   }
 }
