@@ -374,6 +374,24 @@
           ]
         }
       }
+    },
+    "nnn": {
+      "userName": "nnn",
+      "savedAt": "2026-05-20T09:36:25.010Z",
+      "days": {
+        "2026-05-20": {
+          "weight": "100",
+          "food": [
+            {
+              "text": "לחם",
+              "total": 198,
+              "manual": true,
+              "time": "12:36:14"
+            }
+          ],
+          "exercise": []
+        }
+      }
     }
   }
 }
