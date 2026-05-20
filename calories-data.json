@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-20T12:20:10.925Z",
+      "savedAt": "2026-05-20T15:43:16.865Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -359,6 +359,18 @@
               "total": 100,
               "manual": true,
               "time": "15:07:55"
+            },
+            {
+              "text": "לחמניה עם גבינה צהובה",
+              "total": 300,
+              "manual": true,
+              "time": "18:42:58"
+            },
+            {
+              "text": "משקה תה ענבים",
+              "total": 100,
+              "manual": true,
+              "time": "18:43:13"
             }
           ],
           "exercise": [
