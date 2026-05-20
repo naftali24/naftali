@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-20T10:34:35.627Z",
+      "savedAt": "2026-05-20T11:32:39.438Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -347,6 +347,18 @@
               "total": 66,
               "manual": true,
               "time": "9:53:53"
+            },
+            {
+              "text": "יוגורט גביע",
+              "total": 100,
+              "manual": true,
+              "time": "14:32:22"
+            },
+            {
+              "text": "קרטיב",
+              "total": 70,
+              "manual": true,
+              "time": "14:32:31"
             }
           ],
           "exercise": [
