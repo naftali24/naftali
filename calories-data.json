@@ -392,6 +392,17 @@
           "exercise": []
         }
       }
+    },
+    "nnnn": {
+      "userName": "nnnn",
+      "savedAt": "2026-05-20T10:00:44.434Z",
+      "days": {
+        "2026-05-20": {
+          "weight": "",
+          "food": [],
+          "exercise": []
+        }
+      }
     }
   }
 }
