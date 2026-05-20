@@ -377,7 +377,7 @@
     },
     "nnn": {
       "userName": "nnn",
-      "savedAt": "2026-05-20T11:29:37.153Z",
+      "savedAt": "2026-05-20T11:30:07.647Z",
       "days": {
         "2026-05-20": {
           "weight": "",
@@ -389,7 +389,15 @@
               "time": "14:29:25"
             }
           ],
-          "exercise": []
+          "exercise": [
+            {
+              "text": "הליכה",
+              "minutes": 60,
+              "caloriesBurned": 500,
+              "manual": true,
+              "time": "14:30:04"
+            }
+          ]
         }
       }
     },
