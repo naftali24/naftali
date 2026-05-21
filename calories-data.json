@@ -2,8 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "createdAt": "2026-05-21T08:05:12.103Z",
-      "savedAt": "2026-05-21T08:05:12.103Z",
+      "savedAt": "2026-05-21T09:59:23.826Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -394,6 +393,18 @@
               "total": 70,
               "manual": true,
               "time": "11:05:05"
+            },
+            {
+              "text": "10 אגוזי לוז",
+              "total": 70,
+              "manual": true,
+              "time": "12:58:51"
+            },
+            {
+              "text": "קרטיב",
+              "total": 70,
+              "manual": true,
+              "time": "12:59:01"
             }
           ],
           "exercise": []
