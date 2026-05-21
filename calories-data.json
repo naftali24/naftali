@@ -421,16 +421,28 @@
     },
     "nnn": {
       "userName": "nnn",
-      "savedAt": "2026-05-21T10:00:44.786Z",
+      "savedAt": "2026-05-21T14:40:54.893Z",
       "days": {
         "2026-05-21": {
           "weight": "",
           "food": [
             {
-              "text": "לחם",
-              "total": 100,
+              "text": "פיתה קטנה",
+              "total": 140,
               "manual": true,
-              "time": "13:00:35"
+              "time": "17:40:23"
+            },
+            {
+              "text": "יוגורט",
+              "total": 80,
+              "manual": true,
+              "time": "17:40:37"
+            },
+            {
+              "text": "כרוב",
+              "total": 40,
+              "manual": true,
+              "time": "17:40:50"
             }
           ],
           "exercise": []
