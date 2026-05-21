@@ -421,7 +421,7 @@
     },
     "nnn": {
       "userName": "nnn",
-      "savedAt": "2026-05-21T14:40:54.893Z",
+      "savedAt": "2026-05-21T14:49:03.456Z",
       "days": {
         "2026-05-21": {
           "weight": "",
@@ -443,6 +443,12 @@
               "total": 40,
               "manual": true,
               "time": "17:40:50"
+            },
+            {
+              "text": "חצי קרטיב",
+              "total": 40,
+              "manual": true,
+              "time": "17:48:58"
             }
           ],
           "exercise": []
