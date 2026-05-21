@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-21T09:59:23.826Z",
+      "savedAt": "2026-05-21T10:01:51.730Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -407,7 +407,15 @@
               "time": "12:59:01"
             }
           ],
-          "exercise": []
+          "exercise": [
+            {
+              "text": "הליכה בים",
+              "minutes": 60,
+              "caloriesBurned": 333,
+              "manual": true,
+              "time": "13:01:39"
+            }
+          ]
         }
       }
     },
