@@ -2,6 +2,8 @@
   "users": {
     "naftali": {
       "userName": "naftali",
+      "createdAt": "2026-05-21T08:05:12.103Z",
+      "savedAt": "2026-05-21T08:05:12.103Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -371,6 +373,30 @@
               "time": "9:55:01"
             }
           ]
+        },
+        "2026-05-21": {
+          "weight": "109",
+          "food": [
+            {
+              "text": "קלמנטינה",
+              "total": 70,
+              "manual": true,
+              "time": "11:04:48"
+            },
+            {
+              "text": "תפוח",
+              "total": 80,
+              "manual": true,
+              "time": "11:04:57"
+            },
+            {
+              "text": "בננה",
+              "total": 70,
+              "manual": true,
+              "time": "11:05:05"
+            }
+          ],
+          "exercise": []
         }
       }
     }
