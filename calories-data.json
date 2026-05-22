@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-21T17:15:53.064Z",
+      "savedAt": "2026-05-22T05:24:24.248Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -411,6 +411,12 @@
               "total": 1500,
               "manual": true,
               "time": "20:15:36"
+            },
+            {
+              "text": "שלילת שבועות ברמת צבי",
+              "total": 1500,
+              "manual": true,
+              "time": "8:24:18"
             }
           ],
           "exercise": [
