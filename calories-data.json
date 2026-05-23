@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-23T15:17:52.372Z",
+      "savedAt": "2026-05-23T18:48:05.111Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -449,6 +449,24 @@
               "total": 7,
               "manual": true,
               "time": "18:13:29"
+            },
+            {
+              "text": "2 נגטים",
+              "total": 80,
+              "manual": true,
+              "time": "21:47:30"
+            },
+            {
+              "text": "כרוביות",
+              "total": 100,
+              "manual": true,
+              "time": "21:47:44"
+            },
+            {
+              "text": "פופ קורן",
+              "total": 70,
+              "manual": true,
+              "time": "21:47:57"
             }
           ],
           "exercise": [
