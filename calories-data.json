@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-23T15:16:29.810Z",
+      "savedAt": "2026-05-23T15:17:52.372Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -451,7 +451,15 @@
               "time": "18:13:29"
             }
           ],
-          "exercise": []
+          "exercise": [
+            {
+              "text": "40 דקות הליכה",
+              "minutes": 40,
+              "caloriesBurned": 200,
+              "manual": true,
+              "time": "18:17:36"
+            }
+          ]
         },
         "2026-05-22": {
           "weight": "109",
