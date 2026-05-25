@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-25T05:24:11.850Z",
+      "savedAt": "2026-05-25T05:25:40.382Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -564,6 +564,13 @@
               "caloriesBurned": 160,
               "manual": true,
               "time": "12:37:53"
+            },
+            {
+              "text": "הליכה בבית נגלר",
+              "minutes": 30,
+              "caloriesBurned": 180,
+              "manual": true,
+              "time": "8:25:25"
             }
           ]
         },
