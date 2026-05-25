@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-25T11:15:02.365Z",
+      "savedAt": "2026-05-25T15:50:48.267Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -606,6 +606,24 @@
               "total": 68,
               "manual": true,
               "time": "14:14:55"
+            },
+            {
+              "text": "חטיף",
+              "total": 70,
+              "manual": true,
+              "time": "18:49:23"
+            },
+            {
+              "text": "קרטיב",
+              "total": 70,
+              "manual": true,
+              "time": "18:49:42"
+            },
+            {
+              "text": "פנטה",
+              "total": 100,
+              "manual": true,
+              "time": "18:49:57"
             }
           ],
           "exercise": [
@@ -622,6 +640,13 @@
               "caloriesBurned": 350,
               "manual": true,
               "time": "14:13:40"
+            },
+            {
+              "text": "עם נמרוד ודודי",
+              "minutes": 60,
+              "caloriesBurned": 120,
+              "manual": true,
+              "time": "18:50:27"
             }
           ]
         }
