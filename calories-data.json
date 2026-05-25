@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-25T11:13:55.654Z",
+      "savedAt": "2026-05-25T11:15:02.365Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -600,6 +600,12 @@
               "total": 100,
               "manual": true,
               "time": "14:12:47"
+            },
+            {
+              "text": "10 זתים",
+              "total": 68,
+              "manual": true,
+              "time": "14:14:55"
             }
           ],
           "exercise": [
