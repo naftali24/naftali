@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-24T12:37:36.652Z",
+      "savedAt": "2026-05-25T05:24:11.850Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -543,6 +543,18 @@
               "total": 66,
               "manual": true,
               "time": "15:37:19"
+            },
+            {
+              "text": "קרטיב",
+              "total": 66,
+              "manual": true,
+              "time": "8:23:43"
+            },
+            {
+              "text": "אגס",
+              "total": 70,
+              "manual": true,
+              "time": "8:23:51"
             }
           ],
           "exercise": [
@@ -552,6 +564,26 @@
               "caloriesBurned": 160,
               "manual": true,
               "time": "12:37:53"
+            }
+          ]
+        },
+        "2026-05-25": {
+          "weight": "109",
+          "food": [
+            {
+              "text": "בקבוק תה",
+              "total": 80,
+              "manual": true,
+              "time": "8:22:13"
+            }
+          ],
+          "exercise": [
+            {
+              "text": "15 דקות הליכון",
+              "minutes": 15,
+              "caloriesBurned": 100,
+              "manual": true,
+              "time": "8:21:41"
             }
           ]
         }
