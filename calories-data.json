@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-25T05:25:40.382Z",
+      "savedAt": "2026-05-25T11:13:55.654Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -582,6 +582,24 @@
               "total": 80,
               "manual": true,
               "time": "8:22:13"
+            },
+            {
+              "text": "לחמניה מתוקה",
+              "total": 150,
+              "manual": true,
+              "time": "14:12:15"
+            },
+            {
+              "text": "יוגורט",
+              "total": 50,
+              "manual": true,
+              "time": "14:12:26"
+            },
+            {
+              "text": "כרוב. צנון. פלפל",
+              "total": 100,
+              "manual": true,
+              "time": "14:12:47"
             }
           ],
           "exercise": [
@@ -591,6 +609,13 @@
               "caloriesBurned": 100,
               "manual": true,
               "time": "8:21:41"
+            },
+            {
+              "text": "אימון טניס שולחן",
+              "minutes": 90,
+              "caloriesBurned": 350,
+              "manual": true,
+              "time": "14:13:40"
             }
           ]
         }
