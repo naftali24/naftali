@@ -2,7 +2,7 @@
   "users": {
     "naftali": {
       "userName": "naftali",
-      "savedAt": "2026-05-27T06:26:06.319Z",
+      "savedAt": "2026-05-27T14:39:35.688Z",
       "days": {
         "2026-05-17": {
           "weight": "109",
@@ -411,6 +411,42 @@
               "total": 80,
               "manual": true,
               "time": "9:25:45"
+            },
+            {
+              "text": "תפוח",
+              "total": 50,
+              "manual": true,
+              "time": "17:37:46"
+            },
+            {
+              "text": "לחמניה",
+              "total": 150,
+              "manual": true,
+              "time": "17:38:02"
+            },
+            {
+              "text": "גבינה צהובה",
+              "total": 80,
+              "manual": true,
+              "time": "17:38:13"
+            },
+            {
+              "text": "פלפל וצנון",
+              "total": 70,
+              "manual": true,
+              "time": "17:38:28"
+            },
+            {
+              "text": "גזוז ופנטה",
+              "total": 120,
+              "manual": true,
+              "time": "17:38:49"
+            },
+            {
+              "text": "אגוזי לוז",
+              "total": 60,
+              "manual": true,
+              "time": "17:39:06"
             }
           ],
           "exercise": []
