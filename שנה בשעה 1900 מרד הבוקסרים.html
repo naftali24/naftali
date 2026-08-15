@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Year 1900</title>
+<style>
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Hebrew",sans-serif;
+  background:#e8e8e8;
+  color:#111;
+}
+
+.wrap{
+  max-width:1150px;
+  margin:auto;
+  padding:18px;
+}
+
+h1{
+  text-align:center;
+  font-size:32px;
+  margin:0px 0 16px;
+}
+
+.top{
+  background:#fff;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow:0 2px 12px #0001;
+}
+
+audio{width:100%}
+
+.keyrow{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  margin-top:12px;
+}
+
+input{
+  width:100%;
+  font-size:16px;
+  padding:10px;
+  border:1px solid #bbb;
+  border-radius:9px;
+}
+
+button,.downloadBtn{
+  border:0;
+  border-radius:9px;
+  padding:9px 12px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button{
+  background:#333;
+  color:#fff;
+}
+
+button:hover{background:#111}
+
+.downloadBtn{
+  display:inline-block;
+  background:#176b3a;
+  color:#fff;
+  text-decoration:none;
+}
+
+.subtitle{
+  margin-top:14px;
+  min-height:150px;
+  background:#555;
+  color:#fff;
+  border-radius:14px;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:36px;
+  font-weight:800;
+  line-height:1.25;
+  text-shadow:0 2px 5px #0009;
+}
+
+.info{
+  text-align:center;
+  font-weight:700;
+  margin-top:8px;
+}
+
+.list{
+  background:lightgray;
+  border-radius:16px;
+  padding:10px;
+  height:500px;
+  overflow-y:auto;
+}
+
+.row{
+  border-bottom:1px solid #ddd;
+  padding:16px 10px;
+}
+
+.row.active{background:#fff3a8}
+
+.mainline{
+  display:grid;
+  grid-template-columns:auto auto 1fr;
+  grid-template-rows:auto auto;
+  gap:8px;
+  align-items:center;
+  width:100%;
+  direction:ltr;
+}
+.mainline .text{
+  grid-column:1 / -1;
+  grid-row:1;
+  width:100%;
+}
+.mainline .line-controls{
+  grid-column:1;
+  grid-row:2;
+  justify-self:start;
+}
+.mainline .gpt{
+  grid-column:2;
+  grid-row:2;
+  justify-self:start;
+}
+
+.time{display:none}
+
+.text{
+  font-size:19px;
+  line-height:1.35;
+  cursor:default;
+  font-weight:600;
+  text-align:right;
+  direction:rtl;
+  position:relative;
+  right:15px;
+  margin:0;
+  padding:0;
+}
+
+
+.read{background:#176b3a}
+.line-controls{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  justify-content:flex-start;
+  direction:ltr;
+}
+
+.stop{background:#8b1e1e}
+
+
+
+.facts{
+  display:none;
+  margin:10px 86px 2px 0;
+  background:#eef5ff;
+  border-right:4px solid #315f9b;
+  padding:14px;
+  border-radius:8px;
+  white-space:pre-wrap;
+  line-height:1.3;
+  font-size:20px;
+  font-weight:800;
+}
+
+.facts.show{display:block}
+
+.note{
+  font-size:13px;
+  color:#555;
+  line-height:1.2;
+  margin-top:8px;
+}
+
+
+/* ===== ANDROID / SMARTPHONE ===== */
+
+@media(max-width:700px){
+
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .wrap,
+  .top,
+  .list,
+  .row,
+  .mainline,
+  .text,
+  .facts,
+  .chatbar,
+  .legacyPanel,
+  .legacyFrame{
+    max-width:100%;
+    min-width:0;
+  }
+
+  .text{
+    position:relative;
+    right:0 !important;
+    left:auto !important;
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  .mainline{
+    overflow:hidden;
+  }
+
+  .line-controls{
+    max-width:100%;
+    flex-wrap:wrap;
+  }
+
+
+  body{
+    width:100%;
+    margin:0;
+    padding:0;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:3px;
+  }
+
+  .top{
+    width:100%;
+    padding:5px;
+    margin:0 0 5px 0;
+    border-radius:0;
+  }
+
+  .list{
+    width:100%;
+    padding:2px;
+    margin:0;
+    border-radius:0;
+  }
+
+  .row{
+    width:100%;
+    padding:10px 0;
+    margin:0;
+  }
+
+  .mainline{
+    display:grid;
+    grid-template-columns:auto auto 1fr;
+    grid-template-rows:auto auto;
+    width:100%;
+    gap:5px;
+    direction:ltr;
+  }
+
+  .text{
+    width:100%;
+    flex:0 0 100%;
+    max-width:100%;
+    margin:0;
+    padding:0 3px;
+    font-size:18px;
+    line-height:1.2;
+    text-align:right;
+    direction:rtl;
+  }
+
+  .stop,
+  .gpt{
+    flex:0 0 auto;
+    margin-top:3px;
+  }
+
+  .facts{
+    width:100%;
+    margin:6px 0 0 0;
+  }
+
+  .keyrow{
+    grid-template-columns:1fr;
+  }
+
+  .subtitle{
+    font-size:25px;
+  }
+
+  .mainline .text{
+    grid-column:1 / -1;
+    grid-row:1;
+    width:100%;
+    max-width:100%;
+    direction:rtl;
+    text-align:right;
+  }
+
+  .mainline .line-controls{
+    grid-column:1;
+    grid-row:2;
+    justify-self:start;
+  }
+
+  .mainline .gpt{
+    grid-column:2;
+    grid-row:2;
+    justify-self:start;
+  }
+
+}
+
+
+
+.legacyPanel{
+  margin-top:16px;
+  background:#fff;
+  border-radius:16px;
+  padding:14px;
+  box-shadow:0 2px 12px #0001;
+}
+.legacyTitle{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.legacySubject{
+  font-size:0px;
+  font-weight:800;
+  color:#315f9b;
+  margin-bottom:0px;
+}
+.legacyFrame{
+  width:100%;
+  height:250px;
+  border:1px solid #bbb;
+  border-radius:12px;
+  background:#f5f5f5;
+}
+.legacyLink{
+  display:inline-block;
+  margin-top:10px;
+  background:#315f9b;
+  color:white;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:9px;
+  font-weight:800;
+}
+
+
+.chatbar{
+  display:none;
+  margin-top:10px;
+  padding:12px;
+  background:#f4f4f4;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+.chatbar.show{display:block}
+.chatrow{display:flex;gap:8px}
+.chatinput{
+  flex:1;
+  font-size:18px;
+  padding:10px;
+  border:1px solid #aaa;
+  border-radius:8px;
+}
+.chatsend{background:#315f9b}
+.chatanswer{
+  display:none;
+  margin-top:10px;
+  padding:12px;
+  background:white;
+  border-radius:8px;
+  font-size:17px;
+  font-weight:700;
+  line-height:1.5;
+  white-space:pre-wrap;
+}
+.chatanswer.show{display:block}
+
+
+.noun-link{color:#1565c0;font-weight:800;text-decoration:none;cursor:pointer}
+.noun-link:hover{text-decoration:underline}
+
+.wrap,.top,.list,.row,.mainline,.text,.facts,.chatbar,.legacyPanel,.legacyFrame{
+  max-width:100%;
+  min-width:0;
+}
+
+
+
+
+.image-slot{
+  width:700px;
+  max-width:100%;
+  margin:16px auto;
+  text-align:center;
+}
+.image-slot img{
+  display:block;
+  width:700px;
+  height:400px;
+  max-width:100%;
+  object-fit:contain;
+  margin:0 auto;
+}
+.image-caption{
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+@media (max-width:430px){
+  .image-slot{width:100%}
+  .image-slot img{width:100%;height:auto;aspect-ratio:1/1}
+}
+
+
+.image-slot{
+  width:700px;
+  height:400px;
+  max-width:100%;
+  margin:18px auto;
+  text-align:center;
+}
+.image-slot img{
+  display:block;
+  width:700px;
+  height:400px;
+  max-width:100%;
+  object-fit:contain;
+  margin:0 auto;
+}
+@media(max-width:430px){
+  .image-slot{
+    width:min(700px,100%);
+    height:auto;
+    aspect-ratio:1/1;
+  }
+  .image-slot img{
+    width:100%;
+    height:100%;
+  }
+}
+
+
+.boxer-summary{
+  white-space:pre-line;
+  direction:rtl;
+  text-align:right;
+  margin:18px 10px;
+  padding:18px;
+  font-size:18px;
+  line-height:1.15;
+  font-weight:900;
+  color:black;
+  background:lightblue;
+  border:3px solid #d00000;
+  border-radius:12px;
+
+}
+@media(max-width:700px){
+  .boxer-summary{
+    margin:14px 3px;
+    padding:14px 10px;
+    font-size:21px;
+  }
+}
+
+
+.special-title-line{
+  width:100%;
+  text-align:center !important;
+  direction:rtl;
+  font-size:33px !important;
+  font-weight:900 !important;
+  color:#149447 !important;
+  line-height:1.15 !important;
+  padding:18px 8px !important;
+  right:0 !important;
+  text-shadow:
+    1px 1px 0 #0f6d35,
+    2px 2px 0 #0b5429,
+    3px 3px 0 #083d1f,
+    4px 4px 6px rgba(0,0,0,.38);
+}
+@media(max-width:700px){
+  .special-title-line{font-size:32px !important;}
+}
+
+
+/* Legacy image panel: fixed from halfway down the screen to the bottom */
+.legacyPanel{
+  position:fixed !important;
+  left:0 !important;
+  right:0 !important;
+  top:calc(50vh + 150px) !important;
+  bottom:0 !important;
+  height:calc(50vh - 200px) !important;
+  margin:0 !important;
+  padding:6px !important;
+  z-index:9999 !important;
+  border-radius:0 !important;
+  overflow:hidden !important;
+}
+.legacyFrame{
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+  border-radius:0 !important;
+}
+.legacyLink{display:none !important;}
+.legacySubject{display:none !important;}
+
+/* FORCE subject slideshow image to exactly 700px wide on desktop */
+.legacyPanel #legacyStartImage{
+  width:700px !important;
+  min-width:700px !important;
+  max-width:700px !important;
+  height:auto !important;
+  object-fit:contain !important;
+  margin:0 auto !important;
+}
+@media(max-width:700px){
+  .legacyPanel #legacyStartImage{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+}
+
+
+.play-all-btn{
+  width:100%;
+  display:block;
+  margin:0 0 10px 0;
+  padding:14px 16px;
+  font-size:20px;
+  font-weight:900;
+  background:#176b3a;
+  color:#fff;
+  border:0;
+  border-radius:10px;
+  cursor:pointer;
+}
+.play-all-btn:hover{background:#0f542d;}
+
+
+/* ===== KARAOKE PANEL ===== */
+.karaoke-panel{
+  margin-top:10px;
+  min-height:145px;
+  max-height:190px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 22px;
+  background:#777;
+  border:4px solid #d4af37;
+  border-radius:14px;
+  box-shadow:0 0 0 2px #6f5710 inset,0 4px 14px #0005;
+  direction:rtl;
+  text-align:center;
+}
+#karaokeText{
+  width:100%;
+  font-size:34px;
+  line-height:1.28;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 2px 4px #000;
+}
+#karaokeText .kword{color:#fff;}
+#karaokeText .kword.done,
+#karaokeText .kword.active{
+  color:#ffe45c;
+  text-shadow:0 0 8px rgba(255,228,92,.7);
+}
+
+.karaoke-panel::-webkit-scrollbar{width:10px}
+.karaoke-panel::-webkit-scrollbar-thumb{background:#444;border-radius:8px}
+.karaoke-panel::-webkit-scrollbar-track{background:#999}
+
+@media(max-width:400px){
+  .karaoke-panel{min-height:120px;max-height:165px;padding:10px 8px;border-width:3px}
+  #karaokeText{font-size:25px;line-height:1.22}
+}
+
+
+/* ===== INLINE KARAOKE: highlight directly on the active READ line ===== */
+.karaoke-panel{display:none !important;}
+.text .kword{color:inherit;}
+.text .kword.done,
+.text .kword.active{
+  color:#d39b00;
+  text-shadow:0 0 5px rgba(211,155,0,.25);
+}
+
+
+
+/* First two lines: no buttons */
+.row.no-buttons .line-controls,
+.row.no-buttons .gpt{display:none !important;}
+
+/* First two lines: remove all buttons */
+.list .row:nth-child(1) .line-controls,
+.list .row:nth-child(1) .gpt,
+.list .row:nth-child(2) .line-controls,
+.list .row:nth-child(2) .gpt{
+  display:none !important;
+}
+
+/* Karaoke highlight: RED */
+.text .kword.done,
+.text .kword.active{
+  color:#ff0000 !important;
+  text-shadow:0 0 5px rgba(255,0,0,.30) !important;
+}
+
+
+/* All images: 700px wide (responsive on smaller screens) */
+img{
+  width:700px !important;
+  max-width:100% !important;
+}
+
+
+/* FINAL SUBJECT SLIDESHOW SIZE: 700 x 400 */
+#legacyStartImage{
+  width:700px !important;
+  height:400px !important;
+  max-width:700px !important;
+  object-fit:contain !important;
+  margin:0 auto !important;
+  display:block !important;
+}
+@media(max-width:700px){
+  #legacyStartImage{
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    aspect-ratio:7/4 !important;
+  }
+}
+</style>
+
+<style>
+/* FINAL SUBJECT SLIDESHOW SIZE OVERRIDE */
+.legacyPanel{
+  width:700px !important;
+  max-width:700px !important;
+  height:400px !important;
+  max-height:400px !important;
+  left:50% !important;
+  right:auto !important;
+  transform:translateX(-50%) !important;
+  overflow:hidden !important;
+  padding:0 !important;
+}
+#legacyStartImage,
+#subjectImage,
+.legacyPanel img{
+  width:700px !important;
+  height:400px !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  display:block !important;
+  margin:0 !important;
+}
+@media(max-width:700px){
+  .legacyPanel{
+    width:100vw !important;
+    max-width:100vw !important;
+  }
+  #legacyStartImage,
+  #subjectImage,
+  .legacyPanel img{
+    width:100% !important;
+    height:400px !important;
+  }
+}
+</style>
+
+
+<style>
+/* ABSOLUTE FINAL SIZE: SUBJECT IMAGE = 700 x 400 */
+.legacyPanel {
+    width: 700px !important;
+    min-width: 700px !important;
+    max-width: 700px !important;
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+}
+
+.legacyPanel img,
+#legacyStartImage,
+#subjectImage {
+    width: 700px !important;
+    min-width: 700px !important;
+    max-width: 700px !important;
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+    box-sizing: border-box !important;
+    object-fit: fill !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+</style>
+
+
+<style>
+/* Move bottom subject-image panel 100px higher */
+.legacyPanel{
+  bottom:100px !important;
+  top:auto !important;
+}
+
+/* Android: show image at 80% scale */
+@media (max-width:700px){
+  .legacyPanel{
+    width:100vw !important;
+    min-width:0 !important;
+    max-width:100vw !important;
+    height:300px !important;
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  #legacyStartImage,
+  .legacyPanel img{
+    width:80% !important;
+    min-width:0 !important;
+    max-width:80% !important;
+    height:80% !important;
+    min-height:0 !important;
+    max-height:80% !important;
+    object-fit:contain !important;
+    margin:auto !important;
+  }
+}
+</style>
+
+
+<style>
+/* FINAL adjustment: 50px down from previous position */
+.legacyPanel{
+  bottom:50px !important;
+}
+
+/* Android: increase image zoom from 0.8 to 0.9 */
+@media (max-width:600px){
+  #legacyStartImage,
+  .legacyPanel img{
+    width:50% !important;
+    max-width:50% !important;
+    height:50% !important;
+    max-height:50% !important;
+    object-fit:contain !important;
+  }
+}
+</style>
+
+
+<style>
+/* FINAL adjustment: another 50px lower */
+.legacyPanel{
+  bottom:0 !important;
+}
+
+/* Android: much smaller image */
+@media (max-width:600px){
+  #legacyStartImage,
+  .legacyPanel img{
+    width:40% !important;
+    max-width:40% !important;
+    height:40% !important;
+    max-height:40% !important;
+    object-fit:contain !important;
+  }
+}
+</style>
+
+
+<style>
+/* FINAL ANDROID SUBJECT IMAGE SIZE */
+@media (max-width:700px){
+  .legacyPanel{
+    width:400px !important;
+    min-width:400px !important;
+    max-width:400px !important;
+    height:180px !important;
+    min-height:180px !important;
+    max-height:180px !important;
+    bottom:0 !important;
+    top:auto !important;
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    padding:0 !important;
+    overflow:hidden !important;
+  }
+
+  #legacyStartImage,
+  .legacyPanel img{
+    width:400px !important;
+    min-width:400px !important;
+    max-width:400px !important;
+    height:180px !important;
+    min-height:180px !important;
+    max-height:180px !important;
+    object-fit:contain !important;
+    display:block !important;
+    margin:0 auto !important;
+  }
+}
+</style>
+
+
+<style>
+/* USER REQUEST: make bottom subject image bigger, stretch if needed */
+@media (max-width:700px){
+  .legacyPanel{
+    width:100vw !important;
+    min-width:100vw !important;
+    max-width:100vw !important;
+    height:300px !important;
+    min-height:300px !important;
+    max-height:300px !important;
+  }
+  #legacyStartImage,
+  #subjectImage,
+  .legacyPanel img{
+    width:100% !important;
+    min-width:100% !important;
+    max-width:100% !important;
+    height:100% !important;
+    min-height:100% !important;
+    max-height:100% !important;
+    object-fit:fill !important;
+  }
+}
+</style>
+
+<style>
+/* FINAL: bottom subject image fills BOTH width and height of its box */
+.legacyPanel{
+  width:700px !important;
+  min-width:0 !important;
+  max-width:calc(100vw - 6px) !important;
+  height:400px !important;
+  min-height:400px !important;
+  max-height:400px !important;
+  left:50% !important;
+  right:auto !important;
+  transform:translateX(-50%) !important;
+  padding:0 !important;
+  overflow:hidden !important;
+}
+#legacyStartImage,
+#subjectImage,
+.legacyPanel img{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  object-fit:fill !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:block !important;
+}
+@media(max-width:700px){
+  .legacyPanel{
+    width:100vw !important;
+    min-width:0 !important;
+    max-width:100vw !important;
+    height:180px !important;
+    min-height:180px !important;
+    max-height:180px !important;
+  }
+  #legacyStartImage,
+  #subjectImage,
+  .legacyPanel img{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:fill !important;
+  }
+}
+</style>
+
+<style>
+/* ===== SIMPLE SUBJECT IMAGE AT BOTTOM ===== */
+.legacyPanel,.legacyFrame,.legacySubject,.legacyLink{display:none !important;}
+.subject-image-box{
+  position:fixed;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:700px;
+  height:400px;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  background:#fff;
+  z-index:9999;
+}
+#subjectImage{
+  display:block;
+  width:100% !important;
+  height:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  min-height:0 !important;
+  max-height:none !important;
+  object-fit:fill !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+@media(max-width:700px){
+  .subject-image-box{width:100vw;height:280px;}
+  #subjectImage{width:100% !important;height:100% !important;}
+}
+.subject-image-name{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:8px 12px;
+  background:rgba(0,0,0,.18);
+  color:blue;
+  font-size:26px;
+  font-weight:900;
+  text-align:center;
+  direction:rtl;
+  z-index:2;
+  pointer-events:none;
+}
+@media(max-width:700px){.subject-image-name{font-size:24px;padding:6px 8px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+<!-- =========================================================
+AUDIO URL — PASTE YOUR MP3 URL BELOW
+Example:
+https://example.com/audio.mp3
+========================================================= -->
+<button id="playAllBtn" class="play-all-btn">PLAY ALL</button>
+<audio id="audio" controls preload="metadata"
+       src="https://omny.fm/shows/a-year-in-an-hour/1900.mp3"></audio>
+
+
+</div>
+<div id="list" class="list"></div>
+<div id="subjectImageBox" class="subject-image-box">
+  <img id="subjectImage" src="https://scontent.ftlv18-1.fna.fbcdn.net/v/t39.30808-6/653419678_26683812671203566_5219594185843680604_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx1536x1024&amp;ctp=p180x540&amp;_nc_cat=110&amp;ccb=1-7&amp;_nc_sid=127cfc&amp;_nc_ohc=y1GnBRRgUPsQ7kNvwFOPkGO&amp;_nc_oc=AdqmDW1UEdD4ZdhgIney1axhcN65piEX3Vrcl_8jpoy5pHjgaIhhSqiQ0aZKu-fjAxg&amp;_nc_zt=23&amp;_nc_ht=scontent.ftlv18-1.fna&amp;_nc_gid=kXrzf50Nk-Je8vqwfpfC2Q&amp;_nc_ss=7a2a8&amp;oh=00_AQFDhZg0lsV8URlhNLUX_LCauNhqMqT3rOSJqvNr-DD8PA&amp;oe=6A84B67F" alt="" style="width:100%;height:100%;object-fit:contain;display:block;">
+  <div id="subjectImageName" class="subject-image-name"></div>
+</div>
+</div>
+
+<script>
+// =========================================================
+// CAPTIONS — PASTE YOUR DOWNLOADED captions CODE HERE
+//
+// Replace ONLY the next line:
+// const captions = [];
+//
+// with the complete code from captions_code.js, for example:
+
+const captions = [
+
+
+
+
+  {
+    "start": 0,
+    "end": 0,
+    "text": ""
+  },
+  {
+    "start": 0,
+    "end": 0,
+    "text": "                                  שנה בשעה - אורן נהרי - פרק 1 - שנה: 1900                                                                                     "
+  },
+
+  {
+    "start": 50,
+    "end": 112.097,
+    "text": " בוקר טוב, שלום רב ושבת שלום לכם. אנחנו בשעה השנייה בתוכנית הראשונה 'שבת עם אורן נהרי'. עורכת המשנה והמפיקה: מאיה תלמון עזרזר, בהפקה: אביטל בשור, ליטל אטיאס על השידור. ומדי שבת ניפגש כאן בתוכנית, בשעה שבה הייתם רגילים לשמוע את קולו הייחודי של יצחק נוי המנוח, מגדולי שדרני הרדיו בישראל, ויש לי הכבוד והעונג להיכנס לנעליו הגדולות. ואת השעה הראשונה הזו נקדיש לזמן, נקדיש להיסטוריה. כאשר הזמן חולף, השיר המיתולוגי מהסרט 'קזבלנקה'. אז היסטוריה, הזמן. אנחנו נקדיש את השעה הזאת להיסטוריה של שנה אחת, מדי שבוע. נביא את סיפורה של שנה במאה העשרים.נתחיל כיאות בשנת 1900."
+  },
+  {
+    "start": 112.093,
+    "end": 135.59,
+    "text": "כמובן, מושג הזמן הוא שרירותי לחלוטין. המאה העשרים מתחילה ב-1900, ובכן, מדעית אפשר לטעון שהיא מתחילה בשנת 1905, עם תורת היחסות של איינשטיין. בתרבות, אולי ב-1908, עם הקוביזם. מדינית — ב-1914, עם פרוץ מלחמת העולם הראשונה. ולכל האירועים האלה נתייחס, אבל הזמן עוזר לנו לסדר את האירועים."
+  },
+  {
+    "start": 135.59,
+    "end": 155.795,
+    "text": "אז בשנת 1900 יש בעולם כמיליארד וחצי בני אדם, מתוכם כעשרה מיליון יהודים. שמונה מיליון באירופה, כמיליון בארצות הברית, כחצי מיליון בכל ארצות האסלאם, פחות מ־50 אלף בארץ ישראל, כששני שליש מהם בירושלים. העולם כולו נמצא עדיין בשליטת אימפריות אירופיות, לא רק בריטניה."
+  },
+  {
+    "start": 155.795,
+    "end": 207.911,
+    "text": "בלגיה הזעירה שולטת בקונגו, שגדולה כמו אירופה. הולנד — באינדונזיה הענקית. צרפת — בהודו-סין ובארצות המגרב. רוסיה עושה צעדים מהוססים, בעיקר כלכליים. ארצות הברית, בוודאי, מהווה פוטנציאל, ברור לכולם. אבל המערב עדיין פרוע. ומי שהמהגרים לארצות הברית אינם העשירים האירופיים, אלא דלת העם מאיטליה, מאירלנד, מפולין — אלה המחפשים אדמה או מקלט מרדיפות. והאירוע הראשון והחשוב, אולי, המתרחש באותה שנה, ב-1900, הוא התקוממות עממית בסין נגד האירופים, נגד הזרים השולטים באימפריה השמימית ועושים בה כרצונם: מרד הבוקסרים. כך הוא נכנס להיסטוריה. ועל כך אני מבקש לשוחח עם הפרופ' יורי פינס, מומחה לסין, מהחוג ללימודי אסיה, האוניברסיטה העברית."
+  },
+  {
+    "start": 211.0,
+    "end": 274.115,
+    "text": "פרופ' פינס, איך המרד הזה מתחיל? המרד הזה מתחיל כאשר סין נמצאת בשפל. סין נמצאת במצב כלכלי נוראי. סין נמצאת במצב פוליטי נוראי. וסין נמצאת כטרף למעצמות המערב. ומעצמות המערב פועלות בשני מישורים. במישור הכלכלי, שכרגע לא משנה, ובמישור הדתי. יש פעילות אקטיבית מאוד של המיסיונרים המערביים בסין. חלקם אנשים מאוד טובים, שמקדמים חינוך לבנות, למשל, ושירותי רפואה. וחלקם אנשים מאוד רשעים, שמחפשים נשמות. איך מחפשים נשמות? באותם הימים למערב, יש זכויות אקסטרטריטוריאליות בסין. זאת אומרת שסינים לא יכולים לשפוט נתין מערבי. וכנסיות מסוימות מגלות, שאם אנחנו נעניק למתנצרים, למומרים, אותן הזכויות, אותה הגנה, כאילו שהם אזרחים של המדינה שלנו, אז בית המשפט הסיני לא יכול לפגוע באנשים האלה."
+  },
+  {
+    "start": 274.115,
+    "end": 357.946,
+    "text": "אגב, ושניים מהמיסיונרים הידועים ביותר הם הנרי לוס, בן של מיסיונרים לימים, השבועון, טיים, לייף וכולי, ופרל בק, הסופרת שכותבת את האדמה הטובה. אבל אתה בחרת במיסיונרים הטובים. אני עכשיו אגיד לך מיסיונרים רעים, שאולי באמת לא ראוי לזכור אותם, אבל מה לעשות?. יש למשל בישופ אנטון אנצר, גרמני, מהכנסית ה' הקדוש הגרמנית, שפועל במזרח סין, בחצי שנדונג, והוא מאנשים הבולטים האלה, שפועלים בשיטה של המרה של סינים, ואחר כך מתן חסות של הקונסוליה הגרמנית לאותם המומרים. וזה אומר שמי ילך להמיר את דתו, פושעים, פושטקים, אנשים שיש להם סכסוך קרקעות עם השכן שלהם, ועכשיו פתאום המשפט הסיני לא יכול לעשות להם שום דבר, כיוון שהם מוגנים על ידי הכנסיה, והם מוגנים על ידי הקונסוליה הגרמנית. וזה משגע את האנשים, זה משגע את הפקידים הסינים, אבל הם לא מעיזים לעשות שום דבר, כי המערב חזק לאין שיעור ביחס לסין, אבל זה משגע את העמך, את האנשים למטה, למטה, למטה. איך הם האנשים האלה, אותם עמך, אותם בוקסרים, כלומר בעצם זה לוחמי קונג פו, אנחנו חושבים ישר על ברוס לי וכולי, אבל האגודה השמימית, איך הם מתחברים אל חצר הקיסר העוצרת בעצם?"
+  },
+  {
+    "start": 357.946,
+    "end": 455.063,
+    "text": "כן, זה אחד הדברים המדהימים. בהתחלה הם לגמרי לא מתחברים, הם פועלים, הם אנשים כל כך למטה, בתחתית של החברה הסינית, הם פועלים באיזורים שבהם בקושי יש פקידים, הם מתחילים להתקיף את המתנצרים, הם מתחילים לפעמים להתקיף את המיסיונרים, ובגלל זה החצר מתעוררת ומנסה לדכא אותם, כי כמובן החצר לא רוצה בעיות עם המיסיונרים, לא רוצה בעיות עם המערב, אבל, לאט לאט, הפעילות שלהם גוברת, כיוון שלחצר אין כלים מספיק טובים לדכא אותם, החצר נמצאת בעצמה במצב מאוד מאוד גרוע, ובמקביל, המערב, אנשי הקונסוליות המערביות והקונסולים המערביים בבייג'ין, הם יוצאים מתוך הנחה, שלא ייתכן שהסינים פועלים על דעת עצמם נגדנו, זה הכל הסתה, נכון? כל השנאה כלפינו, כלפי המערבים, זו תוצאה של הסתה של החצר, וכל פעם, כשיש פגיעה כלשהי, במתנצר סיני, קל וחומר, במיסיונר המערבי, מתייצבים הקונסולים, תחילה של כמה ארצות, ואחר כך של יותר ויותר ארצות, מערב, פלוס יפן, בחצר הקיסרית, בסין, והם למדו שהדרך הטובה ביותר, לשכנע את הסינים להקשיב לנו זה לצעוק, לצעוק עליהם כמו על אפריקאים, כי הסינים אינם לגמרי בני אדם בעיני המערביים באותם הימים. זכור, אנחנו נמצאים בשיאן של הגזענות הנוראית המערבית האנטי-סינית. ב-1896, בכתב העת \"Nature\" מתפרסם מחקר שמוכיח, כביכול, שמוחו של הסיני קרוב יותר למוח של שימפנזה מאשר למוח של בן-אדם."
+  },
+  {
+    "start": 455.063,
+    "end": 504.115,
+    "text": "אז לא צריך להתייחס אליהם לגמרי כמו אל בני אדם. בדיוק כמו שהמערב מתנהג כלפי אפריקאים, כך התנהג באותם הימים כלפי הסינים. וצריך לומר שלמערב — ואנחנו נראה את זה עוד מעט במרד עצמו — בסופו של דבר, איך היה המשפט הזה: טיעונם האחרון של המלכים.שלואי ה 14 ציווה לחרוט על התותחים שלו. העוצמה המערבית גדולה לאין שיעור; לסינים יש רק כוח אדם, אבל זהו. בוודאי, בוודאי. ואז החצר, במקור, הייתה מודעת לזה ובמקור ניסתה לדכא את הבוקסרים כדי שלא יגיעו לאימותים אמיתיים מול המערב, אבל החצר לאט לאט מבינה שלא משנה מה נעשה ולא משנה איך ננהג, המערב יתבע מאיתנו יותר ויותר ויותר וישפיל אותנו יותר ויותר ויותר."
+  },
+  {
+    "start": 504.764,
+    "end": 534.726,
+    "text": "ואז פתאום, במאי 1900, יש ניסיון לדכא את קבוצת הבוקסרים, וקוראת שם תקרית, והגנרל הסיני, אלוף-משנה, שהיה אמור לדכא את הבוקסרים, נהרג בידיהם. ואז החצר פתאום רוצה לשכנע את עצמה שאולי באמת הבוקסרים האלה חסינים בפני הכדורים, כפי שהם טוענים. אולי לבוקסרים האלה יש איזה שהם כלים לנצח; אם הם ינצחו את היחידה הצבאית שלנו, אולי הם בכל זאת ינצחו את המערב."
+  },
+  {
+    "start": 534.726,
+    "end": 566.271,
+    "text": "אולי העם הסיני — לזכור שהחצר, אגב, לא סינית; היא מנצ'ורית — אבל כבר כמה מאות שנים שולטת בסין. כן, כ-260 שנה כבר, לא רע. אולי העם הסיני יתעורר ויאפשר לנו להשתחרר מעול האימפריאליזם. וזה כמובן טירוף מערכות, כיוון שהיה ברור לכל האנשים בני הדעת שלבוקסרים אין שום אפשרות לנצח את המערב; כמו שאמרת, פערי הכוחות אפילו בין המערב לבין הצבא הסיני הלאומי היו אדירים."
+  },
+  {
+    "start": 566.271,
+    "end": 590.474,
+    "text": "קל וחומר כשמדובר בספסוף שלא היה חמוש אפילו בנשק חם — אנשים שהשתמשו בדרך כלל בכידונים ונלחמו בנשק קר. מה לעשות, זה כבר לא המאה ה-12; אנחנו נמצאים בראשית המאה ה-20. אבל זה היה אובדן שיקול דעת טוטלי מצד החצר, שאני יכול להבין אותו, כי... הם היו בייאוש. הם היו בייאוש."
+  },
+  {
+    "start": 590.474,
+    "end": 625.934,
+    "text": "עכשיו, אתה מציג את הטיעון הדתי. אני זוכר שכשאני קראתי, פעמים לא מעטות — לא כמוך כמובן — על מרד הבוקסרים, הזעם המרכזי היה על הנושא הזה, בעיקר על השיפוט האקסטריטוריאלי, על הזכויות שהמערב גוזל ומשפיל את סין פעם אחר פעם אחר פעם. זה נחמד, כמובן, ברמה פילוסופית, אבל תזכור שהבוקסרים לא כל כך הבינו מה זה זכויות אקסטריטוריאליות, כי הזכויות היו בערים הגדולות המערביות, והבוקסרים היו בכפרים הנידחים."
+  },
+  {
+    "start": 625.934,
+    "end": 648.057,
+    "text": "הם גם לא כל כך ידעו מה זה שיפוט עצמי לזרים, אבל הם ידעו טוב מאוד, שכשהשיפוט הזה מוכל על מומרים סינים, השנאה הייתה כלפי המומרים, כלפי השכנים, שהמירו את דתם, קיבלו את חסות הכנסייה הנוצרית, בזכותה קיבלו את חסות הקונסוליות הזרות, ואז האנשים האלה יכולים לעשות ככל העולה על רוחם."
+  },
+  {
+    "start": 648.057,
+    "end": 669.085,
+    "text": "והשנאה האמיתית הייתה בעיקר כלפי המתנצרִים הסינים, וכמובן כלפי המיסיונרים הזרים, שהיו אולי הגורם היחיד שהבוקסרים יכלו לראות בכפרים הנידחים, כי המערבים הרגילים ישבו באמת בנמלים, בערים ענקיות, אולי קצת לאורך מסילות הברזל, אבל בכפרים הנידחים היו המיסיונרים, חוד החנית של האימפריאליזם המערבי."
+  },
+  {
+    "start": 669.085,
+    "end": 739.414,
+    "text": "שזה אגב השוואה מעניינת, נעשה אותה בהזדמנות, אולי בתוכנית אחרת, לשנאה בין הסרבים לבוסנים, שהם סרבים שהתאסלמו עם הכיבוש העות'מאני, אותם אתה שונא כי הם הבוגדים. ואז מתחילה הדרמה של 55 הימים המפורסמים בפקין, כאשר כוחות מגיעים ממעצמות המערב, הקייזר וילהלם אומר לאנשים שלו, 'תתנהגו כמו ההונים בשעתו', והכינוי שיהיה לימים כינוי גנאי — 'הונים' — שדבק בגרמנים במלחמת העולם הראשונה, וצבאות המערב מגיעים, ומשחררים את המצור על הקונסוליות והשגרירויות. כן, אתה צודק, אבל כמובן צריך להקדים ולומר, מה שקורה קודם הוא הדבר אולי המטורף ביותר: הבוקסרים מנתקים את קווי הטלגרף, אף אחד לא מבין בדיוק מה קורה בבייג'ין, המערב שולח תחילה יחידה קטנה, בראשות האדמירל הבריטי סיימור, שהם מתקדמים לאורך מסילת הברזל, אבל הבוקסרים מתייחסים למסילות הברזל כמו לקווי הטלגרף, כאלה דברים טכניים ומפרקים אותם, ואז היחידה הזאת מובסת, מה זה מובסת?"
+  },
+  {
+    "start": 739.414,
+    "end": 764.876,
+    "text": "יש קרב שהיא לא מצליחה והיא חוזרת, כלומר, ואז השושלת ברגע של טירוף מכריזה עליה מלחמה על כל מעצמות המערב, אתה יודע זה כמו המלך מתיא הראשון של קורצ'אק, מכריז מלחמה על כל העולם, השושלת מכריזה מלחמה על כל העולם, יש תריסר ארצות שילחמו, מתוכן שמונה ישלחו את הצבאות, לכן בדרך כלל מדברים על שמונה ארצות."
+  },
+  {
+    "start": 764.876,
+    "end": 792.575,
+    "text": "אתה אומר השושלת, אבל זה בעצם האוצרת. האוצרת, אבל אתה יודע, אמו של הקיסר, שולטת בשם הקיסר, הקיסר שבוי בידיה, זה סיפור מסובך שלא ניכנס אליו, הקיסר בעצמו שבוי בידי הדודה שלו, והדודה בת שבעים וקצת, כבר לא אישה צעירה במיוחד, שהיא לא כל כך מבינה מה לעשות, היא מהוססת והיא מאמינה, אולי, אולי, אולי יקרה נס, אולי פעם אחת יקרה נס."
+  },
+  {
+    "start": 792.575,
+    "end": 819.811,
+    "text": "ואולי אנחנו ננצח, ואולי משהו יקרה, וכאשר היא מכריזה מלחמה, רוב מוחלט של המושלים של הפרובינציות הסיניות לא מצטרפים אליה. למעשה, רק שלוש פרובינציות בצפון-מזרח סין נלחמות נגד כל מעצמות המערב. נגד כל מה שהיום אנחנו קוראים G7 פלוס רוסיה — זה היה ה-G8, כשברוסיה עוד הייתה חלק ממנו, זה בדיוק זה, רק שאוסטרו-הונגריה לא קיימת, ועכשיו קנדה ב-G8."
+  },
+  {
+    "start": 819.811,
+    "end": 842.195,
+    "text": "כל היתר זה אותן הארצות. אבל הם שולחות חילות משלוח קטנים, צריך לומר, הם שלא שולחות את כל הצבא. רוסיה, יפן, זה יותר מ-10,000, אבל תזכור שמה זה משנה כמה חילות משלוח. יש להם נשק חם. מכונות יריה, כל הנשק המודרני, הם קוצרים את הבוקסרים, מה זה את הבוקסרים, הם קוצרים את כל הסינים, כי אף אחד הרי לא יודע מי הוא בוקסר ומי הוא לא בוקסר."
+  },
+  {
+    "start": 842.195,
+    "end": 870.804,
+    "text": "הם קוצרים רבבות אנשים, והם עושים את המעשה הטבח הזה, שהאלה שבסופו של הדבר, אתה יודע, לכל אחד יש את הקרמה שלו. אז הקרמה המערב יקבל כעבור 14 שנה בתוכנית אחרת שלך. כן. עכשיו, אני רוצה לשאול אותך, הסינים מדברים על מאה שנות ההשפלה. מ-1839, מלחמת האופיום הראשונה, חברת הודו המזרחית מציפה את סין באופיום."
+  },
+  {
+    "start": 870.804,
+    "end": 890.977,
+    "text": "הקיסר הסיני מתנגד להתמכרות של האיכרים שלו לאופיום. כמובן, בריטניה באה ואומרת, מה זאת אומרת, סחר חופשי, ויבוא ויצוא, היה עליה לדעת. ובסוף המלחמה מספחים את הונג קונג, ופותחים שוב את סין לסחר האופיום. ויש את מרד טייפנג, ומלחמת האופיום השנייה, ויפן כובשת את פורמוזה, וכו וכו וכו."
+  },
+  {
+    "start": 890.977,
+    "end": 927.427,
+    "text": "מרד הבוקסרים הוא חלק מרכזי בזעם הסיני, בזיכרון הסיני של המערב, המערב בגדול, זה כולל גם את יפן, כמו שציינת בצדק, משפיל את סין 110 שנים מ-1839, עד שמאו עולה לשלטון ב-1949. כן, אתה צודק לחלוטין. אם כי צריך לזכור שההשפלה המיידית של ההשפלה הזאת, זה לא כל כך שנאה למערב, אלא שנאה אדירה לעוצרת ולשושלת, שהכניסה את סין למלחמה שאסור להיכנס."
+  },
+  {
+    "start": 927.427,
+    "end": 986.404,
+    "text": "כי מבחינה מוסרית מותר לך להיכנס לפעמים למלחמה, אבל מבחינה שכלית, תבונית, כמו שאמר אחד המושלים החשובים ביותר באותם הימים, ואחד המדינאים הפקידים של סין, לפעמים אתה נכנס למלחמה כשיש לך מעט סיכויים, אבל אסור להיכנס למלחמה כשאין לך שום סיכוי. והתוצאה, ההשפלה הנוראית, הפיצויים הבלתי נתפסים שהסינים היו צריכים לשלם למערב כתוצאה מהמלחמה הזאת, וכל המרכיבים השונים של ההשפלה ופגיעה בריבונות הסינית וכולי וכולי וכולי, כל זה מוביל לקודם כל להתפרצות של זעם כלפי השושלת, שהיא נראית כאחראית, וזה יוביל בסופו של הדבר, תוך עשר שנים בלבד, 11 שנה, לנפילה של הקיסרות בסין. אבל אתה צודק לגמרי שזה גם חלק מרכזי, נדבך מרכזי, באותה השפלה הלאומית, מאה שנים של השפלה, ממלחמות האופיום, דרך מלחמת הבוקסרים, וחלה בכיבוש היפני של מרבית מזרח סין, כעבור עוד כמה עשרות שנים."
+  },
+  {
+    "start": 986.404,
+    "end": 1049.841,
+    "text": "ואם אנחנו מסתכלים במבט של 123 שנים אחר כך, סין היום, שהיא סין שבוודאי היא מעצמה עולמית, אפשר להתווכח בשאלה, נעשה את הדיון הזה בהזדמנות אחרת, על הקשיים של סין, ובעיות דמוגרפיות וכולי, אבל סין כשהיא רואה את הדברים האלה, כשהיא באה למערב ואומרת, אתם מדברים על עלייתה של סין כאילו זה איזה משהו, כאילו זה נתון מגבוה, שהמערב צריך לשלוט, לא, אנחנו סין, אנחנו היינו המעצמה בעולם במשך מאות בשנים, אתם השפלתם אותנו, אנחנו עושים עכשיו אחוז אחד, פרומיל ממה שאתם עשיתם לנו. עד כמה זה נמצא שם בשיח הסיני היום? לא לגמרי, סין מאוד מאוד זהירה לא להשתמש בדיון הזה יותר מדי, מלבד במקרה של יפן, כי אז באמת גם ההיקף של הנזק, ההיקף של הרצחנות היפנית הייתה לאין שיעור יותר גדולה מרצחנות של כל המעצמות האחרות בסין."
+  },
+  {
+    "start": 1049.841,
+    "end": 1076.688,
+    "text": "אבל כלפי המערב זה סוג של הדברים שסינים מעדיפים לשכוח, כי אתה כל כך הושפלת, בסין אין את התפיסה הנוצרית שאם אתה קורבן אתה צודק, אם אתה קורבן זה כנראה שאתה בעצמך עשית משהו לא נכון, אז בסין לא אוהבים לדבר יותר מדי, בוודאי לא על מלחמת הבוקסרים, לא בדיוק מרד, ולא על מלחמות האופיום, אבל הם אוהבים להזכיר למערב את מה שמערב לא מבין פשוט."
+  },
+  {
+    "start": 1076.688,
+    "end": 1139.096,
+    "text": "סין לא עולה, סין חוזרת למצב הטבעי שלה, היא הייתה במשך כאלפיים שנה או נאמר אלף שמונה מאות שנה, היא הייתה הכלכלה המפותחת בתבל, נאמר מאה שבע עשרה, מאה שמונה עשרה, תלוי איך אתה סופר ואיך מחשבים את זה, אבל היא הייתה המדינה המפותחת המתקדמת, גם הטכנולוגית, גם הכלכלית, והיא חוזרת פשוט למצב תקין אחרי משבר נוראי, שהיה לא רק בגלל המערב, אלא בעיקר בגלל שסין עצמה לא יודע איך להתמודד עם הבעיות הפנימיות שלה, הדמוגרפיות של אז וכולי, והיא אומרת למערב זהו, אנחנו חזרנו, זה לא בדיוק איזושהי הפתעה גדולה, זה מצב נורמלי, והמערב יצטרך להתרגל, אני יודע שזו בעיה פסיכולוגית גדולה, בעיקר ברצות הברית כרגע, אבל לא נעים לי לומר אם יצטרכו להתרגל, שזהו, טבעו של העולם, שסין זו מעצמה. נכון, וההיסטוריה לעולם לעולם לא נגמרת, ולעולם גם לא נשכחת. תודה רבה לך על הדברים האלה, פרופסור יורי פינס."
+  }
+
+]
+
+
+
+
+// =========================================================
+const audio=document.getElementById('audio');
+
+// =========================================================
+// FORCE A CLEAN START ON ANDROID / MOBILE
+// Some mobile browsers can restore a previous media position.
+// Reset ONCE after metadata is available.
+// =========================================================
+let initialAudioResetDone = false;
+
+function resetAudioToBeginningOnce(){
+  if(initialAudioResetDone) return;
+  if(!Number.isFinite(audio.duration)) return;
+
+  initialAudioResetDone = true;
+  audio.pause();
+
+  try{
+    audio.currentTime = 0;
+  }catch(_){}
+
+  stopAt = null;
+}
+
+audio.addEventListener('loadedmetadata', resetAudioToBeginningOnce, {once:true});
+
+// Extra mobile safeguard: after returning/reloading the page,
+// do not allow a previously restored playback position before first use.
+window.addEventListener('pageshow', ()=>{
+  if(!initialAudioResetDone && audio.readyState >= 1){
+    resetAudioToBeginningOnce();
+  }
+});
+
+const list=document.getElementById('list');
+
+let karaokeIndex=-1;
+
+function karaokeWords(text){
+  return String(text||'').trim().split(/\s+/).filter(Boolean);
+}
+
+function showKaraoke(i,t){
+  const c=captions[i];
+  const row=list.querySelector(`.row[data-i="${i}"]`);
+  if(!c || !row || !Number.isFinite(c.start) || !Number.isFinite(c.end) || c.end<=c.start){
+    karaokeIndex=-1;
+    return;
+  }
+
+  const textEl=row.querySelector('.text');
+  if(!textEl)return;
+  const words=karaokeWords(c.text);
+  if(!words.length)return;
+
+  if(karaokeIndex!==i || !textEl.querySelector('.kword')){
+    // Restore any previous karaoke line to normal text.
+    list.querySelectorAll('.text[data-karaoke="1"]').forEach(el=>{
+      const oldIndex=Number(el.closest('.row')?.dataset.i);
+      if(Number.isFinite(oldIndex) && captions[oldIndex]){
+        el.textContent=captions[oldIndex].text || '';
+      }
+      el.removeAttribute('data-karaoke');
+    });
+
+    karaokeIndex=i;
+    textEl.setAttribute('data-karaoke','1');
+    textEl.innerHTML=words.map((w,n)=>
+      `<span class="kword" data-k="${n}">${escapeHtml(w)}</span>`
+    ).join(' ');
+
+
+  }
+
+  const start=captionStart(c), end=captionEnd(c);
+  const p=Math.max(0,Math.min(0.999,(t-start)/Math.max(.01,end-start)));
+  const active=Math.min(words.length-1,Math.floor(p*words.length));
+
+  textEl.querySelectorAll('.kword').forEach((el,n)=>{
+    el.classList.toggle('done',n<active);
+    el.classList.toggle('active',n===active);
+  });
+}
+
+function escapeHtml(v){
+  return String(v).replace(/[&<>"']/g,ch=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[ch]));
+}
+
+// =========================================================
+// PASTE YOUR OPENAI API KEY BETWEEN THE QUOTES BELOW:
+const OPENAI_API_KEY = "";
+// =========================================================
+const subjectImage=document.getElementById('subjectImage');
+const subjectImageName = document.getElementById('subjectImageName');
+let current=-1;
+let stopAt=null;
+
+function fmt(s){
+ const m=Math.floor(s/60),sec=Math.floor(s%60).toString().padStart(2,'0');
+ return m+':'+sec;
+}
+
+function setActive(i){
+ if(i===current)return;
+ current=i;
+ document.querySelectorAll('.row.active').forEach(x=>x.classList.remove('active'));
+ const row=document.querySelector(`.row[data-i="${i}"]`);
+ if(row){row.classList.add('active');}
+
+}
+
+
+function firstPlayableCaptionIndex(){
+ return captions.findIndex(c =>
+   Number.isFinite(c.start) && Number.isFinite(c.end) &&
+   c.end > c.start && String(c.text||'').trim()
+ );
+}
+
+function scrollLineUnderKaraoke(i){
+ const target=list.querySelector(`.row[data-i="${i}"]`);
+ if(!target)return;
+
+ // Exact position inside the scrollable list.
+ // Use instant scrolling so the line starts at the top immediately.
+ list.scrollTop = target.offsetTop - list.offsetTop;
+}
+
+const nounMap = {
+  "יצחק נוי": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNPLENbzdP7XgbZvUyomFiDtthEQyHmW3NeEz1z0-rqw&s" },
+  "קזבלנקה": { image:"https://m.media-amazon.com/images/I/81mgBpdHcNL._SX342_.jpg" },
+
+
+  "מתנצרים": { image: "https://www.catecismo.com.ar/sermonesdurante26/26_88B/Matteo_Ricci.jpg" },
+
+  "אפריקאים": { image: "https://i.ytimg.com/vi/9teZe1jB7kA/sddefault.jpg" },
+
+  " התותחים": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6yYhw-u7-SYTX3oKO9UXNdwu9jyIMBSv2pYWif79Nfw&s=10" },
+
+  "הגנרל הסיני": { image: "https://www.thoughtco.com/thmb/ZUXe3lyjK9x_Llz5gehZqdTq5GE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/3325366-56a48d595f9b58b7d0d78240.jpg" },
+
+  "ינצחו את המערב": { image: "https://www.super-hobby.rs/zdjecia/3/1/1/51262_zrzut-ekranu-2023-01-5-o-10-30-54.png" },
+
+
+  "12": { image: "https://m.media-amazon.com/images/I/71+C1ZqgAEL.jpg" },
+
+
+  "20": { image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1lYxl6VYSmuw1vXdviHgz0TZW987SAg9q72uFENADdtKQMYlXOgblBSnkgX3-vJJOobkgCGgxcBSrSZBqxmKnRymL2wQOrXVPjfFkgKZvABtP_AyEUI9m2WLUhQWRvIpV-k2K2plytivz/s1600/boxer-rebellion-hero-AB.jpeg" },
+
+
+  "אקסטריטוריאלי": { image: "https://www.cambridge.org/core/blog/wp-content/uploads/2019/04/shutterstock_687065524-min-1240x660.jpg" },
+
+
+  "זכויות": { image: "https://cdn.britannica.com/61/204661-050-246797BD/photograph-miners-gold-Chinese-California-Auburn-Ravine-1852.jpg" },
+
+
+  "מומרים": { image: "https://miro.medium.com/1*Y6lZiaPHff4qCAuLJeywfA.png" },
+
+  "חסות": { image: "https://static.cambridge.org/binary/version/id/urn:cambridge.org:id:binary-alt:20200212174625-58554-mediumThumb-15156fig2_4.jpg?pub-status=live" },
+
+
+  "השנאה": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZdGiCahWmS3nn6HYlygu65TLza_PSSXcTkCD9ZGgmyw&s" },
+
+
+  "שמונה": { image: "https://scontent.ftlv27-1.fna.fbcdn.net/v/t39.30808-6/645745731_26278256921786554_6258338306203542270_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x662&ctp=p843x403&_nc_cat=104&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=PfdgQQn-JqYQ7kNvwFVWq3i&_nc_oc=Ado_hUbpE-ac0FJieLvRoBlC2NmQN4AiMCSpiSn0OM6u0tUdCj7agYfT7XwQvXn_lhg&_nc_zt=23&_nc_ht=scontent.ftlv27-1.fna&_nc_gid=NO76UPLtp5JlRVx5Jy4CGQ&_nc_ss=7a2a8&oh=00_AQH1ONS65b9yy4PqBPeySkCuTKmC_4-rwAqyaDQRAgc5_A&oe=6A860348" },
+
+
+
+  "שבעים": { image: "https://i.natgeofe.com/n/7758a4b3-4c7e-40b1-be97-380c85e630f0/empress-cixi-portrait.jpg" },
+  "מהוססת": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMfl2lWGCsYKeqoGS2lxUIudmrdtGBGa5lVmng33rBLdjSqKcgQha8lBk&s=10" },
+
+  "G8": { image: "https://i.redd.it/soldiers-from-the-alliance-of-the-8-nations-to-stop-the-v0-ce6qk8atghjd1.jpg?width=1149&format=pjpg&auto=webp&s=648eb928b119015014ce8410702d4e968a43e9e5" },
+
+
+  "סין 110": { image: "https://timemaps.com/wp-content/uploads/2018/09/China1900.png" },
+
+
+  "מאו עולה לשלטון": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCBJZO9Q5MVOnmsS8r28eJrEH06UDoS69InRU5jpwRM_ggUDseGjgpkAE&s=10" },
+
+
+  "פיצויים": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoBVVMsVMF5I9I2vV013YYU42izNgOu-LzmQp1oYmBXX6cUIwveT-HP9U9&s=10" },
+
+  "זעם": { image: "https://warhistory.org/media/2024/12/a005038.jpg" },
+
+
+  "מעצמה": { image: "https://ynet-pic1.yit.co.il/cdn-cgi/image/f=auto,w=740,q=75/picserver5/crop_images/2022/08/02/SynQJFUaq/SynQJFUaq_0_0_1865_1047_0_x-large.jpg" },
+
+
+  "רצחנות": { image: "https://i.ebayimg.com/images/g/Wg0AAOSwjPJm~rf0/s-l1200.jpg" },
+
+  "לא מבין": { image: "https://media.mehrnews.com/d/2023/03/12/4/4462067.jpg?ts=1678636534594" },
+
+  "המערב יצטרך להתרגל": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcurAT3IXLkdI5aHOXjpvMfiZ4FgBhNPPFNrRpmhKHeg&s=10" },
+
+
+
+
+  "תורת היחסות": { image: "https://cdn.ibpbooks.com/images/sdf/relativity-the-special-general-theo.jpg" },
+  "איינשטיין": {  image: "https://play-lh.googleusercontent.com/G8Gbkobu-lV8wDo-TPqhiUXP4Mey_jQCfUOBai5pKYNjmbzUKxIIf9TYHfrkMTHTCcW8QPJVzFlF2WJSFeEsBQ" },
+  "קוביזם": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLRJJ3c1LDZMlIwZxrPQkN7__ch9tCqfTvT3bVk0oVVpe2TxB27eNpH4o&s=10" },
+  "מלחמת העולם הראשונה": { image: "https://i.ytimg.com/vi/-GsolnXOiBg/maxresdefault.jpg" },
+  "אירופה": {  image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Europe-map-1900_mapa-de-europa-1910.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" },
+  "ארצות הברית": {image: "https://media.sciencephoto.com/c0/42/34/38/c0423438-800px-wm.jpg" },
+  "ארץ ישראל": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAd1Gq3N9dZHHsxHkS7-eRaPsZ5qpUuz1dgYSwa4e60DpnJ46eC77671c&s=10" },
+  "ירושלים": {  image: "https://m.media-amazon.com/images/I/91wESsODflL._AC_UF1000,1000_QL80_.jpg" },
+  "בריטניה": {  image: "https://i.ytimg.com/vi/ZN3vih36hzI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC0JEVroA4assxb2tIiCnfDsqa2oA" },
+  "בלגיה": {  image: "https://monovisions.com/wp-content/uploads/2017/10/vintage-everyday-life-in-belgium-1900s-13.jpg" },
+  "קונגו": {  image: "https://m.media-amazon.com/images/I/81W9E1Qxw0L._AC_UF1000,1000_QL80_.jpg" },
+  "הולנד": {  image: "https://pbs.twimg.com/media/DXDIW2TWsAcB042.jpg" },
+  "אינדונזיה": {  image: "https://cdn.britannica.com/47/241547-050-586FE7E2/Locator-map-Dutch-East-Indies.jpg" },
+  "צרפת": {image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUs5Avmzr8zOibw3kJAHXm0PPVaem5_coSr-rvZr3LI2J8laSYj6TPoj21QXEsFU3qQVVb7xMLhWevk8MdZ65dVEFg1O6lonzo9xhUxOpU3IzFvOPJ3r_aozNqE4e5FOm4YZftm6W2Rl8/s1600/Tour_Eiffel_1888.jpg" },
+  "הודו-סין": {  image: "https://upload.wikimedia.org/wikipedia/commons/4/40/Indochine_fran%C3%A7aise_%281913%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" },
+  "המגרב": {  image: "https://pictures.abebooks.com/inventory/31523492420.jpg" },
+  "רוסיה": { image: "https://preview.redd.it/the-russian-empire-and-its-sphere-in-1900-what-if-russia-v0-7s5ajar233751.png?auto=webp&s=910cbd59f94ca641ce40250b9fb0dca8c2f4b073" },
+  "איטליה": { image: "https://lifeinitaly.com/wp-content/uploads/2018/08/06560v.jpg" },
+  "אירלנד": {  image: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/royal-avenue-belfast-ireland-circa-1900-photochrom-war-is-hell-store.jpg" },
+  "פולין": {image: "https://external-preview.redd.it/warsaw-at-the-end-of-19th-century-circa-1890-1900-v0-vk1BYk9nM_lRULF5K_PSt7VoKtlc3I0vyT8tfQLhk2s.jpg?width=640&crop=smart&auto=webp&s=6561dfa18bbbdfce94bb4f5298a87e3c1e9b1ad9" },
+  "מרד הבוקסרים": {  image: "https://cdn.britannica.com/85/131385-050-66843A8E/Christians-China-Boxer-Rebellion.jpg" },
+  "הפרופ' יורי פינס": {image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRABdYuStduF9GVW8A53uy30M4jT7bJUV3NGhatBzJQVmC1JKhiX2YzVAX&s=10" },
+  "מיסיונרים": { query: "Christian missionaries China 1900", image: "" },
+
+  "מנצ'ורית": { image: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Manchuria.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" },
+  "הנרי לוס": {  image: "https://cdn.britannica.com/25/135025-050-650D2A4F/Henry-R-Luce-Clare-Boothe-1954.jpg" },
+  "טיים": {  image: "https://content.time.com/time/magazine/archive/covers/1924/1101240804_400.jpg" },
+  "לייף": { image: "https://i.pinimg.com/736x/09/11/98/091198c242fcebe3988b2159e7d8d848.jpg" },
+  "פרל בק": {  image: "https://www.tsemrinpoche.com/wp-content/uploads/2019/09/PearlGal04.jpg" },
+  "האדמה הטובה": {  image: "https://m.media-amazon.com/images/I/71FiYTG5TNL._AC_UF1000,1000_QL80_.jpg" },
+  "שנדונג": {  image: "https://cassette.sphdigital.com.sg/image/thinkchina/cf5be750b12f1139ebc003084d3ac237d81e3649a19479950bd08eb6907073f6?w=960&q=80&dpr=2&f=webp" },
+  "קונג פו": {  image: "https://chinesemartialstudies.com/wp-content/uploads/2013/08/michel-de-maynard-local-militia-shandong-1906-1912-by-michel-de-maynard-small-watermark.jpg" },
+  "ברוס לי": { image: "https://cdn.britannica.com/18/66018-050-AA222E0F/Bruce-Lee-scene-Enter-the-Dragon-1973.jpg" },
+  "בייג'ין": {  image: "https://www.meisterdrucke.es/kunstwerke/1260px/Unbekannt_-_The_Boxer_Rebellion_Early_20th_century_-_%28MeisterDrucke-713752%29.jpg" },
+  "פקין": {  image: "https://collection.nam.ac.uk/images/960/91000-91999/91702.jpg" },
+  "יפן": { image: "https://visual-history.de/wp-content/uploads/2022/02/Frank_Japan-1900_Fuji-Pilger.jpg" },
+  "Nature": {  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhVXov9aT3wXmi7xrhwqnefbm3DCvvySx7sUtg2vNul5b9rPm-Xpc_-c0&s=10" },
+  "אימפריאליזם": { image: "https://upload.wikimedia.org/wikipedia/commons/3/32/China_imperialism_cartoon.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" },
+  "קווי הטלגרף": { image: "https://media.licdn.com/dms/image/v2/C4D12AQFl_z8gWzG2_g/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1637557200445?e=2147483647&v=beta&t=EUsE-nxGWl27NkibyA91jh-U_XQbPgM1ZwOJXY_QimI" },
+  "מסילת הברזל": { image: "https://www.chinasage.info/imgs/CantonSteamTrain.jpg" },
+  "סיימור": {  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDtq5c6gFXhvvcuSy8A8oaitbahkLneJmQvavaoZrBexeiKDLAHfVDeoQ&s=10" },
+  "וילהלם": {  image: "https://static.wikia.nocookie.net/kaiserreich/images/e/e2/WilhelmK%C3%B6nigVonPreu%C3%9Fen.jpeg/revision/latest?cb=20200606113141" },
+  "אוסטרו-הונגריה": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlm0ZFPizTee1FwiVrm74H93OdjDTy1mXT__04ghsa8xXLpp9vNZyFOG-I&s=10" },
+  "מאה שנות ההשפלה": { image: "https://m.media-amazon.com/images/I/81XVBY930GL._AC_UF1000,1000_QL80_.jpg" },
+  "מלחמת האופיום הראשונה": {  image: "https://i.ytimg.com/vi/UmKR2SnvSno/maxresdefault.jpg" },
+  "חברת הודו המזרחית": { image: "https://m.media-amazon.com/images/I/71FpvIU8fsL._AC_UF1000,1000_QL80_.jpg" },
+  
+  "הונג קונג": {  image: "https://romanceofthegrandtour.com/wp-content/uploads/2015/06/hong-kong-central.jpg" },
+  "מרד טייפנג": {  image: "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale,dpr_1.5/jackets/9781855323469.jpg" },
+  "מלחמת האופיום השנייה": { image: "https://i.ytimg.com/vi/BVGXr2KCwek/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAbCPCM_1SOASo-kBcscuSgcSHQ5g" },
+  "פורמוזה": { image: "https://c8.alamy.com/comp/HM2KHW/this-historical-map-of-formosa-taiwan-was-created-by-prof-dr-a-kirchhoff-HM2KHW.jpg" },
+"חצר הקיסרית": { image: "https://asia-archive.si.edu/wp-content/uploads/2020/06/FSA_A.13_SC-GR-249.jpg" },
+"מתיא הראשון": { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9bhaFf7nA9egL3xajvXy-Ef2jAxpd_M52D2qv-370m_LtggfBdpJ8_6k&s=10" },
+
+  "ניו אורלינס": { query: "New Orleans 1900", image: "" },
+  "ג'אז": { query: "early jazz New Orleans", image: "" },
+  "מיסיסיפי": { query: "Mississippi Delta", image: "" },
+  "סווינג": { query: "swing jazz", image: "" },
+  "בלוז": { query: "blues music", image: "" },
+  "ביבופ": { query: "bebop jazz", image: "" },
+  "רוקנרול": { query: "rock and roll", image: "" },
+  "היפ-הופ": { query: "hip hop", image: "" },
+  "ראפ": { query: "rap music", image: "" },
+  "דוד הילברט": { query: "David Hilbert mathematician", image: "" },
+ 
+  "23 בעיות": { query: "Hilbert 23 problems", image: "" },
+  "מכון דוידסון לחינוך מדעי": { query: "Davidson Institute of Science Education", image: "" },
+  "אמי נטר": { query: "Emmy Noether", image: "" },
+  "אלברט איינשטיין": { query: "Albert Einstein", image: "" },
+  "גטינגן": { query: "University of Gottingen mathematics", image: "" },
+  "גאוס": { query: "Carl Friedrich Gauss", image: "" },
+  "פליקס קליין": { query: "Felix Klein mathematician", image: "" },
+  "נאש": { query: "John Nash mathematician", image: "" },
+  "פרלמן": { query: "Grigori Perelman", image: "" },
+  "השערת פואנקרי": { query: "Poincare conjecture", image: "" },
+  "פול ארדש": { query: "Paul Erdos", image: "" },
+
+  "אקסיומות": { query: "mathematical axioms", image: "" },
+  "המשפט האחרון של פרמה": { query: "Fermat's Last Theorem", image: "" },
+  "פרמה": { query: "Pierre de Fermat", image: "" },
+  "תורת המספרים": { query: "number theory", image: "" },
+  "עולם המחשבים": { query: "computer science", image: "" },
+  "הצפנה": { query: "cryptography", image: "" },
+  "זיו ולמפל": { query: "Lempel Ziv algorithm", image: "" },
+
+
+  "חוקי השימור": { query: "conservation laws physics", image: "" },
+  "יובל נאמן": { query: "Yuval Neeman", image: "" },
+  "טיורינג": { query: "Alan Turing", image: "" },
+
+
+  "פרויד": { query: "Sigmund Freud", image: "" },
+
+  "הפסיכואנליזה": { query: "psychoanalysis", image: "" },
+  "ערן רולניק": { query: "Eran Rolnik psychoanalyst", image: "" },
+  "וינה": { query: "Vienna 1900", image: "" },
+  "ניו יורק": { query: "New York 1900", image: "" },
+  "הציונות": { query: "Zionism 1900", image: "" },
+  "סוציאליזם": { query: "socialism 1900", image: "" },
+  "האקספרסיוניזם": { query: "Expressionism art", image: "" },
+  "פסיכולוגיה": { query: "psychology", image: "" },
+  "לונדון": { query: "London Freud", image: "" },
+  "הנאצים": { query: "Nazi Germany", image: "" },
+  "מציאות נפשית": { query: "psychic reality psychoanalysis", image: "" },
+
+  "פרנק באום": { query: "L Frank Baum", image: "" },
+
+  "הקוסם מארץ עוץ": { query: "The Wonderful Wizard of Oz", image: "" },
+
+  "ג'ודי גרלנד": { query: "Judy Garland Wizard of Oz", image: "" },
+  "מעבר לקשת בענן": { query: "Over the Rainbow Judy Garland", image: "" },
+  "קנזס": { query: "Kansas Wizard of Oz", image: "" },
+  "דורותי": { query: "Dorothy Wizard of Oz", image: "" },
+  "האריה הפחדן": { query: "Cowardly Lion Wizard of Oz", image: "" },
+   "איש הפח": { query: "Tin Man Wizard of Oz", image: "" },
+
+  "נרניה": { query: "Narnia", image: "" },
+  "גונדור": { query: "Gondor Lord of the Rings", image: "" },
+  "הוגוורס": { query: "Hogwarts Harry Potter", image: "" },
+  "הרי פוטר": { query: "Harry Potter", image: "" },
+  "ג'ול וורן": { query: "Jules Verne", image: "" },
+  "דימה": { query: "Alexandre Dumas", image: "" },
+  "מסעות גוליבר": { query: "Gulliver's Travels", image: "" },
+  "רובינזון קרוזו": { query: "Robinson Crusoe", image: "" },
+  "האחים גרים": { query: "Brothers Grimm", image: "" },
+  "יהושע הפרוע": { query: "Struwwelpeter", image: "" },
+  "מלחמת העולם השנייה": { query: "World War II", image: "" },
+  "הוליווד": { query: "Hollywood 1939", image: "" },
+  "חלף עם הרוח": { query: "Gone with the Wind 1939", image: "" },
+  "נינוצ'קה": { query: "Ninotchka 1939", image: "" },
+
+  "המכשפה הרעה מהמערב": { query: "Wicked Witch of the West", image: "" },
+  "דרך הלבנים הצהובות": { query: "Yellow Brick Road Wizard of Oz", image: "" },
+  "אלטון ג'ון": { query: "Elton John", image: "" },
+  "תרבות הגיקים": { query: "geek culture", image: "" }
+};
+
+
+function nounQuery(subject){
+  const item = nounMap[subject];
+  return (item && typeof item === "object") ? item.query : item;
+}
+
+function nounImage(subject){
+  const item = nounMap[subject];
+  return (item && typeof item === "object") ? (item.image || "") : "";
+}
+
+// ===== SUBJECT IMAGE AT BOTTOM =====
+let subjectSlideTimer = null;
+let subjectSlideItems = [];
+let subjectSlideIndex = 0;
+
+function subjectImageList(subject){
+  const raw = nounImage(subject);
+  if(Array.isArray(raw)) return raw.filter(Boolean);
+  return raw ? [raw] : [];
+}
+
+function subjectsInTextInOrder(text){
+  return Object.keys(nounMap)
+    .map(subject => ({subject, pos: text.indexOf(subject)}))
+    .filter(x => x.pos >= 0)
+    .sort((a,b) => a.pos - b.pos || b.subject.length - a.subject.length)
+    .map(x => x.subject);
+}
+
+function stopSubjectSlideshow(){
+  if(subjectSlideTimer){ clearInterval(subjectSlideTimer); subjectSlideTimer = null; }
+}
+
+function renderSubjectSlide(){
+  if(!subjectSlideItems.length || !subjectImage) return;
+  const slide = subjectSlideItems[subjectSlideIndex % subjectSlideItems.length];
+  subjectImage.src = slide.url;
+  subjectImage.alt = slide.subject;
+  if(subjectImageName) subjectImageName.textContent = slide.subject;
+  subjectImage.style.display = 'block';
+}
+
+function startSubjectSlideshowForText(text){
+  stopSubjectSlideshow();
+  subjectSlideItems = [];
+  subjectSlideIndex = 0;
+  for(const subject of subjectsInTextInOrder(String(text || ''))){
+    for(const url of subjectImageList(subject)) subjectSlideItems.push({subject, url});
+  }
+  if(!subjectSlideItems.length) return;
+  renderSubjectSlide();
+  subjectSlideTimer = setInterval(() => {
+    subjectSlideIndex = (subjectSlideIndex + 1) % subjectSlideItems.length;
+    renderSubjectSlide();
+  }, 5000);
+}
+
+function showSubjectMedia(subject){
+  const imageUrl = nounImage(subject);
+  if(!subjectImage || !imageUrl) return;
+  stopSubjectSlideshow();
+  subjectImage.src = Array.isArray(imageUrl) ? imageUrl[0] : imageUrl;
+  subjectImage.alt = subject;
+  if(subjectImageName) subjectImageName.textContent = subject;
+  subjectImage.style.display = 'block';
+}
+
+function escapeRegExp(text){
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+
+const shownSubjects = new Set();
+
+function makeNounLinks(text, container){
+  container.innerHTML = "";
+
+  const subjects = Object.keys(nounMap)
+    .filter(word => text.includes(word))
+    .sort((a,b) => b.length - a.length);
+
+  if(!subjects.length){
+    container.textContent = text;
+    return;
+  }
+
+  const pattern = new RegExp(
+    "(" + subjects.map(escapeRegExp).join("|") + ")",
+    "g"
+  );
+
+  const parts = text.split(pattern);
+
+  parts.forEach(part => {
+    if(nounMap[part]){
+      const key = part.trim().toLowerCase();
+
+      if(shownSubjects.has(key)){
+        // This subject already appeared earlier somewhere in the full text:
+        // keep later occurrences as normal text.
+        container.appendChild(document.createTextNode(part));
+      } else {
+        // First occurrence in the whole document:
+        // make it blue and clickable.
+        shownSubjects.add(key);
+
+        const link = document.createElement("a");
+        link.textContent = part;
+        link.href = "#";
+        link.className = "noun-link";
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          e.stopPropagation();
+          showSubjectMedia(part);
+        });
+        container.appendChild(link);
+      }
+    } else {
+      container.appendChild(document.createTextNode(part));
+    }
+  });
+}
+
+
+// =========================================================
+// AUDIO / CAPTION SYNC
+// No Android offset. Captions use the REAL audio.currentTime.
+// =========================================================
+let activeLineEnd = null;
+let playAllMode = false;
+
+function captionClockTime(){
+  return audio.currentTime;
+}
+
+function closeAllGPT(){
+  document.querySelectorAll('.facts.show,.chatbar.show,.chatanswer.show').forEach(el=>{
+    el.classList.remove('show');
+  });
+}
+
+
+
+
+// =========================================================
+// ANDROID +9 SECOND TIMETAG FIX
+// Android: start/end +9 seconds. Windows: original times.
+// =========================================================
+const ANDROID_TIMETAG_SHIFT = -1;
+
+function isAndroid(){
+  return /Android/i.test(navigator.userAgent);
+}
+function captionStart(c){
+  return c.start + (isAndroid() ? ANDROID_TIMETAG_SHIFT : -19);
+}
+function captionEnd(c){
+  return c.end + (isAndroid() ? ANDROID_TIMETAG_SHIFT : -19);
+}
+
+
+audio.addEventListener('timeupdate', () => {
+  if (
+    !playAllMode &&
+    activeLineEnd !== null &&
+    !audio.paused &&
+    audio.currentTime >= activeLineEnd
+  ) {
+    const endPoint = activeLineEnd;
+    activeLineEnd = null;
+    audio.pause();
+    try { audio.currentTime = endPoint; } catch (_) {}
+  }
+});
+
+
+
+
+const playAllBtn = document.getElementById('playAllBtn');
+if (playAllBtn) {
+  playAllBtn.addEventListener('click', () => {
+    playAllMode = true;
+    activeLineEnd = null;
+    audio.muted = false;
+
+    // Start from the current player position; if already at the end, restart.
+    if (Number.isFinite(audio.duration) && audio.currentTime >= audio.duration - 0.25) {
+      audio.currentTime = 0;
+    }
+    audio.play();
+  });
+}
+
+// ============================================================
+//               PASTE YOUR IMAGE URLS HERE
+// ============================================================
+IMAGE_AFTER_3 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRp8SjkUQGIgKA6C9SPH6ikXKhNiDjTwOE93Ogv1vlmR8hYdb5GuS7JVE&s=10";
+
+
+// ============================================================
+
+
+// ============================================================
+//              PASTE YOUR IMAGE URLS HERE
+// Add as many images as you want.
+// "after" = paragraph number after which the image will appear.
+//
+// Example:
+// { after: 25, url: "https://example.com/picture.jpg" },
+// ============================================================
+const TEXT_IMAGES = [
+
+
+  { after: 1,  url: "https://www.kan.org.il/media/de3ft2fg/%D7%AA%D7%9E%D7%95%D7%A0%D7%AA-%D7%A9%D7%99%D7%AA%D7%95%D7%A3.png?rmode=pad&width=1200&height=630" },
+
+
+
+
+
+  { after: 6,  url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRp8SjkUQGIgKA6C9SPH6ikXKhNiDjTwOE93Ogv1vlmR8hYdb5GuS7JVE&s=10" },
+
+  { after: 11,  url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsmR7kYQ5u_l1kdpKIPZkfqEJxW2IJeIUFZBTMdYalSX1UeDgXfe2z1w6d&s=10" },
+
+  { after: 14, url: "https://armedforces.press/wp-content/uploads/2024/12/w-3.jpg" },
+
+
+  { after: 19, url: "https://cdn.britannica.com/46/160546-050-00ECD73D/forces-soldiers-Boxer-China-Beijing-Imperial-Palace-1900.jpg?w=300" },
+
+
+  { after: 24, url: "https://i.ucanews.com/ucanews/uploads/2018/11/5c00dad5077de_600.png" },
+
+  // ADD MORE BELOW:
+  // { after: 25, url: "PASTE IMAGE URL HERE" },
+  // { after: 30, url: "PASTE IMAGE URL HERE" },
+
+
+
+
+
+  { after: 9, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7cgdJIYKWK9Or0oLqHrnVf679sAdaswIUxeWzlTy01w&s=10" },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+];
+// ============================================================
+
+
+
+// ============================================================
+//             EXTRA TEXTS - ADD AS MANY AS YOU WANT
+// "after" = line/paragraph number after which the text appears.
+// Edit the text between the backticks ` ... `.
+// ============================================================
+const EXTRA_TEXTS = [
+  {
+    after: 1,
+    text: `
+אורן נהרי היה  עיתונאי, עורך, פרשן ומגיש ישראלי, המזוהה במיוחד עם תחומי חדשות החוץ, היסטוריה ויחסים בינלאומיים. במשך שנים רבות פעל בשידור הציבורי, ובין היתר שימש עורך חדשות החוץ והגיש תוכניות שעסקו באירועים עולמיים ובהיסטוריה.
+
+ייחודו הוא ביכולת לחבר בין אירוע חדשותי לבין הרקע ההיסטורי שלו. כשהוא מסביר מלחמה, מהפכה או משבר בינלאומי, הוא נוטה לחזור אל התהליכים שקדמו להם — אימפריות, מאבקים לאומיים, דת, כלכלה ומאבקי כוח — וכך להציג את האירוע כחלק מתהליך רחב יותר.
+
+נהרי היה מוכר גם בזכות ידע כללי רחב מאוד. הוא השתתף וזכה בשעשועון הידע מקבילית המוחות , ובהמשך היה מזוהה עם תוכניות ופרויקטים העוסקים בידע, תרבות והיסטוריה.
+
+אפשר לתמצת את דמותו כך: אורן נהרי הוא מספר־הסיפור של ההיסטוריה והחדשות העולמיות. עיתונאי שמנסה להסביר לא רק מה קרה, אלא מדוע קרה ומה קדם לכך.
+
+אורן ראה כמשימת חייו הענקת כישוריו לכלל. מציטוטיו: "רצוי גם שנזכור שהעולם הוא לא המעגל הקטן שלנו."
+
+ת.נ.צ.ב.ה
+`
+  },
+
+  {
+    after: 28,
+    text: `סיכום AI
+
+מרד הבוקסרים היה הרבה יותר מהתפרצות אלימה מקומית. הוא צמח מתוך תחושת השפלה עמוקה בסין של סוף המאה ה־19: מעצמות זרות חדרו למדינה, קיבלו זכויות מסחר מיוחדות, שלטו בנמלים ובאזורים שונים, ומיסיונרים נוצרים נהנו מהגנה זרה. בעיני סינים רבים נדמה היה שמדינתם העצומה והעתיקה הולכת ומאבדת את ריבונותה.
+
+הבוקסרים היו תנועה עממית, בעיקר של צעירים מן הכפרים בצפון סין. הם התנגדו לזרים, למיסיונרים ולסינים שהתנצרו. שמם המערבי, "בוקסרים", נבע מאימוני הלחימה והתרגילים הגופניים שקיימו. הם שילבו לאומנות, מסורות עממיות ואמונה שכוחות רוחניים מגינים עליהם.
+
+המצב נעשה מסוכן במיוחד כאשר חלקים בחצר הקיסרית החליטו לנצל את התנועה נגד המעצמות. הקיסרית האלמנה צה־שי תמכה לבסוף במאבק, וסין הכריזה מלחמה על המעצמות הזרות. בבייג'ינג הוטל מצור על רובע הנציגויות הזרות, והמשבר הפך מעימות פנימי למלחמה בינלאומית.
+
+בתגובה התארגנה ברית של שמונה מעצמות — ובהן יפן, רוסיה, בריטניה, צרפת, גרמניה וארצות הברית. כוח בינלאומי התקדם לעבר בייג'ינג, הביס את הבוקסרים ואת הכוחות הסיניים שתמכו בהם וכבש את הבירה. בעקבות הכיבוש התרחשו מעשי נקם, ביזה והרג.
+
+לאחר התבוסה נאלצה סין לקבל תנאים משפילים ולשלם פיצויים עצומים. מרד הבוקסרים המחיש עד כמה שושלת צ'ינג חלשה מול המעצמות המודרניות. במקום להציל את הקיסרות, המרד האיץ את אובדן האמון בשלטון. כעבור כעשור, במהפכת 1911, נפלה השושלת והקיסרות הסינית בת אלפי השנים הגיעה לקצה.
+`
+  },
+
+
+
+
+  // ADD MORE TEXT BLOCKS BELOW. Example:
+  // {
+  //   after: 35,
+  //   text: `PASTE YOUR HEBREW TEXT HERE`
+  // },
+];
+// ============================================================
+
+function insertExtraTexts(paragraphNumber){
+  EXTRA_TEXTS
+    .filter(item => item.after === paragraphNumber)
+    .forEach(item => {
+      const box = document.createElement("div");
+      box.className = "boxer-summary";
+      box.textContent = item.text.trim();
+      list.appendChild(box);
+    });
+}
+
+function insertTextImage(url, paragraphNumber){
+  if (!url || url === "PASTE IMAGE URL HERE") return;
+
+  const box = document.createElement("div");
+  box.className = "image-slot";
+  box.innerHTML = `
+    <img src="${url}" alt="Image after paragraph ${paragraphNumber}">
+  `;
+  list.appendChild(box);
+}
+
+captions.forEach((c,i)=>{
+ const row=document.createElement('div');
+ row.className='row' + (i < 2 ? ' no-buttons' : '');
+ row.dataset.i=i;
+ const main=document.createElement('div');
+ main.className='mainline';
+
+ const t=document.createElement('div');
+ t.className='time';
+ t.textContent=fmt(c.start);
+
+ const tx=document.createElement('div');
+ tx.className='text';
+ makeNounLinks(c.text,tx);
+
+ // Special program title
+ if ((c.text || '').replace(/\s+/g,' ').trim().includes('שנה בשעה - אורן נהרי - פרק 1 - שנה: 1900')) {
+   tx.classList.add('special-title-line');
+ }
+
+ tx.title='';
+
+ const controls=document.createElement('div');
+ controls.className='line-controls';
+
+ const read=document.createElement('button');
+ read.className='read';
+ read.textContent='READ';
+ read.title='Play the audio from this line';
+ read.addEventListener('click',e=>{
+   e.stopPropagation();
+   closeAllGPT();
+   stopAt=null;
+   audio.muted=false;
+
+   audio.currentTime=captionStart(c);
+   playAllMode = false;
+   const effectiveEnd = captionEnd(c);
+   activeLineEnd = (Number.isFinite(effectiveEnd) && effectiveEnd > 0) ? effectiveEnd : null;
+   audio.play();
+   setActive(i);
+
+   // On READ: cycle through ALL subjects found in this chosen text.
+   // Each subject image stays 5 seconds, then the list loops.
+   startSubjectSlideshowForText(c.text);
+
+   // Scroll to top ONLY when READ is clicked.
+   requestAnimationFrame(()=>{
+     scrollLineUnderKaraoke(i);
+     showKaraoke(i, audio.currentTime);
+   });
+ });
+
+
+ const stop=document.createElement('button');
+ stop.className='stop';
+ stop.textContent='STOP';
+ stop.title='Stop the audio';
+ stop.addEventListener('click',e=>{
+   e.stopPropagation();
+   closeAllGPT();
+   stopAt=null;
+   activeLineEnd = null;
+   playAllMode = false;
+   audio.pause();
+   stopSubjectSlideshow();
+ });
+
+ controls.append(read,stop);
+
+ const gpt=document.createElement('b');
+
+ gpt.addEventListener('click',async e=>{
+   e.stopPropagation();
+   const facts=row.querySelector('.facts');
+   if(facts.dataset.loaded==='1'){facts.classList.toggle('show');return}
+   const key=OPENAI_API_KEY.trim();
+   if(!key || key==='PASTE_YOUR_GPT_KEY_HERE'){facts.textContent='Paste your OpenAI API key in OPENAI_API_KEY inside the HTML code.';facts.classList.add('show');return}
+   gpt.disabled=true;gpt.textContent='...';
+   facts.textContent='מחפש עובדות קשורות...';facts.classList.add('show');
+   const from=Math.max(0,i-5),to=Math.min(captions.length,i+6);
+   const context=captions.slice(from,to).map(x=>x.text).join(' ');
+   const prompt=`אתה עוזר לימודי בנושא "The Year 1900".
+קרא את השורה המסומנת יחד עם 5 שורות לפניה ו-5 שורות אחריה.
+1. זהה את הנושא המרכזי המדויק של הקטע. את הערך subject החזר באנגלית בלבד, בניסוח קצר וברור באנגלית.
+2. תן 3 עד 5 עובדות קצרות, מעניינות ומדויקות שמקשרות את הנושא לשנת 1900.
+3. אם האירוע עצמו קרה לפני או אחרי 1900, הסבר בקצרה מה הקשר שלו לשנת 1900 או לתקופה שסביבה.
+4. החזר תשובה בפורמט JSON בלבד, כך:
+
+
+
+
+{"subject":"A short, specific subject IN ENGLISH","facts":"טקסט העובדות בעברית"}
+
+הקשר: ${context}
+
+השורה: ${c.text}`;
+   try{
+     const r=await fetch('https://api.openai.com/v1/responses',{
+       method:'POST',
+       headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+       body:JSON.stringify({model:'gpt-5-mini',input:prompt})
+     });
+     const data=await r.json();
+     if(!r.ok) throw new Error(data?.error?.message||('HTTP '+r.status));
+     let out=data.output_text||'';
+     if(!out && Array.isArray(data.output)){
+       for(const item of data.output){
+         if(Array.isArray(item.content)){
+           for(const part of item.content){
+             if(part.type==='output_text' && part.text) out+=part.text;
+           }
+         }
+       }
+     }
+     let subject='';
+     let factsText='';
+     try{
+       const cleaned=(out||'').trim().replace(/^```json\s*/i,'').replace(/```$/,'').trim();
+       const obj=JSON.parse(cleaned);
+       subject=(obj.subject||'').trim();
+       factsText=(obj.facts||'').trim();
+     }catch(_){
+       factsText=out||'לא התקבל טקסט.';
+       subject=c.text;
+     }
+
+     facts.textContent=factsText||'לא התקבל טקסט.';
+     facts.dataset.loaded='1';
+     showSubjectMedia(subject||c.text);
+   }catch(err){
+     facts.textContent='שגיאת GPT: '+err.message;
+   }finally{
+     gpt.disabled=false;gpt.textContent='GPT';
+   }
+ });
+
+ const facts=document.createElement('div');
+ facts.className='facts';
+
+ const chatbar=document.createElement('div');
+ chatbar.className='chatbar';
+ chatbar.innerHTML=`
+   <div class="chatrow">
+     <input class="chatinput" type="text" placeholder="Ask GPT anything...">
+     <button class="chatsend">ASK</button>
+   </div>
+   <div class="chatanswer"></div>`;
+
+ const chatInput=chatbar.querySelector('.chatinput');
+ const chatSend=chatbar.querySelector('.chatsend');
+ const chatAnswer=chatbar.querySelector('.chatanswer');
+
+ async function askAnything(){
+   const question=chatInput.value.trim();
+   if(!question)return;
+   const key=OPENAI_API_KEY.trim();
+   if(!key || key==='PASTE_YOUR_GPT_KEY_HERE'){
+     chatAnswer.textContent='Paste your OpenAI API key in OPENAI_API_KEY inside the HTML code.';
+     chatAnswer.classList.add('show');
+     return;
+   }
+   chatSend.disabled=true;
+   chatSend.textContent='...';
+   chatAnswer.textContent='Thinking...';
+   chatAnswer.classList.add('show');
+   const from=Math.max(0,i-5),to=Math.min(captions.length,i+6);
+   const localContext=captions.slice(from,to).map(x=>x.text).join(' ');
+   const qprompt=`Answer the user's question clearly. The page is about The Year 1900. Use the nearby transcript as context when relevant, but the user may ask anything.
+
+Nearby context:
+${localContext}
+
+User question:
+${question}`;
+   try{
+     const r=await fetch('https://api.openai.com/v1/responses',{
+       method:'POST',
+       headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+       body:JSON.stringify({model:'gpt-5-mini',input:qprompt})
+     });
+     const data=await r.json();
+     if(!r.ok)throw new Error(data?.error?.message||('HTTP '+r.status));
+     let answer=data.output_text||'';
+     if(!answer && Array.isArray(data.output)){
+       for(const item of data.output){
+         if(Array.isArray(item.content)){
+           for(const part of item.content){
+             if(part.type==='output_text' && part.text)answer+=part.text;
+           }
+         }
+       }
+     }
+     chatAnswer.textContent=answer||'No answer received.';
+   }catch(err){
+     chatAnswer.textContent='GPT error: '+err.message;
+   }finally{
+     chatSend.disabled=false;
+     chatSend.textContent='ASK';
+   }
+ }
+
+ chatSend.addEventListener('click',askAnything);
+ chatInput.addEventListener('keydown',e=>{
+   if(e.key==='Enter'){e.preventDefault();askAnything()}
+ });
+
+ // Clicking GPT also opens the free-question bar for this line.
+ gpt.addEventListener('click',()=>{
+   chatbar.classList.add('show');
+   setTimeout(()=>chatInput.focus(),0);
+ });
+
+ main.append(controls,gpt,tx);
+ row.append(main,facts,chatbar);
+ list.appendChild(row);
+
+ // Insert any configured extra text after this line.
+ insertExtraTexts(i + 1);
+
+ // Insert every configured image that belongs after this paragraph.
+ const paragraphNumber = i + 1;
+ TEXT_IMAGES
+   .filter(img => img.after === paragraphNumber)
+   .forEach(img => insertTextImage(img.url, paragraphNumber));
+});
+
+audio.addEventListener('timeupdate',()=>{
+ const t=audio.currentTime;
+
+ if(stopAt!==null && t>=stopAt-0.03){
+   audio.pause();
+   audio.currentTime=stopAt;
+   stopAt=null;
+ }
+
+ let found=-1;
+ for(let i=0;i<captions.length;i++){
+   const start=captionStart(captions[i]);
+   const end=captionEnd(captions[i]);
+   if(t>=start && t<end){
+     found=i;
+     break;
+   }
+ }
+ if(found>=0){
+   setActive(found);
+   showKaraoke(found,t);
+ }else{
+   karaokeIndex=-1;
+ }
+});
+</script>
+</body>
+</html>
