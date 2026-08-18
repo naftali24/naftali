@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Synced Lyrics → SRT</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#e7e7e7;color:#111;font-family:Arial,sans-serif;
+  display:flex;justify-content:center
+}
+.app{width:min(900px,100%);padding:12px}
+h1{font-size:26px;margin:4px 0 12px;text-align:center}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+input,select,button,textarea{
+  font:inherit;border:1px solid #777;border-radius:8px
+}
+input,select{padding:10px;flex:1;min-width:190px;background:white}
+button{
+  padding:10px 14px;font-weight:800;background:#222;color:white;cursor:pointer
+}
+button.secondary{background:#555}
+textarea{
+  width:100%;min-height:280px;padding:12px;resize:vertical;
+  background:white;line-height:1.2
+}
+label{display:block;font-weight:800;margin:12px 0 5px}
+.note{
+  background:#fff6cc;border:1px solid #c9a500;border-radius:8px;
+  padding:9px;margin:8px 0;font-size:14px
+}
+#status{font-weight:800;margin:8px 0;min-height:22px}
+@media(max-width:600px){
+  h1{font-size:22px}
+  .row{display:block}
+  input,select,button{width:100%;margin-bottom:6px}
+  textarea{min-height:240px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>Synced Lyrics → SRT</h1>
+  <div style="text-align:center;font-weight:800;margin-bottom:8px">99 songs</div>
+
+  <div class="row">
+    <select id="songMenu" aria-label="Choose song">
+      <option value="0">Whitney Houston - I Will Always Love You</option>
+      <option value="1">Mariah Carey - Fantasy</option>
+      <option value="2">Celine Dion - My Heart Will Go On</option>
+      <option value="3">Heatwave - Always And Forever</option>
+      <option value="4">Al Green - Love and Happiness</option>
+      <option value="5">The Beatles - I Want To Hold Your Hand</option>
+      <option value="6">Elvis Presley - Can&#x27;t Help Falling In Love</option>
+      <option value="7">Beach Boys - Wouldn&#x27;t It Be Nice</option>
+      <option value="8">Righteous Brothers - Unchained Melody</option>
+      <option value="9">U2 - Sweetest Thing</option>
+      <option value="10">Elton John - Your Song</option>
+      <option value="11">George Michael - Careless Whisper</option>
+      <option value="12">Lenny Williams - Cause I Love You</option>
+      <option value="13">The Isley Brothers - For the Love of You</option>
+      <option value="14">a-ha - Take On Me</option>
+      <option value="15">Minnie Riperton - Lovin&#x27; You</option>
+      <option value="16">Rick James &amp; Teena Marie - Fire and Desire</option>
+      <option value="17">Roberta Flack - Killing Me Softly With His Song</option>
+      <option value="18">Simon &amp; Garfunkel - Bridge Over Troubled Water</option>
+      <option value="19">Leonard Cohen - Suzanne</option>
+      <option value="20">Aerosmith - I Don&#x27;t Want to Miss a Thing</option>
+      <option value="21">George Jones - He Stopped Loving Her Today</option>
+      <option value="22">Willie Nelson - Always On My Mind</option>
+      <option value="23">Johnny Cash - You are my Sunshine Original</option>
+      <option value="24">Everly Brothers - All I Have To Do Is Dream</option>
+      <option value="25">Johnny Cash - I Walk the Line</option>
+      <option value="26">The Skyliners - Since I Don&#x27;t Have You</option>
+      <option value="27">Bobby Darin - Beyond the Sea</option>
+      <option value="28">The Temptations - My Girl</option>
+      <option value="29">Modern English - I Melt With You</option>
+      <option value="30">Frank Sinatra - Fly Me To The Moon</option>
+      <option value="31">The Supremes - You Can&#x27;t Hurry Love</option>
+      <option value="32">Celine Dion - All By Myself</option>
+      <option value="33">Richard Marx - Right Here Waiting</option>
+      <option value="34">Extreme - More Than Words</option>
+      <option value="35">Bon Jovi - Always</option>
+      <option value="36">Celine Dion - The Power Of Love</option>
+      <option value="37">Heart - Alone</option>
+      <option value="38">Britney Spears - Baby One More Time</option>
+      <option value="39">Journey - Don&#x27;t Stop Believin&#x27;</option>
+      <option value="40">Britney Spears - Oops! I Did It Again</option>
+      <option value="41">Sam Smith - Stay With Me</option>
+      <option value="42">U2 - With Or Without You</option>
+      <option value="43">Bonnie Raitt - I Can&#x27;t Make You Love Me</option>
+      <option value="44">Whitesnake - Is This Love</option>
+      <option value="45">Berlin - Take My Breath Away</option>
+      <option value="46">Toni Braxton - Un-Break My Heart</option>
+      <option value="47">Boyz II Men - I&#x27;ll Make Love To You</option>
+      <option value="48">Bobby Darin - Dream Lover</option>
+      <option value="49">The Penguins - Earth Angel</option>
+      <option value="50">LeAnn Rimes - How Do I Live</option>
+      <option value="51">Whitney Houston - Greatest Love Of All</option>
+      <option value="52">Bonnie Tyler - Total Eclipse of the Heart</option>
+      <option value="53">The Moody Blues - Nights In White Satin</option>
+      <option value="54">Cyndi Lauper - Time After Time</option>
+      <option value="55">Naked Eyes - Always Something There To Remind Me</option>
+      <option value="56">The Archies - Sugar, Sugar</option>
+      <option value="57">Jesse Powell - You</option>
+      <option value="58">Righteous Brothers - You&#x27;ve Lost That Loving Feeling</option>
+      <option value="59">Guns N&#x27; Roses - Sweet Child O&#x27; Mine</option>
+      <option value="60">The Beatles - Something</option>
+      <option value="61">The Beach Boys - God Only Knows</option>
+      <option value="62">Boyz II Men - End Of The Road</option>
+      <option value="63">Adele - Someone Like You</option>
+      <option value="64">The Police - Every Breath You Take</option>
+      <option value="65">Kelly Price - Friend Of Mine</option>
+      <option value="66">Babyface - Never Keeping Secrets</option>
+      <option value="67">Musiq - Love</option>
+      <option value="68">The Kinks - You Really Got Me</option>
+      <option value="69">Foreigner - I Want To Know What Love Is</option>
+      <option value="70">The Beach Boys - Good Vibrations</option>
+      <option value="71">Bruce Springsteen - Thunder Road</option>
+      <option value="72">Tammy Wynette - Stand By Your Man</option>
+      <option value="73">Kenny Rogers - Islands In The Stream</option>
+      <option value="74">Led Zeppelin - Whole Lotta Love</option>
+      <option value="75">Boston - More Than a Feeling</option>
+      <option value="76">Marvin Gaye - Let&#x27;s Get It On</option>
+      <option value="77">Kiss - I Was Made For Lovin&#x27; You</option>
+      <option value="78">Simon &amp; Garfunkel - Scarborough Fair</option>
+      <option value="79">Meat Loaf - I&#x27;d Do Anything For Love</option>
+      <option value="80">Goo Goo Dolls - Iris</option>
+      <option value="81">REO Speedwagon - Can&#x27;t Fight This Feeling</option>
+      <option value="82">Queen and David Bowie - Under Pressure</option>
+      <option value="83">U2 - I Still Haven&#x27;t Found What I&#x27;m Looking For</option>
+      <option value="84">Wham! - Wake Me Up Before You Go-Go</option>
+      <option value="85">Rick Astley - Never Gonna Give You Up</option>
+      <option value="86">Whitney Houston - All The Man That I Need</option>
+      <option value="87">Eurythmics - Sweet Dreams</option>
+      <option value="88">Bon Jovi - Livin&#x27; On A Prayer</option>
+      <option value="89">U2 - Pride</option>
+      <option value="90">Enrique Iglesias - Hero</option>
+      <option value="91">Brian McKnight - Back At One</option>
+      <option value="92">Van Halen - Ain&#x27;t Talkin&#x27; &#x27;Bout Love</option>
+      <option value="93">Styx - Lady</option>
+      <option value="94">Joy Division - Love Will Tear Us Apart</option>
+      <option value="95">Pearl Jam - Jeremy</option>
+      <option value="96">Green Day - Good Riddance</option>
+      <option value="97">Celine Dion - Because You Loved Me</option>
+      <option value="98">Oasis - Wonderwall</option>
+    </select>
+    <button id="openBtn">Open Synced Lyrics</button>
+    <button id="loadSrtBtn" class="secondary">Load Embedded SRT</button>
+  </div>
+
+  <div class="note">
+    Open the LRCLIB search, choose a <b>Synced</b> result, copy the synchronized LRC text,
+    then paste it below. The converter does not need HTML tags.
+  </div>
+
+  <label for="lrc">Paste synced lyrics (LRC)</label>
+  <textarea id="lrc" placeholder="[00:12.34] First line
+[00:16.20] Second line
+
+[00:22.05] Next verse..."></textarea>
+
+  <div class="row">
+    <button id="convertBtn">Convert to SRT</button>
+    <button id="downloadBtn" class="secondary">Download SRT</button>
+    <button id="clearBtn" class="secondary">Clear</button>
+  </div>
+
+  <div id="status"></div>
+
+  <label for="srt">SRT output</label>
+  <textarea id="srt" readonly></textarea>
+</div>
+
+<script>
+const songMenu=document.getElementById('songMenu');
+const songs=[
+  {artist:'Whitney Houston', song:'I Will Always Love You'},
+  {artist:'Mariah Carey', song:'Fantasy'},
+  {artist:'Celine Dion', song:'My Heart Will Go On'},
+  {artist:'Heatwave', song:'Always And Forever'},
+  {artist:'Al Green', song:'Love and Happiness'},
+  {artist:'The Beatles', song:'I Want To Hold Your Hand'},
+  {artist:'Elvis Presley', song:"Can't Help Falling In Love"},
+  {artist:'Beach Boys', song:"Wouldn't It Be Nice"},
+  {artist:'Righteous Brothers', song:'Unchained Melody'},
+  {artist:'U2', song:'Sweetest Thing'},
+  {artist:'Elton John', song:'Your Song'},
+  {artist:'George Michael', song:'Careless Whisper'},
+  {artist:'Lenny Williams', song:'Cause I Love You'},
+  {artist:'The Isley Brothers', song:'For the Love of You'},
+  {artist:'a-ha', song:'Take On Me'},
+  {artist:'Minnie Riperton', song:"Lovin' You"},
+  {artist:'Rick James & Teena Marie', song:'Fire and Desire'},
+  {artist:'Roberta Flack', song:'Killing Me Softly With His Song'},
+  {artist:'Simon & Garfunkel', song:'Bridge Over Troubled Water'},
+  {artist:'Leonard Cohen', song:'Suzanne'},
+  {artist:'Aerosmith', song:"I Don't Want to Miss a Thing"},
+  {artist:'George Jones', song:'He Stopped Loving Her Today'},
+  {artist:'Willie Nelson', song:'Always On My Mind'},
+  {artist:'Johnny Cash', song:'You are my Sunshine Original'},
+  {artist:'Everly Brothers', song:'All I Have To Do Is Dream'},
+  {artist:'Johnny Cash', song:'I Walk the Line'},
+  {artist:'The Skyliners', song:"Since I Don't Have You"},
+  {artist:'Bobby Darin', song:'Beyond the Sea'},
+  {artist:'The Temptations', song:'My Girl'},
+  {artist:'Modern English', song:'I Melt With You'},
+  {artist:'Frank Sinatra', song:'Fly Me To The Moon'},
+  {artist:'The Supremes', song:"You Can't Hurry Love"},
+  {artist:'Celine Dion', song:'All By Myself'},
+  {artist:'Richard Marx', song:'Right Here Waiting'},
+  {artist:'Extreme', song:'More Than Words'},
+  {artist:'Bon Jovi', song:'Always'},
+  {artist:'Celine Dion', song:'The Power Of Love'},
+  {artist:'Heart', song:'Alone'},
+  {artist:'Britney Spears', song:'Baby One More Time'},
+  {artist:'Journey', song:"Don't Stop Believin'"},
+  {artist:'Britney Spears', song:'Oops! I Did It Again'},
+  {artist:'Sam Smith', song:'Stay With Me'},
+  {artist:'U2', song:'With Or Without You'},
+  {artist:'Bonnie Raitt', song:"I Can't Make You Love Me"},
+  {artist:'Whitesnake', song:'Is This Love'},
+  {artist:'Berlin', song:'Take My Breath Away'},
+  {artist:'Toni Braxton', song:'Un-Break My Heart'},
+  {artist:'Boyz II Men', song:"I'll Make Love To You"},
+  {artist:'Bobby Darin', song:'Dream Lover'},
+  {artist:'The Penguins', song:'Earth Angel'},
+  {artist:'LeAnn Rimes', song:'How Do I Live'},
+  {artist:'Whitney Houston', song:'Greatest Love Of All'},
+  {artist:'Bonnie Tyler', song:'Total Eclipse of the Heart'},
+  {artist:'The Moody Blues', song:'Nights In White Satin'},
+  {artist:'Cyndi Lauper', song:'Time After Time'},
+  {artist:'Naked Eyes', song:'Always Something There To Remind Me'},
+  {artist:'The Archies', song:'Sugar, Sugar'},
+  {artist:'Jesse Powell', song:'You'},
+  {artist:'Righteous Brothers', song:"You've Lost That Loving Feeling"},
+  {artist:"Guns N' Roses", song:"Sweet Child O' Mine"},
+  {artist:'The Beatles', song:'Something'},
+  {artist:'The Beach Boys', song:'God Only Knows'},
+  {artist:'Boyz II Men', song:'End Of The Road'},
+  {artist:'Adele', song:'Someone Like You'},
+  {artist:'The Police', song:'Every Breath You Take'},
+  {artist:'Kelly Price', song:'Friend Of Mine'},
+  {artist:'Babyface', song:'Never Keeping Secrets'},
+  {artist:'Musiq', song:'Love'},
+  {artist:'The Kinks', song:'You Really Got Me'},
+  {artist:'Foreigner', song:'I Want To Know What Love Is'},
+  {artist:'The Beach Boys', song:'Good Vibrations'},
+  {artist:'Bruce Springsteen', song:'Thunder Road'},
+  {artist:'Tammy Wynette', song:'Stand By Your Man'},
+  {artist:'Kenny Rogers', song:'Islands In The Stream'},
+  {artist:'Led Zeppelin', song:'Whole Lotta Love'},
+  {artist:'Boston', song:'More Than a Feeling'},
+  {artist:'Marvin Gaye', song:"Let's Get It On"},
+  {artist:'Kiss', song:"I Was Made For Lovin' You"},
+  {artist:'Simon & Garfunkel', song:'Scarborough Fair'},
+  {artist:'Meat Loaf', song:"I'd Do Anything For Love"},
+  {artist:'Goo Goo Dolls', song:'Iris'},
+  {artist:'REO Speedwagon', song:"Can't Fight This Feeling"},
+  {artist:'Queen and David Bowie', song:'Under Pressure'},
+  {artist:'U2', song:"I Still Haven't Found What I'm Looking For"},
+  {artist:'Wham!', song:'Wake Me Up Before You Go-Go'},
+  {artist:'Rick Astley', song:'Never Gonna Give You Up'},
+  {artist:'Whitney Houston', song:'All The Man That I Need'},
+  {artist:'Eurythmics', song:'Sweet Dreams'},
+  {artist:'Bon Jovi', song:"Livin' On A Prayer"},
+  {artist:'U2', song:'Pride'},
+  {artist:'Enrique Iglesias', song:'Hero'},
+  {artist:'Brian McKnight', song:'Back At One'},
+  {artist:'Van Halen', song:"Ain't Talkin' 'Bout Love"},
+  {artist:'Styx', song:'Lady'},
+  {artist:'Joy Division', song:'Love Will Tear Us Apart'},
+  {artist:'Pearl Jam', song:'Jeremy'},
+  {artist:'Green Day', song:'Good Riddance'},
+  {artist:'Celine Dion', song:'Because You Loved Me'},
+  {artist:'Oasis', song:'Wonderwall'}
+];
+const embeddedSRT = {"Beach Boys - Wouldn't It Be Nice": "1\n00:00:06,790 --> 00:00:10,690\nWouldn't it be nice if we were older?\n\n2\n00:00:10,770 --> 00:00:14,270\nThen we wouldn't have to wait so long\n\n3\n00:00:14,350 --> 00:00:18,260\nAnd wouldn't it be nice to live together\n\n4\n00:00:18,340 --> 00:00:23,130\nIn the kind of world where we belong?\n\n5\n00:00:23,210 --> 00:00:27,070\nYou know it's gonna make it that much better\n\n6\n00:00:27,150 --> 00:00:33,920\nWhen we can say goodnight and stay together\n\n7\n00:00:34,000 --> 00:00:37,700\nWouldn't it be nice if we could wake up\n\n8\n00:00:37,780 --> 00:00:41,380\nIn the morning when the day is new\n\n9\n00:00:41,460 --> 00:00:45,300\nAnd after having spent the day together\n\n10\n00:00:45,380 --> 00:00:50,160\nHold each other close the whole night through?\n\n11\n00:00:50,240 --> 00:00:54,200\nHappy times together we've been spending\n\n12\n00:00:54,280 --> 00:00:59,540\nI wish that every kiss was never ending\n\n13\n00:00:59,620 --> 00:01:06,170\nWouldn't it be nice?\n\n14\n00:01:06,250 --> 00:01:11,680\nMaybe if we think and wish and hope and pray\n\n15\n00:01:11,760 --> 00:01:14,330\nIt might come true (run, run with you)\n\n16\n00:01:14,410 --> 00:01:20,270\nBaby, then there wouldn't be a single thing we couldn't do\n\n17\n00:01:20,350 --> 00:01:24,270\nWe could be married (we could be married)\n\n18\n00:01:24,350 --> 00:01:28,150\nAnd then we'd be happy (and then we'd be happy)\n\n19\n00:01:28,230 --> 00:01:41,900\nOh, wouldn't it be nice?\n\n20\n00:01:41,980 --> 00:01:46,360\nYou know it seems the more we talk about it\n\n21\n00:01:46,440 --> 00:01:52,210\nIt only makes it worse to live without it\n\n22\n00:01:52,290 --> 00:01:57,640\nBut let's talk about it\n\n23\n00:01:57,720 --> 00:02:06,860\nWouldn't it be nice?\n\n24\n00:02:06,940 --> 00:02:10,500\nGood night, my baby\n\n25\n00:02:10,580 --> 00:02:14,370\nSleep tight, my baby\n\n26\n00:02:14,450 --> 00:02:18,050\nGood night, my baby\n\n27\n00:02:18,130 --> 00:02:22,130\nSleep tight, my baby", "Elvis Presley - Can't Help Falling In Love": "1\n00:00:04,400 --> 00:00:14,120\nWise men say\n\n2\n00:00:14,200 --> 00:00:21,380\nOnly fools rush in\n\n3\n00:00:21,460 --> 00:00:27,650\nBut I can't help\n\n4\n00:00:27,730 --> 00:00:36,480\nFalling in love with you\n\n5\n00:00:36,560 --> 00:00:42,640\nShall I stay\n\n6\n00:00:42,720 --> 00:00:49,870\nWould it be a sin?\n\n7\n00:00:49,950 --> 00:00:55,970\nIf I can't help\n\n8\n00:00:56,050 --> 00:01:04,800\nFalling in love with you?\n\n9\n00:01:04,880 --> 00:01:08,790\nLike a river flows\n\n10\n00:01:08,870 --> 00:01:11,990\nSurely to the sea\n\n11\n00:01:12,070 --> 00:01:15,390\nDarling, so it goes\n\n12\n00:01:15,470 --> 00:01:21,980\nSome things are meant to be\n\n13\n00:01:22,060 --> 00:01:28,440\nTake my hand\n\n14\n00:01:28,520 --> 00:01:36,030\nTake my whole life too\n\n15\n00:01:36,110 --> 00:01:42,170\nFor I can't help\n\n16\n00:01:42,250 --> 00:01:50,460\nFalling in love with you\n\n17\n00:01:50,540 --> 00:01:54,400\nLike a river flows\n\n18\n00:01:54,480 --> 00:01:58,070\nSurely to the sea\n\n19\n00:01:58,150 --> 00:02:01,510\nDarling, so it goes\n\n20\n00:02:01,590 --> 00:02:07,840\nSome things are meant to be\n\n21\n00:02:07,920 --> 00:02:16,300\nTake my hand\n\n22\n00:02:16,380 --> 00:02:21,950\nTake my whole life too\n\n23\n00:02:22,030 --> 00:02:28,200\nFor I can't help\n\n24\n00:02:28,280 --> 00:02:36,580\nFalling in love with you\n\n25\n00:02:36,660 --> 00:02:42,350\nFor I can't help\n\n26\n00:02:42,430 --> 00:02:46,430\nFalling in love with you", "The Beatles - I Want To Hold Your Hand": "1\n00:00:05,880 --> 00:00:10,830\nOh, yeah, I'll tell you something\n\n2\n00:00:10,910 --> 00:00:14,760\nI think you'll understand\n\n3\n00:00:14,840 --> 00:00:18,050\nWhen I say that something\n\n4\n00:00:18,130 --> 00:00:21,930\nI wanna hold your hand\n\n5\n00:00:22,010 --> 00:00:26,180\nI wanna hold your hand\n\n6\n00:00:26,260 --> 00:00:29,480\nI wanna hold your hand\n\n7\n00:00:29,560 --> 00:00:32,870\nOh, please, say to me\n\n8\n00:00:32,950 --> 00:00:36,430\nAnd let me be your man\n\n9\n00:00:36,510 --> 00:00:39,790\nAnd please, say to me\n\n10\n00:00:39,870 --> 00:00:43,440\nYou'll let me hold your hand\n\n11\n00:00:43,520 --> 00:00:47,610\nOh, let me hold your hand\n\n12\n00:00:47,690 --> 00:00:50,950\nI wanna hold your hand\n\n13\n00:00:51,030 --> 00:00:58,140\nAnd when I touch you, I feel happy inside\n\n14\n00:00:58,220 --> 00:01:03,190\nIt's such a feeling that, my love\n\n15\n00:01:03,270 --> 00:01:05,810\nI can't hide\n\n16\n00:01:05,890 --> 00:01:07,020\nI can't hide\n\n17\n00:01:07,100 --> 00:01:09,030\nI can't hide\n\n18\n00:01:09,110 --> 00:01:14,850\nYeah, you've got that something\n\n19\n00:01:14,930 --> 00:01:18,740\nI think you'll understand\n\n20\n00:01:18,820 --> 00:01:22,420\nWhen I say that something\n\n21\n00:01:22,500 --> 00:01:26,910\nI want to hold your hand\n\n22\n00:01:26,990 --> 00:01:29,980\nI wanna hold your hand\n\n23\n00:01:30,060 --> 00:01:33,880\nI wanna hold your hand\n\n24\n00:01:33,960 --> 00:01:40,560\nAnd when I touch you, I feel happy inside\n\n25\n00:01:40,640 --> 00:01:46,330\nIt's such a feeling that, my love\n\n26\n00:01:46,410 --> 00:01:49,790\nI can't hide\n\n27\n00:01:49,870 --> 00:01:50,230\nI can't hide\n\n28\n00:01:50,310 --> 00:01:53,940\nI can't hide\n\n29\n00:01:54,020 --> 00:01:57,860\nYeah, you've got that something\n\n30\n00:01:57,940 --> 00:02:01,160\nI think you'll understand\n\n31\n00:02:01,240 --> 00:02:04,430\nWhen I feel that something\n\n32\n00:02:04,510 --> 00:02:08,670\nI wanna hold your hand\n\n33\n00:02:08,750 --> 00:02:12,100\nI wanna hold your hand\n\n34\n00:02:12,180 --> 00:02:16,750\nI wanna hold your hand\n\n35\n00:02:16,830 --> 00:02:20,830\nI wanna hold your hand", "The Skyliners - Since I Don't Have You": "1\n00:00:06,810 --> 00:00:20,280\nAh, ah, ah\n\n2\n00:00:20,360 --> 00:00:26,580\nI don't have plans and schemes\n\n3\n00:00:26,660 --> 00:00:33,690\nAnd I don't have hopes and dreams\n\n4\n00:00:33,770 --> 00:00:40,240\nI don't have anything\n\n5\n00:00:40,320 --> 00:00:47,080\nSince I don't have you\n\n6\n00:00:47,160 --> 00:00:53,150\nI don't have fond desires\n\n7\n00:00:53,230 --> 00:01:00,250\nAnd I don't have happy hours\n\n8\n00:01:00,330 --> 00:01:07,070\nI don't have anything\n\n9\n00:01:07,150 --> 00:01:14,430\nSince I don't have you\n\n10\n00:01:14,510 --> 00:01:19,020\nI don't have happiness\n\n11\n00:01:19,100 --> 00:01:27,940\nAnd I guess I never will ever again\n\n12\n00:01:28,020 --> 00:01:31,340\nWhen you walked out on me\n\n13\n00:01:31,420 --> 00:01:33,960\nIn walked old misery\n\n14\n00:01:34,040 --> 00:01:40,420\nAnd he's been here since then\n\n15\n00:01:40,500 --> 00:01:47,200\nI don't have love to share\n\n16\n00:01:47,280 --> 00:01:54,490\nAnd I don't have one who cares\n\n17\n00:01:54,570 --> 00:02:01,370\nI don't have anything\n\n18\n00:02:01,450 --> 00:02:08,930\nSince I don't have\n\n19\n00:02:09,010 --> 00:02:15,660\nYou, you, you, you\n\n20\n00:02:15,740 --> 00:02:22,470\nYou, you, you, you\n\n21\n00:02:22,550 --> 00:02:29,380\nYou, you, you, you\n\n22\n00:02:29,460 --> 00:02:33,460\nYou", "Johnny Cash - I Walk the Line": "1\n00:00:22,710 --> 00:00:26,860\nI keep a close watch on this heart of mine\n\n2\n00:00:26,940 --> 00:00:31,480\nI keep my eyes wide open all the time\n\n3\n00:00:31,560 --> 00:00:36,040\nI keep the ends out for the tie that binds\n\n4\n00:00:36,120 --> 00:00:50,440\nBecause you're mine, I walk the line\n\n5\n00:00:50,520 --> 00:00:54,450\nI find it very, very easy to be true\n\n6\n00:00:54,530 --> 00:00:58,630\nI find myself alone when each day is through\n\n7\n00:00:58,710 --> 00:01:03,690\nYes, I'll admit that I'm a fool for you\n\n8\n00:01:03,770 --> 00:01:17,440\nBecause you're mine, I walk the line\n\n9\n00:01:17,520 --> 00:01:21,360\nAs sure as night is dark and day is light\n\n10\n00:01:21,440 --> 00:01:25,950\nI keep you on my mind both day and night\n\n11\n00:01:26,030 --> 00:01:30,800\nAnd happiness I've known proves that it's right\n\n12\n00:01:30,880 --> 00:01:45,870\nBecause you're mine, I walk the line\n\n13\n00:01:45,950 --> 00:01:50,310\nYou've got a way to keep me on your side\n\n14\n00:01:50,390 --> 00:01:54,460\nYou give me cause for love that I can't hide\n\n15\n00:01:54,540 --> 00:01:58,910\nFor you I know I'd even try to turn the tide\n\n16\n00:01:58,990 --> 00:02:14,090\nBecause you're mine, I walk the line\n\n17\n00:02:14,170 --> 00:02:18,300\nI keep a close watch on this heart of mine\n\n18\n00:02:18,380 --> 00:02:22,610\nI keep my eyes wide open all the time\n\n19\n00:02:22,690 --> 00:02:27,420\nI keep the ends out for the tie that binds\n\n20\n00:02:27,500 --> 00:02:31,500\nBecause you're mine, I walk the line", "Everly Brothers - All I Have To Do Is Dream": "1\n00:00:02,120 --> 00:00:07,060\nDrea-ea-ea-ea-eam, dream, dream, dream\n\n2\n00:00:07,140 --> 00:00:11,300\nDrea-ea-ea-ea-eam, dream, dream, dream\n\n3\n00:00:11,380 --> 00:00:16,070\nWhen I want you in my arms\n\n4\n00:00:16,150 --> 00:00:20,850\nWhen I want you and all your charms\n\n5\n00:00:20,930 --> 00:00:25,750\nWhenever I want you, all I have to do is\n\n6\n00:00:25,830 --> 00:00:30,000\nDrea-ea-ea-ea-eam, dream, dream, dream\n\n7\n00:00:30,080 --> 00:00:34,880\nWhen I feel blue in the night\n\n8\n00:00:34,960 --> 00:00:39,070\nAnd I need you to hold me tight\n\n9\n00:00:39,150 --> 00:00:44,090\nWhenever I want you, all I have to do is\n\n10\n00:00:44,170 --> 00:00:48,740\nDrea-ea-ea-ea-eam\n\n11\n00:00:48,820 --> 00:00:53,630\nI can make you mine, taste your lips of wine\n\n12\n00:00:53,710 --> 00:00:57,830\nAnytime night or day\n\n13\n00:00:57,910 --> 00:01:02,660\nOnly trouble is, gee whiz\n\n14\n00:01:02,740 --> 00:01:06,780\nI'm dreamin' my life away\n\n15\n00:01:06,860 --> 00:01:12,340\nI need you so that I could die\n\n16\n00:01:12,420 --> 00:01:16,640\nI love you so and that is why\n\n17\n00:01:16,720 --> 00:01:21,550\nWhenever I want you, all I have to do is\n\n18\n00:01:21,630 --> 00:01:26,430\nDrea-ea-ea-ea-eam, dream, dream, dream\n\n19\n00:01:26,510 --> 00:01:30,590\nDrea-ea-ea-ea-eam\n\n20\n00:01:30,670 --> 00:01:35,340\nI can make you mine, taste your lips of wine\n\n21\n00:01:35,420 --> 00:01:40,250\nAnytime night or day\n\n22\n00:01:40,330 --> 00:01:44,450\nOnly trouble is, gee whiz\n\n23\n00:01:44,530 --> 00:01:48,700\nI'm dreamin' my life away\n\n24\n00:01:48,780 --> 00:01:53,670\nI need you so that I could die\n\n25\n00:01:53,750 --> 00:01:58,810\nI love you so and that is why\n\n26\n00:01:58,890 --> 00:02:03,160\nWhenever I want you, all I have to do is\n\n27\n00:02:03,240 --> 00:02:08,320\nDrea-ea-ea-ea-eam, dream, dream, dream\n\n28\n00:02:08,400 --> 00:02:13,400\nDrea-ea-ea-ea-eam, dream, dream, dream\n\n29\n00:02:13,480 --> 00:02:17,480\nDrea-ea-ea-ea-eam, dream, dream, dream", "Johnny Cash - You are my Sunshine Original": "1\n00:00:00,420 --> 00:00:26,840\nOne, two, three\n\n2\n00:00:26,920 --> 00:00:33,050\nThe other night, dear, as I lay sleeping\n\n3\n00:00:33,130 --> 00:00:39,130\nI dreamed I held you in my arms\n\n4\n00:00:39,210 --> 00:00:45,790\nWhen I awoke, dear, I was mistaken\n\n5\n00:00:45,870 --> 00:00:51,740\nSo I bowed my head and I cried\n\n6\n00:00:51,820 --> 00:00:57,650\nYou are my sunshine, my only sunshine\n\n7\n00:00:57,730 --> 00:01:03,950\nYou make me happy when skies are gray\n\n8\n00:01:04,030 --> 00:01:10,300\nYou'll never know, dear, how much I love you\n\n9\n00:01:10,380 --> 00:01:40,470\nPlease don't take my sunshine away\n\n10\n00:01:40,550 --> 00:01:46,710\nI've always loved you and made you happy\n\n11\n00:01:46,790 --> 00:01:52,660\nAnd nothing else could come between\n\n12\n00:01:52,740 --> 00:01:59,210\nBut now you've left me, to love another\n\n13\n00:01:59,290 --> 00:02:04,590\nYou have shattered all of my dreams\n\n14\n00:02:04,670 --> 00:02:10,800\nYou are my sunshine, my only sunshine\n\n15\n00:02:10,880 --> 00:02:16,500\nYou make me happy when skies are gray\n\n16\n00:02:16,580 --> 00:02:23,020\nYou'll never know, dear, how much I love you\n\n17\n00:02:23,100 --> 00:02:34,950\nPlease don't take my sunshine away\n\n18\n00:02:35,030 --> 00:02:40,490\nI always hated it (it was a nice short version)\n\n19\n00:02:40,570 --> 00:02:43,880\nYou wanna re-, pick it up? (Nah, it's alright) it's good?\n\n20\n00:02:43,960 --> 00:02:48,680\nWe got a short version (mind you, there's another verse on that tape)\n\n21\n00:02:48,760 --> 00:02:54,330\nWell, Cleveland, let's uh...\n\n22\n00:02:54,410 --> 00:03:00,160\nWell, if I feel like my song is sung, it don't care\n\n23\n00:03:00,240 --> 00:03:04,440\nI don't care if it's short\n\n24\n00:03:04,520 --> 00:03:07,290\nAnd I feel like my song is sung\n\n25\n00:03:07,370 --> 00:03:12,230\nIt's pleasant, two minutes, I've recorded songs, two minutes\n\n26\n00:03:12,310 --> 00:03:16,310\n(They were huge hits) have you got the time on that?", "Willie Nelson - Always On My Mind": "1\n00:00:08,770 --> 00:00:15,470\nMaybe I didn't love you\n\n2\n00:00:15,550 --> 00:00:21,760\nQuite as often as I could have\n\n3\n00:00:21,840 --> 00:00:28,230\nAnd maybe I didn't treat you\n\n4\n00:00:28,310 --> 00:00:34,570\nQuite as good as I should have\n\n5\n00:00:34,650 --> 00:00:41,420\nIf I made you feel second best\n\n6\n00:00:41,500 --> 00:00:48,300\nGirl I'm sorry I was blind\n\n7\n00:00:48,380 --> 00:00:55,280\nYou were always on my mind\n\n8\n00:00:55,360 --> 00:01:01,500\nYou were always on my mind\n\n9\n00:01:01,580 --> 00:01:08,360\nAnd maybe I didn't hold you\n\n10\n00:01:08,440 --> 00:01:14,800\nAll those lonely, lonely times\n\n11\n00:01:14,880 --> 00:01:21,140\nI guess I never told you\n\n12\n00:01:21,220 --> 00:01:27,770\nI am so happy that you're mine\n\n13\n00:01:27,850 --> 00:01:34,380\nLittle things I should have said and done\n\n14\n00:01:34,460 --> 00:01:40,730\nI just never took the time\n\n15\n00:01:40,810 --> 00:01:47,270\nYou were always on my mind\n\n16\n00:01:47,350 --> 00:01:52,870\nYou were always on my mind\n\n17\n00:01:52,950 --> 00:01:59,350\nTell me\n\n18\n00:01:59,430 --> 00:02:05,500\nTell me that your sweet love hasn't died\n\n19\n00:02:05,580 --> 00:02:12,070\nAnd gi-ve me\n\n20\n00:02:12,150 --> 00:02:18,010\nGive me one more chance to keep you satisfied\n\n21\n00:02:18,090 --> 00:02:45,740\nI'll keep you satisfied\n\n22\n00:02:45,820 --> 00:02:52,560\nLittle things I should have said and done\n\n23\n00:02:52,640 --> 00:02:59,000\nI just never took the time\n\n24\n00:02:59,080 --> 00:03:05,470\nYou were always on my mind (you were always on my mind)\n\n25\n00:03:05,550 --> 00:03:11,750\nYou were always on my mind\n\n26\n00:03:11,830 --> 00:03:18,850\nYou were always on my mind (you were always on my mind)\n\n27\n00:03:18,930 --> 00:03:22,930\nYou were always on my mind", "George Jones - He Stopped Loving Her Today": "1\n00:00:00,590 --> 00:00:06,570\nHe said I'll love you 'til I die\n\n2\n00:00:06,650 --> 00:00:12,530\nShe told him you'll forget in time\n\n3\n00:00:12,610 --> 00:00:19,650\nAs the years went slowly by\n\n4\n00:00:19,730 --> 00:00:26,530\nShe still prayed upon his mind\n\n5\n00:00:26,610 --> 00:00:32,490\nHe kept her picture on his wall\n\n6\n00:00:32,570 --> 00:00:40,010\nWent half crazy now and then\n\n7\n00:00:40,090 --> 00:00:46,310\nHe still loved her through it all\n\n8\n00:00:46,390 --> 00:00:53,610\nHopin' she'd come back again\n\n9\n00:00:53,690 --> 00:00:59,540\nKept some letters by his bed\n\n10\n00:00:59,620 --> 00:01:07,150\nDated 1962\n\n11\n00:01:07,230 --> 00:01:14,300\nHe had underlined in red\n\n12\n00:01:14,380 --> 00:01:20,770\nEvery single \"I love you\"\n\n13\n00:01:20,850 --> 00:01:26,960\nI went to see him just today\n\n14\n00:01:27,040 --> 00:01:33,820\nOh but I didn't see no tears\n\n15\n00:01:33,900 --> 00:01:40,810\nAll dressed up to go away\n\n16\n00:01:40,890 --> 00:01:47,840\nFirst time I'd seen him smile in years\n\n17\n00:01:47,920 --> 00:01:54,000\nHe stopped loving her today\n\n18\n00:01:54,080 --> 00:02:00,670\nThey placed a wreath upon his door\n\n19\n00:02:00,750 --> 00:02:07,340\nAnd soon they'll carry him away\n\n20\n00:02:07,420 --> 00:02:13,930\nHe stopped loving her today\n\n21\n00:02:14,010 --> 00:02:23,740\nYa know she came to see him one last time\n\n22\n00:02:23,820 --> 00:02:28,010\nOh and we alll wondered if she would\n\n23\n00:02:28,090 --> 00:02:37,190\nAnd it kept running through my mind\n\n24\n00:02:37,270 --> 00:02:40,570\nThis time he's over her for good\n\n25\n00:02:40,650 --> 00:02:46,360\nHe stopped loving her today\n\n26\n00:02:46,440 --> 00:02:53,430\nThey placed a wreath upon his door\n\n27\n00:02:53,510 --> 00:02:59,770\nAnd soon they'll carry him away\n\n28\n00:02:59,850 --> 00:03:03,850\nHe stopped loving her today", "Aerosmith - I Don't Want to Miss a Thing": "1\n00:00:31,630 --> 00:00:39,380\nI could stay awake just to hear you breathing\n\n2\n00:00:39,460 --> 00:00:43,170\nWatch you smile while you are sleeping\n\n3\n00:00:43,250 --> 00:00:47,310\nWhile you're far away and dreaming\n\n4\n00:00:47,390 --> 00:00:54,940\nI could spend my life in this sweet surrender\n\n5\n00:00:55,020 --> 00:01:02,780\nI could stay lost in this moment forever\n\n6\n00:01:02,860 --> 00:01:12,390\nEvery moment spent with you is a moment I treasure\n\n7\n00:01:12,470 --> 00:01:16,280\nDon't want to close my eyes\n\n8\n00:01:16,360 --> 00:01:19,180\nI don't want to fall asleep\n\n9\n00:01:19,260 --> 00:01:21,020\n'Cause I'd miss you, babe\n\n10\n00:01:21,100 --> 00:01:24,190\nAnd I don't want to miss a thing\n\n11\n00:01:24,270 --> 00:01:28,050\n'Cause even when I dream of you\n\n12\n00:01:28,130 --> 00:01:31,020\nThe sweetest dream will never do\n\n13\n00:01:31,100 --> 00:01:32,990\nI'd still miss you, babe\n\n14\n00:01:33,070 --> 00:01:42,870\nAnd I don't want to miss a thing\n\n15\n00:01:42,950 --> 00:01:50,540\nLying close to you, feeling your heart beating\n\n16\n00:01:50,620 --> 00:01:54,420\nAnd I'm wondering what you're dreaming\n\n17\n00:01:54,500 --> 00:01:58,370\nWondering if it's me you're seeing\n\n18\n00:01:58,450 --> 00:02:05,830\nAnd then I kiss your eyes, and thank God we're together\n\n19\n00:02:05,910 --> 00:02:12,790\nAnd I just want to stay with you in this moment forever\n\n20\n00:02:12,870 --> 00:02:15,830\nForever and ever\n\n21\n00:02:15,910 --> 00:02:19,580\nI don't want to close my eyes\n\n22\n00:02:19,660 --> 00:02:22,400\nI don't want to fall asleep\n\n23\n00:02:22,480 --> 00:02:24,510\n'Cause I'd miss you, babe\n\n24\n00:02:24,590 --> 00:02:27,600\nAnd I don't want to miss a thing\n\n25\n00:02:27,680 --> 00:02:31,420\n'Cause even when I dream of you\n\n26\n00:02:31,500 --> 00:02:34,150\nThe sweetest dream will never do\n\n27\n00:02:34,230 --> 00:02:36,330\nI'd still miss you, babe\n\n28\n00:02:36,410 --> 00:02:39,730\nAnd I don't want to miss a thing\n\n29\n00:02:39,810 --> 00:02:43,700\nAnd I don't want to miss one smile\n\n30\n00:02:43,780 --> 00:02:47,320\nI don't want to miss one kiss\n\n31\n00:02:47,400 --> 00:02:50,170\nWell, I just want to be with you\n\n32\n00:02:50,250 --> 00:02:55,570\nRight here with you, just like this\n\n33\n00:02:55,650 --> 00:02:59,870\nI just want to hold you close\n\n34\n00:02:59,950 --> 00:03:03,770\nI feel your heart so close to mine\n\n35\n00:03:03,850 --> 00:03:07,700\nAnd just stay here in this moment\n\n36\n00:03:07,780 --> 00:03:12,240\nFor all of the rest of time\n\n37\n00:03:12,320 --> 00:03:17,240\nYeah (yeah), yeah (yeah), yeah\n\n38\n00:03:17,320 --> 00:03:20,850\nDon't want to close my eyes\n\n39\n00:03:20,930 --> 00:03:23,700\nDon't want to fall asleep\n\n40\n00:03:23,780 --> 00:03:25,950\n'Cause I'd miss you, babe\n\n41\n00:03:26,030 --> 00:03:29,020\nAnd I don't want to miss a thing\n\n42\n00:03:29,100 --> 00:03:32,940\n'Cause even when I dream of you\n\n43\n00:03:33,020 --> 00:03:35,750\nThe sweetest dream will never do\n\n44\n00:03:35,830 --> 00:03:38,000\nI'd still miss you, babe\n\n45\n00:03:38,080 --> 00:03:40,990\nAnd I don't want to miss a thing\n\n46\n00:03:41,070 --> 00:03:44,670\nI don't want to close my eyes\n\n47\n00:03:44,750 --> 00:03:47,710\nI don't want to fall asleep\n\n48\n00:03:47,790 --> 00:03:49,750\n'Cause I'd miss you, babe\n\n49\n00:03:49,830 --> 00:03:52,990\nAnd I don't want to miss a thing\n\n50\n00:03:53,070 --> 00:03:56,980\n'Cause even when I dream of you\n\n51\n00:03:57,060 --> 00:03:59,470\nThe sweetest dream will never do\n\n52\n00:03:59,550 --> 00:04:01,550\nI'd still miss you, babe\n\n53\n00:04:01,630 --> 00:04:04,770\nAnd I don't want to miss a thing\n\n54\n00:04:04,850 --> 00:04:08,160\nDon't want to close my eyes\n\n55\n00:04:08,240 --> 00:04:13,520\nI don't want to fall asleep, yeah\n\n56\n00:04:13,600 --> 00:04:17,600\nI don't want to miss a thing", "Leonard Cohen - Suzanne": "1\n00:00:12,380 --> 00:00:14,090\nSuzanne takes you down\n\n2\n00:00:14,170 --> 00:00:17,060\nTo her place near the river\n\n3\n00:00:17,140 --> 00:00:21,200\nYou can hear the boats go by\n\n4\n00:00:21,280 --> 00:00:24,200\nYou can spend the night beside her\n\n5\n00:00:24,280 --> 00:00:27,900\nAnd you know that she's half crazy\n\n6\n00:00:27,980 --> 00:00:31,260\nBut that's why you wanna be there\n\n7\n00:00:31,340 --> 00:00:35,250\nAnd she feeds you tea and oranges\n\n8\n00:00:35,330 --> 00:00:38,200\nThat come all the way from China\n\n9\n00:00:38,280 --> 00:00:41,880\nAnd just when you mean to tell her\n\n10\n00:00:41,960 --> 00:00:45,540\nThat you have no love to give her\n\n11\n00:00:45,620 --> 00:00:48,690\nThen she gets you on her wavelength\n\n12\n00:00:48,770 --> 00:00:52,850\nAnd she lets the river answer\n\n13\n00:00:52,930 --> 00:00:56,880\nThat you've always been her lover\n\n14\n00:00:56,960 --> 00:01:04,720\nAnd you want to travel with her\n\n15\n00:01:04,800 --> 00:01:08,500\nAnd you want to travel blind\n\n16\n00:01:08,580 --> 00:01:10,650\nAnd you know that she will trust you\n\n17\n00:01:10,730 --> 00:01:13,780\nFor you've touched her perfect body with your mind\n\n18\n00:01:13,860 --> 00:01:24,380\nAnd Jesus was a sailor\n\n19\n00:01:24,460 --> 00:01:28,230\nWhen He walked upon the water\n\n20\n00:01:28,310 --> 00:01:32,020\nAnd He spent a long time watching\n\n21\n00:01:32,100 --> 00:01:34,850\nFrom His lonely wooden tower\n\n22\n00:01:34,930 --> 00:01:38,540\nAnd when He knew for certain\n\n23\n00:01:38,620 --> 00:01:41,990\nOnly drowning men could see Him\n\n24\n00:01:42,070 --> 00:01:45,450\nHe said, \"All men will be sailors then\n\n25\n00:01:45,530 --> 00:01:48,650\nUntil the sea shall free them\"\n\n26\n00:01:48,730 --> 00:01:52,570\nBut He Himself was broken\n\n27\n00:01:52,650 --> 00:01:56,250\nLong before the sky would open\n\n28\n00:01:56,330 --> 00:01:59,820\nForsaken, almost human\n\n29\n00:01:59,900 --> 00:02:10,320\nHe sank beneath your wisdom like a stone\n\n30\n00:02:10,400 --> 00:02:14,610\nAnd you want to travel with Him\n\n31\n00:02:14,690 --> 00:02:17,680\nAnd you want to travel blind\n\n32\n00:02:17,760 --> 00:02:21,080\nAnd you think maybe you'll trust Him\n\n33\n00:02:21,160 --> 00:02:28,550\nFor He's touched your perfect body with his mind\n\n34\n00:02:28,630 --> 00:02:35,960\nNow, Suzanne takes your hand\n\n35\n00:02:36,040 --> 00:02:39,370\nAnd she leads you to the river\n\n36\n00:02:39,450 --> 00:02:42,550\nShe is wearing rags and feathers\n\n37\n00:02:42,630 --> 00:02:46,600\nFrom the Salvation Army counters\n\n38\n00:02:46,680 --> 00:02:50,210\nAnd the sun pours down like honey\n\n39\n00:02:50,290 --> 00:02:53,620\nOn our lady of the harbor\n\n40\n00:02:53,700 --> 00:02:56,560\nAnd she shows you where to look\n\n41\n00:02:56,640 --> 00:03:00,430\nAmong the garbage and the flowers\n\n42\n00:03:00,510 --> 00:03:04,790\nThere are heroes in the seaweed\n\n43\n00:03:04,870 --> 00:03:08,680\nThere are children in the morning\n\n44\n00:03:08,760 --> 00:03:11,390\nThey are leaning out for love\n\n45\n00:03:11,470 --> 00:03:14,990\nAnd they will lean that way forever\n\n46\n00:03:15,070 --> 00:03:18,660\nWhile Suzanne holds the mirror\n\n47\n00:03:18,740 --> 00:03:24,730\nAnd you want to travel with her\n\n48\n00:03:24,810 --> 00:03:28,460\nAnd you want to travel blind\n\n49\n00:03:28,540 --> 00:03:32,120\nAnd you know that you can trust her\n\n50\n00:03:32,200 --> 00:03:36,200\nFor she's touched your perfect body with her mind", "Simon & Garfunkel - Bridge Over Troubled Water": "1\n00:00:22,850 --> 00:00:28,260\nWhen you're weary\n\n2\n00:00:28,340 --> 00:00:32,720\nFeeling small\n\n3\n00:00:32,800 --> 00:00:40,210\nWhen tears are in your eyes\n\n4\n00:00:40,290 --> 00:00:47,340\nI will dry them all\n\n5\n00:00:47,420 --> 00:00:52,200\nI'm on your side\n\n6\n00:00:52,280 --> 00:00:58,980\nOh, when times get rough\n\n7\n00:00:59,060 --> 00:01:05,540\nAnd friends just can't be found\n\n8\n00:01:05,620 --> 00:01:13,630\nLike a bridge over troubled water\n\n9\n00:01:13,710 --> 00:01:16,940\nI will lay me down\n\n10\n00:01:17,020 --> 00:01:25,120\nLike a bridge over troubled water\n\n11\n00:01:25,200 --> 00:01:44,490\nI will lay me down\n\n12\n00:01:44,570 --> 00:01:49,570\nWhen you're down and out\n\n13\n00:01:49,650 --> 00:01:54,460\nWhen you're on the street\n\n14\n00:01:54,540 --> 00:02:01,530\nWhen evening falls so hard\n\n15\n00:02:01,610 --> 00:02:09,070\nI will comfort you\n\n16\n00:02:09,150 --> 00:02:13,620\nI'll take your part\n\n17\n00:02:13,700 --> 00:02:20,600\nOh, when darkness comes\n\n18\n00:02:20,680 --> 00:02:27,180\nAnd pain is all around\n\n19\n00:02:27,260 --> 00:02:35,210\nLike a bridge over troubled water\n\n20\n00:02:35,290 --> 00:02:38,860\nI will lay me down\n\n21\n00:02:38,940 --> 00:02:47,010\nLike a bridge over troubled water\n\n22\n00:02:47,090 --> 00:03:20,040\nI will lay me down\n\n23\n00:03:20,120 --> 00:03:26,080\nSail on, silver girl\n\n24\n00:03:26,160 --> 00:03:30,280\nSail on by\n\n25\n00:03:30,360 --> 00:03:37,730\nYour time has come to shine\n\n26\n00:03:37,810 --> 00:03:44,470\nAll your dreams are on their way\n\n27\n00:03:44,550 --> 00:03:49,470\nSee how they shine\n\n28\n00:03:49,550 --> 00:03:56,150\nOh, if you need a friend\n\n29\n00:03:56,230 --> 00:04:02,600\nI'm sailing right behind\n\n30\n00:04:02,680 --> 00:04:10,460\nLike a bridge over troubled water\n\n31\n00:04:10,540 --> 00:04:14,010\nI will ease your mind\n\n32\n00:04:14,090 --> 00:04:21,840\nLike a bridge over troubled water\n\n33\n00:04:21,920 --> 00:04:25,920\nI will ease your mind", "Roberta Flack - Killing Me Softly With His Song": "1\n00:00:00,730 --> 00:00:04,860\nStrumming my pain with his fingers\n\n2\n00:00:04,940 --> 00:00:09,290\nSinging my life with his words\n\n3\n00:00:09,370 --> 00:00:12,810\nKilling me softly with his song\n\n4\n00:00:12,890 --> 00:00:17,100\nKilling me softly with his song\n\n5\n00:00:17,180 --> 00:00:21,420\nTelling my whole life with his words\n\n6\n00:00:21,500 --> 00:00:25,710\nKilling me softly\n\n7\n00:00:25,790 --> 00:00:48,080\nWith his song\n\n8\n00:00:48,160 --> 00:00:52,360\nI heard he sang a good song\n\n9\n00:00:52,440 --> 00:00:56,310\nI heard he had a style\n\n10\n00:00:56,390 --> 00:01:04,210\nAnd so I came to see him, to listen for a while\n\n11\n00:01:04,290 --> 00:01:08,360\nAnd there he was, this young boy\n\n12\n00:01:08,440 --> 00:01:11,620\nA stranger to my eyes\n\n13\n00:01:11,700 --> 00:01:15,580\nStrumming my pain with his fingers\n\n14\n00:01:15,660 --> 00:01:19,610\nSinging my life with his words\n\n15\n00:01:19,690 --> 00:01:22,690\nKilling me softly with his song\n\n16\n00:01:22,770 --> 00:01:26,510\nKilling me softly with his song\n\n17\n00:01:26,590 --> 00:01:30,360\nTelling my whole life with his words\n\n18\n00:01:30,440 --> 00:01:34,320\nKilling me softly\n\n19\n00:01:34,400 --> 00:01:40,430\nWith his song\n\n20\n00:01:40,510 --> 00:01:44,410\nI felt all flushed with fever\n\n21\n00:01:44,490 --> 00:01:48,030\nEmbarrassed by the crowd\n\n22\n00:01:48,110 --> 00:01:55,840\nI felt he found my letters and read each one out loud\n\n23\n00:01:55,920 --> 00:01:59,720\nI prayed that he would finish\n\n24\n00:01:59,800 --> 00:02:03,150\nBut he just kept right on\n\n25\n00:02:03,230 --> 00:02:07,270\nStrumming my pain with his fingers\n\n26\n00:02:07,350 --> 00:02:11,020\nSinging my life with his words\n\n27\n00:02:11,100 --> 00:02:14,340\nKilling me softly with his song\n\n28\n00:02:14,420 --> 00:02:17,940\nKilling me softly with his song\n\n29\n00:02:18,020 --> 00:02:22,070\nTelling my whole life with his words\n\n30\n00:02:22,150 --> 00:02:25,740\nKilling me softly\n\n31\n00:02:25,820 --> 00:02:31,880\nWith his song\n\n32\n00:02:31,960 --> 00:02:35,620\nHe sang as if he knew me\n\n33\n00:02:35,700 --> 00:02:39,810\nIn all my dark despair\n\n34\n00:02:39,890 --> 00:02:47,070\nAnd then he looked right through me as if I wasn't there\n\n35\n00:02:47,150 --> 00:02:51,000\nAnd he just kept on singing\n\n36\n00:02:51,080 --> 00:02:54,810\nSinging clear and strong\n\n37\n00:02:54,890 --> 00:02:58,470\nStrumming my pain with his fingers\n\n38\n00:02:58,550 --> 00:03:02,360\nSinging my life with his words\n\n39\n00:03:02,440 --> 00:03:05,660\nKilling me softly with his song\n\n40\n00:03:05,740 --> 00:03:09,660\nKilling me softly with his song\n\n41\n00:03:09,740 --> 00:03:13,760\nTelling my whole life with his words\n\n42\n00:03:13,840 --> 00:03:17,300\nKilling me softly\n\n43\n00:03:17,380 --> 00:03:49,660\nWith his song\n\n44\n00:03:49,740 --> 00:03:52,930\nStrumming my pain with his fingers\n\n45\n00:03:53,010 --> 00:03:56,890\nSinging my life with his words\n\n46\n00:03:56,970 --> 00:03:59,740\nKilling me softly with his song\n\n47\n00:03:59,820 --> 00:04:03,840\nKilling me softly with his song\n\n48\n00:04:03,920 --> 00:04:07,560\nTelling my whole life with his words\n\n49\n00:04:07,640 --> 00:04:15,580\nKilling me\n\n50\n00:04:15,660 --> 00:04:19,190\nHe was strumming my pain\n\n51\n00:04:19,270 --> 00:04:23,610\nYeah, he was singing my life\n\n52\n00:04:23,690 --> 00:04:26,800\nKilling me softly with his song\n\n53\n00:04:26,880 --> 00:04:30,650\nKilling me softly with his song\n\n54\n00:04:30,730 --> 00:04:34,540\nTelling my whole life with his words\n\n55\n00:04:34,620 --> 00:04:38,620\nKilling me softly with his song", "Rick James & Teena Marie - Fire and Desire": "1\n00:00:03,090 --> 00:00:06,990\nWow\n\n2\n00:00:07,070 --> 00:00:11,350\nIt's really good to see you again, baby\n\n3\n00:00:11,430 --> 00:00:18,960\nAnd I must admit you're looking very, very, very nice these days\n\n4\n00:00:19,040 --> 00:00:23,240\nI guess life must be treating you well\n\n5\n00:00:23,320 --> 00:00:25,530\nOh, me?\n\n6\n00:00:25,610 --> 00:00:28,720\nWell, I've just been doing the same ol' thing I've always been doing\n\n7\n00:00:28,800 --> 00:00:31,030\nYou know, I've got a new lady now\n\n8\n00:00:31,110 --> 00:00:36,460\nAnd it's a little different then it was when I was with you\n\n9\n00:00:36,540 --> 00:00:40,400\nYou know, I think back to when we met\n\n10\n00:00:40,480 --> 00:00:44,770\nThe way I used to be and the cold way I use to act\n\n11\n00:00:44,850 --> 00:00:50,440\nBut more than that, I think of how you changed me with your love and sensitivity\n\n12\n00:00:50,520 --> 00:00:53,040\nRemember when I used to\n\n13\n00:00:53,120 --> 00:01:05,300\nLove them and leave them\n\n14\n00:01:05,380 --> 00:01:10,010\nThat's what I used to do\n\n15\n00:01:10,090 --> 00:01:16,720\nUse and abuse them\n\n16\n00:01:16,800 --> 00:01:18,760\nThen I laid eyes on you\n\n17\n00:01:18,840 --> 00:01:28,090\nIt was pain before pleasure\n\n18\n00:01:28,170 --> 00:01:33,690\nThat was my claim to fame\n\n19\n00:01:33,770 --> 00:01:39,110\nWith every measure, baby\n\n20\n00:01:39,190 --> 00:01:45,750\nTasted teardrop stains, yeah\n\n21\n00:01:45,830 --> 00:01:56,700\nI was cold as ice long ago, baby, baby\n\n22\n00:01:56,780 --> 00:02:02,200\nI wasn't very, very, very nice, you know\n\n23\n00:02:02,280 --> 00:02:07,590\nSugar, sugar, sugar\n\n24\n00:02:07,670 --> 00:02:09,360\nThen I kissed your lips\n\n25\n00:02:09,440 --> 00:02:22,660\nAnd you turned on my fire, baby\n\n26\n00:02:22,740 --> 00:02:28,960\nAnd you burn me up within your flame\n\n27\n00:02:29,040 --> 00:02:33,290\nTook me a little higher\n\n28\n00:02:33,370 --> 00:02:34,880\nMade me live again\n\n29\n00:02:34,960 --> 00:02:43,720\nYou turned on my fire, baby\n\n30\n00:02:43,800 --> 00:02:50,400\nThen you showed me what a love could do\n\n31\n00:02:50,480 --> 00:02:55,450\nFire and desire, baby\n\n32\n00:02:55,530 --> 00:02:59,580\nFeel it coming through\n\n33\n00:02:59,660 --> 00:03:04,820\nAnd I thank you, baby\n\n34\n00:03:04,900 --> 00:03:10,100\nOh, how I thank you, baby\n\n35\n00:03:10,180 --> 00:03:11,500\nYou taught me so much\n\n36\n00:03:11,580 --> 00:03:15,340\nAnd you showed me so much and love and insensitivity\n\n37\n00:03:15,420 --> 00:03:21,590\nAnd since you've been gone I don't think I've ever felt this way before\n\n38\n00:03:21,670 --> 00:03:23,920\nYou know it's funny how a man can change\n\n39\n00:03:24,000 --> 00:03:26,370\nSo quickly from a cold-blooded person\n\n40\n00:03:26,450 --> 00:03:28,770\nThinking he's God gift to women\n\n41\n00:03:28,850 --> 00:03:32,880\nRemember how I used to do that?\n\n42\n00:03:32,960 --> 00:03:36,700\nI must have been crazy then\n\n43\n00:03:36,780 --> 00:03:40,390\nRemember when you used to\n\n44\n00:03:40,470 --> 00:03:50,360\nLove them and, and leave them\n\n45\n00:03:50,440 --> 00:03:54,900\nOh, that's what I used to do\n\n46\n00:03:54,980 --> 00:04:01,700\nUse and abuse them, whoa\n\n47\n00:04:01,780 --> 00:04:05,200\nThen I laid eyes on you\n\n48\n00:04:05,280 --> 00:04:12,550\nIt was pain before pleasure\n\n49\n00:04:12,630 --> 00:04:19,660\nOh, that was my claim to fame\n\n50\n00:04:19,740 --> 00:04:25,110\nWith every measure\n\n51\n00:04:25,190 --> 00:04:31,880\nTasted your teardrop stains, yeah\n\n52\n00:04:31,960 --> 00:04:37,440\nYou were cold as ice (woo, hoo, hoo, hoo) long ago\n\n53\n00:04:37,520 --> 00:04:40,390\nBaby, baby\n\n54\n00:04:40,470 --> 00:04:47,940\nI-I wasn't, I-I wasn't very nice, I know, woo\n\n55\n00:04:48,020 --> 00:04:53,280\nSugar, sugar, sugar, sugar\n\n56\n00:04:53,360 --> 00:04:54,930\nThen I kissed your lips\n\n57\n00:04:55,010 --> 00:04:58,590\nAnd you (you turned on) turned (you turned on) on\n\n58\n00:04:58,670 --> 00:05:08,260\n(You turned on my fire) my fire, baby (ooh)\n\n59\n00:05:08,340 --> 00:05:14,580\nThen you showed me what a love could do (woo, hoo)\n\n60\n00:05:14,660 --> 00:05:18,490\nFire and desire (fire and desire)\n\n61\n00:05:18,570 --> 00:05:20,740\nFeeling good to you (feeling good to you)\n\n62\n00:05:20,820 --> 00:05:29,620\nYou turned on my fire (fire, ooh, ooh), baby (oh, baby)\n\n63\n00:05:29,700 --> 00:05:36,050\nAnd you burn me up within your flame (you burn me, you burn me)\n\n64\n00:05:36,130 --> 00:05:41,150\nFire and desire (fire and desire)\n\n65\n00:05:41,230 --> 00:05:49,300\nAnd we're both to blame, both to blame (ooh, ooh)\n\n66\n00:05:49,380 --> 00:05:52,550\nYou know\n\n67\n00:05:52,630 --> 00:05:55,360\nI guess I think we both said a little too much today\n\n68\n00:05:55,440 --> 00:05:57,160\n(No, ooh, hoo, hoo)\n\n69\n00:05:57,240 --> 00:06:02,360\nAfter all, Tee, you're kind of with somebody else\n\n70\n00:06:02,440 --> 00:06:05,910\nI'm kind of living with somebody (ooh, ooh, ooh)\n\n71\n00:06:05,990 --> 00:06:10,710\nBut please do me a favor just before you go (what is it, baby?)\n\n72\n00:06:10,790 --> 00:06:14,620\nJust put your arms around me and hold me like you used to\n\n73\n00:06:14,700 --> 00:06:17,080\n(I wanna hold you tight)\n\n74\n00:06:17,160 --> 00:06:21,280\nTell me \"Rick\" (oh, oh) \"Everything is gonna be alright\"\n\n75\n00:06:21,360 --> 00:06:24,350\n(Everything, everything, everything is gonna be alright)\n\n76\n00:06:24,430 --> 00:06:28,270\nPut your arms around me\n\n77\n00:06:28,350 --> 00:06:33,360\nPut your arms around me (ooh)\n\n78\n00:06:33,440 --> 00:06:38,440\n(Ooh, ooh)\n\n79\n00:06:38,520 --> 00:06:43,690\nOh, baby (woo, ooh, ooh)\n\n80\n00:06:43,770 --> 00:06:50,400\nOh, baby (ooh, ooh, ooh, ooh, ooh, ooh, ooh)\n\n81\n00:06:50,480 --> 00:06:54,480\n(Ooh, ooh, ooh, ooh, oh)", "Minnie Riperton - Lovin' You": "1\n00:00:15,650 --> 00:00:23,670\nLoving you is easy 'cause you're beautiful\n\n2\n00:00:23,750 --> 00:00:30,500\nMaking love with you is all I wanna do\n\n3\n00:00:30,580 --> 00:00:38,460\nLoving you is more than just a dream come true\n\n4\n00:00:38,540 --> 00:00:44,840\nAnd everything that I do is out of loving you\n\n5\n00:00:44,920 --> 00:00:48,460\nLa-la-la-la-la, la-la-la-la-la\n\n6\n00:00:48,540 --> 00:00:52,720\nLa-la-la-la-la-la-la-la-la-la\n\n7\n00:00:52,800 --> 00:01:00,510\nDo-do-do-do, oh\n\n8\n00:01:00,590 --> 00:01:07,500\nNo one else can make me feel the colors that you bring\n\n9\n00:01:07,580 --> 00:01:15,540\nStay with me while we grow old, and we will live each day in the springtime\n\n10\n00:01:15,620 --> 00:01:22,960\n'Cause loving you has made my life so beautiful\n\n11\n00:01:23,040 --> 00:01:31,050\nAnd every day of my life is filled with loving you\n\n12\n00:01:31,130 --> 00:01:38,430\nLoving you, I see your soul come shining through\n\n13\n00:01:38,510 --> 00:01:41,610\nAnd every time that we, ooh\n\n14\n00:01:41,690 --> 00:01:45,230\nI'm more in love with you\n\n15\n00:01:45,310 --> 00:01:48,660\nLa-la-la-la-la, la-la-la-la-la\n\n16\n00:01:48,740 --> 00:01:53,290\nLa-la-la-la-la-la-la-la-la-la\n\n17\n00:01:53,370 --> 00:02:00,480\nDo-do-do-do, oh\n\n18\n00:02:00,560 --> 00:02:07,840\nNo one else can make me feel the colors that you bring\n\n19\n00:02:07,920 --> 00:02:15,150\nStay with me while we grow old, and we will live each day in the springtime\n\n20\n00:02:15,230 --> 00:02:23,100\n'Cause loving you is easy, 'cause you're beautiful\n\n21\n00:02:23,180 --> 00:02:29,910\nAnd every day of my life is filled with loving you\n\n22\n00:02:29,990 --> 00:02:37,920\nLoving you, I see your soul come shining through\n\n23\n00:02:38,000 --> 00:02:42,250\nAnd every time that we, ooh\n\n24\n00:02:42,330 --> 00:02:44,890\nI'm more in love with you\n\n25\n00:02:44,970 --> 00:02:49,590\nLa-la-la-la-la, la-la-la-la-la\n\n26\n00:02:49,670 --> 00:02:53,610\nLa-la-la-la-la-la-la-la-la-la\n\n27\n00:02:53,690 --> 00:03:00,650\nDo-do-do-do, oh\n\n28\n00:03:00,730 --> 00:03:03,810\nNah, do, do, do\n\n29\n00:03:03,890 --> 00:03:07,900\nLa-la-la-la-la-la-la-la-la-la\n\n30\n00:03:07,980 --> 00:03:11,180\nDo-do-do-do\n\n31\n00:03:11,260 --> 00:03:12,750\nDee-do, dee-do, dee-do\n\n32\n00:03:12,830 --> 00:03:18,560\nMaya, maya, maya, maya\n\n33\n00:03:18,640 --> 00:03:18,660\nMaya, maya, maya, maya\n\n34\n00:03:18,740 --> 00:03:19,100\nLa-la-la-la-la-la-la-la\n\n35\n00:03:19,180 --> 00:03:23,180\nDee-do, dee-do, dee-do", "a-ha - Take On Me": "1\n00:00:33,920 --> 00:00:37,150\nTalking away\n\n2\n00:00:37,230 --> 00:00:39,960\nI don't know what I'm to say\n\n3\n00:00:40,040 --> 00:00:42,650\nI'll say it anyway\n\n4\n00:00:42,730 --> 00:00:46,310\nToday is another day to find you\n\n5\n00:00:46,390 --> 00:00:48,810\nShying away\n\n6\n00:00:48,890 --> 00:00:51,310\nI'll be coming for your love, okay?\n\n7\n00:00:51,390 --> 00:00:56,880\nTake on me (take on me)\n\n8\n00:00:56,960 --> 00:01:02,480\nTake me on (take on me)\n\n9\n00:01:02,560 --> 00:01:07,260\nI'll be gone\n\n10\n00:01:07,340 --> 00:01:13,660\nIn a day or two\n\n11\n00:01:13,740 --> 00:01:16,870\nSo needless to say\n\n12\n00:01:16,950 --> 00:01:19,440\nI'm odds and ends, but I'm me\n\n13\n00:01:19,520 --> 00:01:22,490\nStumbling away\n\n14\n00:01:22,570 --> 00:01:25,400\nSlowly learning that life is okay\n\n15\n00:01:25,480 --> 00:01:28,520\nSay after me\n\n16\n00:01:28,600 --> 00:01:31,060\n\"It's no better to be safe than sorry\"\n\n17\n00:01:31,140 --> 00:01:36,920\nTake on me (take on me)\n\n18\n00:01:37,000 --> 00:01:42,590\nTake me on (take on me)\n\n19\n00:01:42,670 --> 00:01:47,280\nI'll be gone\n\n20\n00:01:47,360 --> 00:02:33,190\nIn a day or two\n\n21\n00:02:33,270 --> 00:02:37,290\nAll the things that you say, yeah\n\n22\n00:02:37,370 --> 00:02:42,150\nIs it life, or just to play my worries away?\n\n23\n00:02:42,230 --> 00:02:45,520\nYou're all the things I've got to remember\n\n24\n00:02:45,600 --> 00:02:48,450\nYou're shying away\n\n25\n00:02:48,530 --> 00:02:51,120\nI'll be coming for you anyway\n\n26\n00:02:51,200 --> 00:02:55,640\nTake on me (take on me)\n\n27\n00:02:55,720 --> 00:03:01,850\nTake me on (take on me)\n\n28\n00:03:01,930 --> 00:03:06,660\nI'll be gone\n\n29\n00:03:06,740 --> 00:03:11,660\nIn a day (take on me)\n\n30\n00:03:11,740 --> 00:03:17,230\nTake on me (take me on)\n\n31\n00:03:17,310 --> 00:03:19,280\nTake on me\n\n32\n00:03:19,360 --> 00:03:24,600\nI'll be gone (take on me, take on me)\n\n33\n00:03:24,680 --> 00:03:30,680\nIn a day (take me on, take on me)\n\n34\n00:03:30,760 --> 00:03:36,310\nTake on me (take on me)\n\n35\n00:03:36,390 --> 00:03:41,990\nTake me on (take on me)\n\n36\n00:03:42,070 --> 00:03:46,070\nTake on me", "The Isley Brothers - For the Love of You": "1\n00:00:02,880 --> 00:00:04,930\nYeah\n\n2\n00:00:05,010 --> 00:00:07,530\nWell, well, well\n\n3\n00:00:07,610 --> 00:00:11,120\nYeah... hey...\n\n4\n00:00:11,200 --> 00:00:14,600\nYeah\n\n5\n00:00:14,680 --> 00:00:20,070\nHey... hey...\n\n6\n00:00:20,150 --> 00:00:20,530\nOoh\n\n7\n00:00:20,610 --> 00:00:25,610\nDriftin' on a memory\n\n8\n00:00:25,690 --> 00:00:28,280\nAin't no place I'd rather be\n\n9\n00:00:28,360 --> 00:00:32,760\nThan with you, yeah\n\n10\n00:00:32,840 --> 00:00:38,900\nLovin' you, well, well, well\n\n11\n00:00:38,980 --> 00:00:43,660\nDay will make a way for night\n\n12\n00:00:43,740 --> 00:00:47,410\nAll we'll need is candlelight\n\n13\n00:00:47,490 --> 00:00:51,760\nAnd a song, yeah\n\n14\n00:00:51,840 --> 00:00:57,680\nSoft and long, well, ooh\n\n15\n00:00:57,760 --> 00:01:01,730\nGlad to be\n\n16\n00:01:01,810 --> 00:01:07,810\nHere alone with a lover unlike no other\n\n17\n00:01:07,890 --> 00:01:11,200\nSad to see\n\n18\n00:01:11,280 --> 00:01:19,510\nA new horizon slowly comin' into view, yeah\n\n19\n00:01:19,590 --> 00:01:23,150\nI wanna be livin'\n\n20\n00:01:23,230 --> 00:01:29,490\nFor the love of you, oh, yes, I am\n\n21\n00:01:29,570 --> 00:01:32,650\nAll that I'm givin'\n\n22\n00:01:32,730 --> 00:01:40,060\nIs for the love of you, alright now, ooh\n\n23\n00:01:40,140 --> 00:01:45,130\nLovely as a ray of sun\n\n24\n00:01:45,210 --> 00:01:48,210\nThat touches me when the mornin' comes\n\n25\n00:01:48,290 --> 00:01:52,000\nFeels good to me, yeah\n\n26\n00:01:52,080 --> 00:01:57,000\nMy love and me, well\n\n27\n00:01:57,080 --> 00:02:03,650\nSmoother than a gentle breeze\n\n28\n00:02:03,730 --> 00:02:07,130\nFlowin' through my mind with ease\n\n29\n00:02:07,210 --> 00:02:11,170\nSoft as can be, well\n\n30\n00:02:11,250 --> 00:02:17,600\nWhen you're lovin' me, when you're lovin' me, ooh\n\n31\n00:02:17,680 --> 00:02:21,200\nLove to be\n\n32\n00:02:21,280 --> 00:02:26,600\nRidin' the waves of your love, enchanted with your touch\n\n33\n00:02:26,680 --> 00:02:30,650\nAnd it seems to me\n\n34\n00:02:30,730 --> 00:02:39,330\nWe could sail together in and out of mystery, well\n\n35\n00:02:39,410 --> 00:02:42,170\nI wanna be livin'\n\n36\n00:02:42,250 --> 00:02:49,390\nFor the love of you, alright now\n\n37\n00:02:49,470 --> 00:02:52,100\nAll that I'm givin'\n\n38\n00:02:52,180 --> 00:02:58,300\nIs for the love of you, you got me, girl\n\n39\n00:02:58,380 --> 00:03:01,510\nI wanna be livin'\n\n40\n00:03:01,590 --> 00:03:07,690\nFor the love of you, alright now\n\n41\n00:03:07,770 --> 00:03:10,020\nAll that I'm givin', givin'\n\n42\n00:03:10,100 --> 00:03:17,530\nIs for the love of you, oh, yes, I am\n\n43\n00:03:17,610 --> 00:03:23,440\nParadise I have within\n\n44\n00:03:23,520 --> 00:03:26,500\nCan't feel insecure again\n\n45\n00:03:26,580 --> 00:03:31,070\nYou're the key, well\n\n46\n00:03:31,150 --> 00:03:35,800\nAnd this I see, for I see\n\n47\n00:03:35,880 --> 00:03:42,290\nNow and then I lose my way\n\n48\n00:03:42,370 --> 00:03:44,890\nUsin' words that try to say\n\n49\n00:03:44,970 --> 00:03:48,340\nWhat I feel, yeah\n\n50\n00:03:48,420 --> 00:03:54,970\nLove is real, oh, love is real, ooh\n\n51\n00:03:55,050 --> 00:03:58,210\nI might as well\n\n52\n00:03:58,290 --> 00:04:05,290\nSign my name on a card which could say it better\n\n53\n00:04:05,370 --> 00:04:07,840\nTime will tell\n\n54\n00:04:07,920 --> 00:04:15,960\n‘Cause it seems that I've done just about all that I can do\n\n55\n00:04:16,040 --> 00:04:20,310\nI know that I'm livin'\n\n56\n00:04:20,390 --> 00:04:26,420\nFor the love of you, oh, yes, I am\n\n57\n00:04:26,500 --> 00:04:28,540\nI know that I'm livin'\n\n58\n00:04:28,620 --> 00:04:35,420\nFor the love, love of you\n\n59\n00:04:35,500 --> 00:04:40,290\nEvery, every day I'm livin'\n\n60\n00:04:40,370 --> 00:04:46,240\nFor love of you\n\n61\n00:04:46,320 --> 00:04:51,550\nI'm livin' for the love\n\n62\n00:04:51,630 --> 00:04:55,900\nEach and every day\n\n63\n00:04:55,980 --> 00:05:01,250\nI'm, oh, whoa, I'm, oh, yes, I am\n\n64\n00:05:01,330 --> 00:05:03,780\nI wanna say it one more time\n\n65\n00:05:03,860 --> 00:05:07,450\nSaid I'm livin'\n\n66\n00:05:07,530 --> 00:05:10,460\nFor the love\n\n67\n00:05:10,540 --> 00:05:16,250\nEach and every day I'm, oh, whoa, I'm\n\n68\n00:05:16,330 --> 00:05:18,370\nLord knows I am\n\n69\n00:05:18,450 --> 00:05:21,520\nWrite that down\n\n70\n00:05:21,600 --> 00:05:25,760\nSaid that I'm livin'\n\n71\n00:05:25,840 --> 00:05:27,040\nFor the love, love of you\n\n72\n00:05:25,850 --> 00:05:29,850\nOoh, ooh", "Lenny Williams - Cause I Love You": "1\n00:00:34,150 --> 00:00:34,780\nGirl, you know I, I, I, I love you\n\n2\n00:00:34,860 --> 00:00:35,500\nNo matter what you do\n\n3\n00:00:35,580 --> 00:00:41,320\nAnd I hope you understand me\n\n4\n00:00:41,400 --> 00:00:44,610\nEvery word I say is true, 'cause I love you\n\n5\n00:00:44,690 --> 00:00:55,940\nBaby, I'm thinkin' of you\n\n6\n00:00:56,020 --> 00:01:00,240\nTryin' to be more of a man for you\n\n7\n00:01:00,320 --> 00:01:07,100\nAnd I don't have much of riches\n\n8\n00:01:07,180 --> 00:01:17,410\nBut we gonna see it through, 'cause I love you\n\n9\n00:01:17,490 --> 00:01:32,730\nSome men need lots of women\n\n10\n00:01:32,810 --> 00:01:38,530\nFor their passions to feel\n\n11\n00:01:38,610 --> 00:01:44,680\nBut I want only you, girl\n\n12\n00:01:44,760 --> 00:02:06,650\nIf it's in, if it's in, if it's in Lord's will, 'cause I, 'cause I love you\n\n13\n00:02:06,730 --> 00:02:09,480\nI, I, I love you, baby\n\n14\n00:02:09,560 --> 00:02:26,040\nWith all my heart and soul, oh, oh, oh\n\n15\n00:02:26,120 --> 00:02:34,480\nI love you\n\n16\n00:02:34,560 --> 00:02:39,570\nI need you\n\n17\n00:02:39,650 --> 00:02:43,210\nI want you\n\n18\n00:02:43,290 --> 00:02:49,290\nI need you\n\n19\n00:02:49,370 --> 00:03:08,090\nOh, oh, oh, your love makes me grow stronger (I love you, I love you)\n\n20\n00:03:08,170 --> 00:03:28,700\nIt keeps me goin' on, oh oh my god we got married (I love you, I love you, I love you)\n\n21\n00:03:28,780 --> 00:03:41,880\nCrazy (I love you, I love you, I love you)\n\n22\n00:03:41,960 --> 00:03:42,540\nOh oh you are just me babe look just like you and me (I love you, I love you, I love you)\n\n23\n00:03:42,620 --> 00:03:46,620\nOh baby you are just mine yeah yeah", "George Michael - Careless Whisper": "1\n00:00:26,590 --> 00:00:32,480\nI feel so unsure\n\n2\n00:00:32,560 --> 00:00:39,700\nAs I take your hand and lead you to the dance floor\n\n3\n00:00:39,780 --> 00:00:45,390\nAs the music dies, something in your eyes\n\n4\n00:00:45,470 --> 00:00:52,040\nCalls to mind a silver screen and all its sad goodbyes\n\n5\n00:00:52,120 --> 00:00:58,340\nI'm never gonna dance again, guilty feet have got no rhythm\n\n6\n00:00:58,420 --> 00:01:04,300\nThough it's easy to pretend, I know you're not a fool\n\n7\n00:01:04,380 --> 00:01:07,280\nI should have known better than to cheat a friend\n\n8\n00:01:07,360 --> 00:01:11,260\nAnd waste a chance that I'd been given\n\n9\n00:01:11,340 --> 00:01:29,480\nSo I'm never gonna dance again the way I danced with you\n\n10\n00:01:29,560 --> 00:01:35,430\nTime can never mend\n\n11\n00:01:35,510 --> 00:01:42,380\nThe careless whispers of a good friend\n\n12\n00:01:42,460 --> 00:01:48,200\nTo the heart and mind, ignorance is kind\n\n13\n00:01:48,280 --> 00:01:55,180\nThere's no comfort in the truth, pain is all that you'll find\n\n14\n00:01:55,260 --> 00:02:01,370\nI'm never gonna dance again, guilty feet have got no rhythm\n\n15\n00:02:01,450 --> 00:02:06,850\nThough it's easy to pretend, I know you're not a fool\n\n16\n00:02:06,930 --> 00:02:10,060\nI should have known better than to cheat a friend\n\n17\n00:02:10,140 --> 00:02:13,720\nAnd waste a chance that I'd been given\n\n18\n00:02:13,800 --> 00:02:25,400\nSo I'm never gonna dance again the way I danced with you\n\n19\n00:02:25,480 --> 00:02:44,960\nNever without your love\n\n20\n00:02:45,040 --> 00:02:48,210\nTonight the music seems so loud\n\n21\n00:02:48,290 --> 00:02:51,550\nI wish that we could lose this crowd\n\n22\n00:02:51,630 --> 00:02:54,700\nMaybe it's better this way\n\n23\n00:02:54,780 --> 00:02:57,630\nWe'd hurt each other with the things we want to say\n\n24\n00:02:57,710 --> 00:03:00,680\nWe could have been so good together\n\n25\n00:03:00,760 --> 00:03:04,070\nWe could have lived this dance forever\n\n26\n00:03:04,150 --> 00:03:08,880\nBut now who's gonna dance with me?\n\n27\n00:03:08,960 --> 00:03:10,640\nPlease, stay\n\n28\n00:03:10,720 --> 00:03:17,070\nAnd I'm never gonna dance again, guilty feet have got no rhythm\n\n29\n00:03:17,150 --> 00:03:23,050\nThough it's easy to pretend, I know you're not a fool\n\n30\n00:03:23,130 --> 00:03:26,140\nI should have known better than to cheat a friend\n\n31\n00:03:26,220 --> 00:03:29,760\nAnd waste a chance that I'd been given\n\n32\n00:03:29,840 --> 00:03:48,920\nSo I'm never gonna dance again the way I danced with you\n\n33\n00:03:49,000 --> 00:03:52,420\nNow that you're gone\n\n34\n00:03:52,500 --> 00:04:01,430\nNow, that you're gone\n\n35\n00:04:01,510 --> 00:04:04,140\nNow that you're gone\n\n36\n00:04:04,220 --> 00:04:09,150\nWas what I did so wrong, so wrong\n\n37\n00:04:09,230 --> 00:04:13,230\nThat you had to leave me alone?"};
+
+const lrcEl=document.getElementById('lrc');
+const srtEl=document.getElementById('srt');
+const statusEl=document.getElementById('status');
+
+
+function selectedSongKey(){
+  const item=songs[Number(songMenu.value)];
+  return item.artist+' - '+item.song;
+}
+
+function loadEmbeddedSRT(){
+  const key=selectedSongKey();
+  const srt=embeddedSRT[key];
+  if(!srt){
+    srtEl.value='';
+    statusEl.textContent='No embedded SRT for '+key+'.';
+    return false;
+  }
+  srtEl.value=srt;
+  statusEl.textContent='Loaded embedded SRT: '+key;
+  return true;
+}
+
+document.getElementById('loadSrtBtn').onclick=loadEmbeddedSRT;
+
+songMenu.addEventListener('change', ()=>{
+  const key=selectedSongKey();
+  if(embeddedSRT[key]){
+    loadEmbeddedSRT();
+  } else {
+    srtEl.value='';
+    statusEl.textContent='';
+  }
+});
+
+document.getElementById('openBtn').onclick=()=>{
+  const item=songs[Number(songMenu.value)];
+  const q=item.artist+' '+item.song;
+  const url='https://lrclib.net/search/'+encodeURIComponent(q);
+  window.open(url,'_blank','noopener,noreferrer');
+};
+
+function toMs(min, sec, frac){
+  const m=Number(min)||0;
+  const s=Number(sec)||0;
+  let f=String(frac||'0');
+  if(f.length===1) f+='00';
+  else if(f.length===2) f+='0';
+  else f=f.slice(0,3);
+  return m*60000+s*1000+Number(f);
+}
+
+function srtTime(ms){
+  ms=Math.max(0,Math.round(ms));
+  const h=Math.floor(ms/3600000); ms%=3600000;
+  const m=Math.floor(ms/60000); ms%=60000;
+  const s=Math.floor(ms/1000);
+  const z=ms%1000;
+  return String(h).padStart(2,'0')+':'+
+         String(m).padStart(2,'0')+':'+
+         String(s).padStart(2,'0')+','+
+         String(z).padStart(3,'0');
+}
+
+function parseLRC(text){
+  const rows=[];
+  const lines=text.replace(/\r/g,'').split('\n');
+
+  // Supports [mm:ss.xx], [mm:ss.xxx], [hh:mm:ss.xxx]
+  const re=/^\s*\[(?:(\d{1,2}):)?(\d{1,3}):(\d{2})(?:[.:](\d{1,3}))?\]\s*(.*)$/;
+
+  for(const line of lines){
+    const m=line.match(re);
+    if(!m) continue;
+
+    let total;
+    if(m[1]!==undefined){
+      // [hh:mm:ss.xxx]
+      const h=Number(m[1])||0;
+      const min=Number(m[2])||0;
+      const sec=Number(m[3])||0;
+      let frac=String(m[4]||'0');
+      if(frac.length===1) frac+='00';
+      else if(frac.length===2) frac+='0';
+      else frac=frac.slice(0,3);
+      total=h*3600000+min*60000+sec*1000+Number(frac);
+    }else{
+      // [mm:ss.xxx]
+      total=toMs(m[2],m[3],m[4]);
+    }
+
+    const lyric=m[5].trim();
+    if(lyric) rows.push({start:total,text:lyric});
+  }
+
+  rows.sort((a,b)=>a.start-b.start);
+  return rows;
+}
+
+function convert(){
+  const rows=parseLRC(lrcEl.value);
+  if(!rows.length){
+    srtEl.value='';
+    statusEl.textContent='No valid timestamped LRC lines found.';
+    return;
+  }
+
+  const out=[];
+  for(let i=0;i<rows.length;i++){
+    const start=rows[i].start;
+    // End 80ms before next line. Last caption lasts 4 seconds.
+    let end=(i<rows.length-1) ? rows[i+1].start-80 : start+4000;
+    if(end<=start) end=start+1200;
+
+    out.push(
+      (i+1)+'\n'+
+      srtTime(start)+' --> '+srtTime(end)+'\n'+
+      rows[i].text
+    );
+  }
+
+  srtEl.value=out.join('\n\n');
+  statusEl.textContent='Converted '+rows.length+' timed lyric lines.';
+}
+
+document.getElementById('convertBtn').onclick=convert;
+
+document.getElementById('downloadBtn').onclick=()=>{
+  if(!srtEl.value.trim()) convert();
+  if(!srtEl.value.trim()) return;
+
+  const item=songs[Number(songMenu.value)];
+  const safe=(item.artist+' - '+item.song)
+    .replace(/[\\/:*?"<>|]+/g,'_').trim() || 'lyrics';
+
+  const blob=new Blob([srtEl.value],{type:'application/x-subrip;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=safe+'.srt';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{
+    URL.revokeObjectURL(a.href);
+    a.remove();
+  },500);
+};
+
+document.getElementById('clearBtn').onclick=()=>{
+  lrcEl.value='';
+  srtEl.value='';
+  statusEl.textContent='';
+};
+
+if(embeddedSRT[selectedSongKey()]) loadEmbeddedSRT();
+</script>
+</body>
+</html>
